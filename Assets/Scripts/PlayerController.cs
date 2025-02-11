@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
+    public GameObject bullet;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -12,5 +13,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         
+    }
+    public void Shoot(InputAction.CallbackContext shoot)
+    {
+        Instantiate(bullet,transform.position,transform.rotation);
     }
 }
