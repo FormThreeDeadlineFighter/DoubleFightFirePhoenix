@@ -1,5 +1,7 @@
 using UnityEngine;
-public class PlayerAttackState : PlayerBaseState
+using UnityEngine.InputSystem;
+
+public class PlayerMoveState : PlayerBaseState
 {
     public override void EnterState(PlayerStateManager player)
     {
@@ -14,6 +16,5 @@ public class PlayerAttackState : PlayerBaseState
     public override void OncollisionEnter(PlayerStateManager player)
     {       
 
-    }
-    
+    }    
 }

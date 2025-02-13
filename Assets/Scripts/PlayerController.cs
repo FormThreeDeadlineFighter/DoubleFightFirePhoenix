@@ -3,19 +3,26 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public GameObject bullet;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private Vector2 moveVector;
+    private int speed = 10;
     void Start()
     {
         
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        if(moveVector != Vector2.zero)
+        {
+            this.transform.position += new Vector3(moveVector.x,moveVector.y,0) * Time.deltaTime * speed;
+        }
     }
     public void Shoot(InputAction.CallbackContext shoot)
     {
         Instantiate(bullet,transform.position,transform.rotation);
+    }
+
+    public void Move(InputAction.CallbackContext move)
+    {
+        moveVector = move.ReadValue<Vector2>();
     }
 }
