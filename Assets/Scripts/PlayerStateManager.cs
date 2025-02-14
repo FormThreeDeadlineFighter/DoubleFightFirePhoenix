@@ -2,14 +2,21 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerStateManager : MonoBehaviour
 {
-    PlayerBaseState currentState;
-    PlayerMoveState MoveState = new PlayerMoveState();
-    PlayerAttackState AttackState = new PlayerAttackState();
-
-    void Start()
+    public PlyerIdleState IdleState;
+    public PlayerMoveState MoveState;
+    public PlayerAttackState AttackState;
+    private PlayerBaseState currentState;
+    
+    
+    private void Awake()
     {
-        currentState = MoveState;
-
+        IdleState = new PlyerIdleState(this);
+        MoveState = new PlayerMoveState(this);
+        AttackState = new PlayerAttackState(this);
+    }
+    private void Start()
+    {
+        currentState = IdleState;
         currentState.EnterState(this);
     }
 
@@ -21,7 +28,7 @@ public class PlayerStateManager : MonoBehaviour
     public void SwitchState(PlayerBaseState state)
     {
         currentState = state;
-        state.EnterState(this);
+        currentState.EnterState(this);
     }
 
 }
