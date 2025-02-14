@@ -17,13 +17,5 @@ public class PlayerMoveState : PlayerBaseState
     public override void OncollisionEnter(PlayerStateManager player)
     {       
 
-    }
-
-    public override void HandleInput(Vector2 movementInput)
-    {       
-        if(movementInput.magnitude > 0.1f)
-        {
-            
-        }
     }    
 }
