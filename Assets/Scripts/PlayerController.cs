@@ -4,7 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     public GameObject bullet;
     private Vector2 moveVector;
-    private int speed = 10;
+    public int speed = 10;
     void Start()
     {
         

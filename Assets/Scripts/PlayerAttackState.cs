@@ -1,6 +1,7 @@
 using UnityEngine;
 public class PlayerAttackState : PlayerBaseState
 {
+    public PlayerAttackState(PlayerStateManager player) : base(player){}
     public override void EnterState(PlayerStateManager player)
     {
 
