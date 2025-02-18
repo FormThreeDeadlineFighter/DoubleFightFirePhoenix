@@ -11,21 +11,21 @@ public class PlayerState_Move : IPlayerState
 
     public void EnterState()
     {
-
+        Debug.Log("玩家進入移動狀態");
     }
 
     public void ExitState()
     {
-
+        Debug.Log("玩家離開移動狀態");
     }
 
     public void LogicUpdate()
     {
-        
+        Debug.Log("玩家正在移動狀態");        
     }
 
     public void PhysicsUpdate()
     {
-
+        
     }
 }

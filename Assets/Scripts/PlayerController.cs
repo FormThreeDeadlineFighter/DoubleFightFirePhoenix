@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
+    private PlayerStateController _controller;
     public GameObject bullet;
     private Vector2 moveVector;
     public int speed = 10;
@@ -12,7 +13,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if(moveVector != Vector2.zero)
-        {
+        { 
             this.transform.position += new Vector3(moveVector.x,moveVector.y,0) * Time.deltaTime * speed;
         }
     }
@@ -21,8 +22,9 @@ public class PlayerController : MonoBehaviour
         Instantiate(bullet,transform.position,transform.rotation);
     }
 
-    public void Move(InputAction.CallbackContext move)
+    public void Move(InputAction.CallbackContext ctx)
     {
-        moveVector = move.ReadValue<Vector2>();
+        _controller.SwitchState(new PlayerState_Move(_controller));
+        moveVector = ctx.ReadValue<Vector2>();
     }
 }

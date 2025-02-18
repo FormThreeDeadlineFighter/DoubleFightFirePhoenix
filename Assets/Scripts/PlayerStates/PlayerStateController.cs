@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 public class PlayerStateController : MonoBehaviour
 {
     private IPlayerState _playerState ;
@@ -30,5 +30,5 @@ public class PlayerStateController : MonoBehaviour
         _playerState.ExitState();
         _playerState = newState;
         _playerState.EnterState();
-    }
+    }    
 }
