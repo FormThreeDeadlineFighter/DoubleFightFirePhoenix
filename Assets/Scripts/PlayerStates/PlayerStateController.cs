@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class PlayerStateController : MonoBehaviour
 {
-    IPlayerState _playerState = null;
+    private IPlayerState _playerState ;
 
     private void Awake()
     {
-        
+        _playerState = new PlayerState_Idle(this);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,5 +24,11 @@ public class PlayerStateController : MonoBehaviour
     private void FixedUpdate()
     {
         _playerState.PhysicsUpdate();
+    }
+    public void SwitchState(IPlayerState newState)
+    {
+        _playerState.ExitState();
+        _playerState = newState;
+        _playerState.EnterState();
     }
 }

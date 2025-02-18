@@ -1,19 +1,9 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public abstract class IPlayerState 
+public interface  IPlayerState 
 { 
-    public bool _isComplete {get; protected set;}
-
-    protected float _startTime;
-
-    public float _time => Time.time - _startTime;
-
-    protected PlayerStateController _Controller = null;
-
-    public IPlayerState(PlayerStateController Controller)
-    {
-        _Controller = Controller;
-    }
+    bool IsComplete {get; }
 
     public virtual void EnterState() { }
 
