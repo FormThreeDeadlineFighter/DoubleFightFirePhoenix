@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
-    private PlayerStateController _controller;
     public GameObject bullet;
     private Vector2 moveVector;
     public int speed = 10;
@@ -24,7 +23,6 @@ public class PlayerController : MonoBehaviour
 
     public void Move(InputAction.CallbackContext ctx)
     {
-        _controller.SwitchState(new PlayerState_Move(_controller));
         moveVector = ctx.ReadValue<Vector2>();
     }
 }
