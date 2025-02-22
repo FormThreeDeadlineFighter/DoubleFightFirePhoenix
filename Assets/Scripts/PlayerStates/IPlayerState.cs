@@ -1,9 +1,19 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public interface  IPlayerState 
+public class IPlayerState : ScriptableObject ,IState
 { 
-    bool IsComplete {get; }
+    protected PlayerStateController _controller;
+
+    protected Animator _animator;
+
+    protected bool IsComplete { get; private set; }
+
+    public void Initialize(PlayerStateController controller, Animator animator)
+    {
+        _controller = controller;
+        _animator = animator;
+    }
 
     public virtual void EnterState() { }
 
