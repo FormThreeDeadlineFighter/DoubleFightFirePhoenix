@@ -5,7 +5,7 @@ public class IStateController : MonoBehaviour
 {
     protected IState _currentState = null;
 
-    protected Dictionary<System.Type, IState> stateTable;
+    protected Dictionary<System.Type, IState> _stateTable;
 
 
     // Update is called once per frame
@@ -37,6 +37,6 @@ public class IStateController : MonoBehaviour
 
     public void SetState(System.Type newStateType)
     {
-        SetState(stateTable[newStateType]);
+        SetState(_stateTable[newStateType]);
     }
 }
