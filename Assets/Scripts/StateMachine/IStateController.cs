@@ -7,8 +7,9 @@ public class IStateController : MonoBehaviour
 
     protected Dictionary<System.Type, IState> stateTable;
 
+
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         _currentState.LogicUpdate();
     }
@@ -18,13 +19,13 @@ public class IStateController : MonoBehaviour
         _currentState.PhysicsUpdate();
     }
 
-    protected void SwitchOn(IState newState)
+    void SwitchOn(IState newState)
     {
         _currentState = newState;
         _currentState.EnterState();
     }
 
-    public void SwitchState(IState newState)
+    public void SetState(IState newState)
     {
         if(_currentState != null)
         {
@@ -34,8 +35,8 @@ public class IStateController : MonoBehaviour
         SwitchOn(newState);
     }    
 
-    public void SwitchState(System.Type newStateType)
+    public void SetState(System.Type newStateType)
     {
-        SwitchState(stateTable[newStateType]);
+        SetState(stateTable[newStateType]);
     }
 }

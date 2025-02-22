@@ -16,9 +16,10 @@ public class PlayerState_Move : IPlayerState
 
     public override void LogicUpdate()
     {
-        if(Keyboard.current.sKey.isPressed)
+        //Debug.Log("玩家在移動狀態");
+        if(!Keyboard.current.wKey.isPressed)
         {
-            _controller.SwitchState(typeof(PlayerState_Move));
+            _controller.SetState(typeof(PlayerState_Idle));
         }       
     }
 

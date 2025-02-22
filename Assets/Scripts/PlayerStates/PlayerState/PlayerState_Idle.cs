@@ -1,11 +1,9 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 [CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/Idle", fileName = "PlayerState_Idle")]
 public class PlayerState_Idle : IPlayerState
 {
-
     public override void EnterState()
     {
         Debug.Log("玩家進入閒置狀態");
@@ -18,9 +16,11 @@ public class PlayerState_Idle : IPlayerState
 
     public override void LogicUpdate()
     {
+        //Debug.Log("玩家在閒置狀態");
         if(Keyboard.current.wKey.isPressed)
         {
-            _controller.SwitchState(typeof(PlayerState_Move));
+            Debug.Log("w key is pressed");
+            _controller.SetState(typeof(PlayerState_Move));
         }
     }
 
