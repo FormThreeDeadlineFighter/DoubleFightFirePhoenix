@@ -9,7 +9,7 @@ public class IStateController : MonoBehaviour
 
 
     // Update is called once per frame
-    protected void Update()
+    void Update()
     {
         _currentState.LogicUpdate();
     }
