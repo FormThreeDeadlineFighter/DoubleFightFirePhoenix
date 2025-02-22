@@ -9,7 +9,7 @@ public class IStateController : MonoBehaviour
 
 
     // Update is called once per frame
-    protected void Update()
+    void Update()
     {
         _currentState.LogicUpdate();
     }
@@ -19,7 +19,7 @@ public class IStateController : MonoBehaviour
         _currentState.PhysicsUpdate();
     }
 
-    void SwitchOn(IState newState)
+    protected void SwitchOn(IState newState)
     {
         _currentState = newState;
         _currentState.EnterState();
