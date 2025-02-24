@@ -1,34 +1,30 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-public class PlayerStateController : MonoBehaviour
-{
-    private IPlayerState _playerState ;
+
+public class PlayerStateController : IStateController
+{   
+    [SerializeField] IPlayerState[] _playerStates;
+    private Animator _animator;
+
 
     private void Awake()
     {
-        _playerState = new PlayerState_Idle(this);
+        _animator = GetComponent<Animator>();
+
+        _stateTable = new Dictionary<System.Type, IState>(_playerStates.Length);
+
+        foreach(IPlayerState state in _playerStates)
+        {
+            state.Initialize(this, _animator);
+            _stateTable.Add(state.GetType(), state);
+        }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {
-        _playerState.EnterState();
+    {    
+        SetState(_stateTable[typeof(PlayerState_Idle)]);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        _playerState.LogicUpdate();
-    }
-
-    private void FixedUpdate()
-    {
-        _playerState.PhysicsUpdate();
-    }
-    public void SwitchState(IPlayerState newState)
-    {
-        _playerState.ExitState();
-        _playerState = newState;
-        _playerState.EnterState();
-    }    
 }
