@@ -6,17 +6,19 @@ public class PlayerStateController : IStateController
 {   
     [SerializeField] IPlayerState[] _playerStates;
     private Animator _animator;
+    private SpaceshipController _shipController;
 
 
     private void Awake()
     {
-        _animator = GetComponent<Animator>();
+        _animator = this.transform.GetComponent<Animator>();
+        _shipController = this.transform.GetComponent<SpaceshipController>();
 
         _stateTable = new Dictionary<System.Type, IState>(_playerStates.Length);
 
         foreach(IPlayerState state in _playerStates)
         {
-            state.Initialize(this, _animator);
+            state.Initialize(this, _animator, _shipController);
             _stateTable.Add(state.GetType(), state);
         }
     }

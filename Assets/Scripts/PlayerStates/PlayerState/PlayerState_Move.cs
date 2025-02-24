@@ -17,7 +17,7 @@ public class PlayerState_Move : IPlayerState
     public override void LogicUpdate()
     {
         //Debug.Log("玩家在移動狀態");
-        if(!Keyboard.current.wKey.isPressed)
+        if(!_shipController.Move)
         {
             _controller.SetState(typeof(PlayerState_Idle));
         }       
@@ -25,6 +25,6 @@ public class PlayerState_Move : IPlayerState
 
     public override void PhysicsUpdate()
     {
-        
+        _shipController.ShipMove();
     }
 }

@@ -17,9 +17,8 @@ public class PlayerState_Idle : IPlayerState
     public override void LogicUpdate()
     {
         //Debug.Log("玩家在閒置狀態");
-        if(Keyboard.current.wKey.isPressed)
+        if(_shipController.Move)
         {
-            Debug.Log("w key is pressed");
             _controller.SetState(typeof(PlayerState_Move));
         }
     }
@@ -27,5 +26,9 @@ public class PlayerState_Idle : IPlayerState
     public override void PhysicsUpdate()
     {
         // 物理相關的更新（如果有的話）
+        if(_shipController._isShoot)
+        {
+            _shipController.Shoot();
+        }
     }
 }
