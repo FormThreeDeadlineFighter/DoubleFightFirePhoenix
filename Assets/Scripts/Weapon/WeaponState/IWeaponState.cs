@@ -1,20 +1,20 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-public class IWeaponState : ScriptableObject ,IState
+public class IWeaponState : ScriptableObject ,IState_weapon
 {
     
     protected WeaponStateController _controller;
     protected Animator _animator;
     protected Rigidbody _rb;
-    protected SpaceshipController _shipController;
+    protected WeaponContoller _weaponContoller;
 
     protected bool IsComplete { get; private set; }
 
-    public void Initialize(WeaponStateController controller, Animator animator, SpaceshipController spaceshipController, Rigidbody rigidbody)
+    public void Initialize(WeaponStateController controller, Animator animator, WeaponContoller weaponContoller, Rigidbody rigidbody)
     {
         _controller = controller;
         _animator = animator;
-        _shipController = spaceshipController;
+        _weaponContoller = weaponContoller;
         _rb = rigidbody;
     }
 

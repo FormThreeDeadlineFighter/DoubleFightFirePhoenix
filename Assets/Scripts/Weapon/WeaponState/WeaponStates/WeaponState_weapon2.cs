@@ -1,28 +1,28 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[CreateAssetMenu(menuName = "Data/StateMachine/WeaponState/weapon1", fileName = "WeaponState_weapon1")]
+[CreateAssetMenu(menuName = "Data/StateMachine/WeaponState/weapon2", fileName = "WeaponState_weapon2")]
 
-public class WeaponState_weapon1 : IWeaponState
+public class WeaponState_weapon2 : IWeaponState
 {
     [SerializeField] float moveSpeed;
     [SerializeField] GameObject _bullet;
 
     public override void EnterState()
     {
-        Debug.Log("武器1");
+        Debug.Log("武器2");
     }
 
     public override void ExitState()
     {
-        Debug.Log("切換至武器2");
+        Debug.Log("切換至武器1");
     }
 
     public override void LogicUpdate()
-    {
+    {        
         if(_weaponContoller.IsSwitch)
-        {
-            _controller.SetState(typeof(WeaponState_weapon2));
+        {            
+            _controller.SetState(typeof(WeaponState_weapon1));
         }
     }
 

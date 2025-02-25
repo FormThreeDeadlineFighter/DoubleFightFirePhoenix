@@ -53,6 +53,15 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchWeapon"",
+                    ""type"": ""Button"",
+                    ""id"": ""aa06e4c5-9272-413c-9d17-03055315e6a1"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -207,6 +216,17 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b8d70f65-992a-4df2-84bf-7ea2e237ed55"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchWeapon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -797,6 +817,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
         m_PlayerNormal_Move = m_PlayerNormal.FindAction("Move", throwIfNotFound: true);
         m_PlayerNormal_Impulse = m_PlayerNormal.FindAction("Impulse", throwIfNotFound: true);
         m_PlayerNormal_Shoot = m_PlayerNormal.FindAction("Shoot", throwIfNotFound: true);
+        m_PlayerNormal_SwitchWeapon = m_PlayerNormal.FindAction("SwitchWeapon", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -879,6 +900,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerNormal_Move;
     private readonly InputAction m_PlayerNormal_Impulse;
     private readonly InputAction m_PlayerNormal_Shoot;
+    private readonly InputAction m_PlayerNormal_SwitchWeapon;
     public struct PlayerNormalActions
     {
         private @PlayerControl m_Wrapper;
@@ -886,6 +908,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_PlayerNormal_Move;
         public InputAction @Impulse => m_Wrapper.m_PlayerNormal_Impulse;
         public InputAction @Shoot => m_Wrapper.m_PlayerNormal_Shoot;
+        public InputAction @SwitchWeapon => m_Wrapper.m_PlayerNormal_SwitchWeapon;
         public InputActionMap Get() { return m_Wrapper.m_PlayerNormal; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -904,6 +927,9 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
+            @SwitchWeapon.started += instance.OnSwitchWeapon;
+            @SwitchWeapon.performed += instance.OnSwitchWeapon;
+            @SwitchWeapon.canceled += instance.OnSwitchWeapon;
         }
 
         private void UnregisterCallbacks(IPlayerNormalActions instance)
@@ -917,6 +943,9 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
+            @SwitchWeapon.started -= instance.OnSwitchWeapon;
+            @SwitchWeapon.performed -= instance.OnSwitchWeapon;
+            @SwitchWeapon.canceled -= instance.OnSwitchWeapon;
         }
 
         public void RemoveCallbacks(IPlayerNormalActions instance)
@@ -1102,6 +1131,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnImpulse(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnSwitchWeapon(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

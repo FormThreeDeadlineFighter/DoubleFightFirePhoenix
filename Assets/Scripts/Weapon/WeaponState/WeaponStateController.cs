@@ -1,25 +1,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-public class WeaponStateController : IStateController
+public class WeaponStateController : IState_weaponController
 { 
     [SerializeField] IWeaponState[] _weaponState;
     private Animator _animator;
     private Rigidbody _rb;
-    private SpaceshipController _shipController;
+    private WeaponContoller _weaponContoller;
 
 
     private void Awake()
     {
         _animator = this.transform.GetComponent<Animator>();
-        _shipController = this.transform.GetComponent<SpaceshipController>();
+        _weaponContoller = this.transform.GetComponent<WeaponContoller>();
         _rb = this.transform.GetComponent<Rigidbody>();
 
-        _stateTable = new Dictionary<System.Type, IState>(_weaponState.Length);
+        _stateTable = new Dictionary<System.Type, IState_weapon>(_weaponState.Length);
 
         foreach(IWeaponState state in _weaponState)
         {
-            state.Initialize(this, _animator, _shipController, _rb);
+            state.Initialize(this, _animator, _weaponContoller, _rb);
             _stateTable.Add(state.GetType(), state);
         }
     }
