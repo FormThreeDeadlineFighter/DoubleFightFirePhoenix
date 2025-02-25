@@ -37,7 +37,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Dash"",
+                    ""name"": ""Impulse"",
                     ""type"": ""Button"",
                     ""id"": ""e83732a1-2bbd-4670-b2f1-fcc263424487"",
                     ""expectedControlType"": """",
@@ -63,7 +63,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Dash"",
+                    ""action"": ""Impulse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -74,7 +74,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Dash"",
+                    ""action"": ""Impulse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -795,7 +795,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
         // PlayerNormal
         m_PlayerNormal = asset.FindActionMap("PlayerNormal", throwIfNotFound: true);
         m_PlayerNormal_Move = m_PlayerNormal.FindAction("Move", throwIfNotFound: true);
-        m_PlayerNormal_Dash = m_PlayerNormal.FindAction("Dash", throwIfNotFound: true);
+        m_PlayerNormal_Impulse = m_PlayerNormal.FindAction("Impulse", throwIfNotFound: true);
         m_PlayerNormal_Shoot = m_PlayerNormal.FindAction("Shoot", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
@@ -877,14 +877,14 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PlayerNormal;
     private List<IPlayerNormalActions> m_PlayerNormalActionsCallbackInterfaces = new List<IPlayerNormalActions>();
     private readonly InputAction m_PlayerNormal_Move;
-    private readonly InputAction m_PlayerNormal_Dash;
+    private readonly InputAction m_PlayerNormal_Impulse;
     private readonly InputAction m_PlayerNormal_Shoot;
     public struct PlayerNormalActions
     {
         private @PlayerControl m_Wrapper;
         public PlayerNormalActions(@PlayerControl wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_PlayerNormal_Move;
-        public InputAction @Dash => m_Wrapper.m_PlayerNormal_Dash;
+        public InputAction @Impulse => m_Wrapper.m_PlayerNormal_Impulse;
         public InputAction @Shoot => m_Wrapper.m_PlayerNormal_Shoot;
         public InputActionMap Get() { return m_Wrapper.m_PlayerNormal; }
         public void Enable() { Get().Enable(); }
@@ -898,9 +898,9 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
-            @Dash.started += instance.OnDash;
-            @Dash.performed += instance.OnDash;
-            @Dash.canceled += instance.OnDash;
+            @Impulse.started += instance.OnImpulse;
+            @Impulse.performed += instance.OnImpulse;
+            @Impulse.canceled += instance.OnImpulse;
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
@@ -911,9 +911,9 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
-            @Dash.started -= instance.OnDash;
-            @Dash.performed -= instance.OnDash;
-            @Dash.canceled -= instance.OnDash;
+            @Impulse.started -= instance.OnImpulse;
+            @Impulse.performed -= instance.OnImpulse;
+            @Impulse.canceled -= instance.OnImpulse;
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
@@ -1100,7 +1100,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
     public interface IPlayerNormalActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnDash(InputAction.CallbackContext context);
+        void OnImpulse(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
     }
     public interface IUIActions

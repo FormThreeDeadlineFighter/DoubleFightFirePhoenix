@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Dash",
+                    "name": "Impulse",
                     "type": "Button",
                     "id": "e83732a1-2bbd-4670-b2f1-fcc263424487",
                     "expectedControlType": "",
@@ -41,7 +41,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Dash",
+                    "action": "Impulse",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -52,7 +52,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Dash",
+                    "action": "Impulse",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

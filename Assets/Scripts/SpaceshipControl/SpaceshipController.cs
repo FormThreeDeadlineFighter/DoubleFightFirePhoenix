@@ -9,8 +9,12 @@ public class SpaceshipController : MonoBehaviour
 
     private PlayerControl playerControl;
     private Vector2 _moveVector;
-    public bool _isShoot => playerControl.PlayerNormal.Shoot.IsPressed();
+    public bool IsShoot => playerControl.PlayerNormal.Shoot.IsPressed();
+
+    public bool IsImpulse => playerControl.PlayerNormal.Impulse.IsPressed();
     public bool Move => _moveVector != Vector2.zero;
+
+    public Vector2 MoveVector {get {return _moveVector;} private set {_moveVector = value;} }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,6 +38,11 @@ public class SpaceshipController : MonoBehaviour
     public void Shoot()
     {
         Instantiate(_bullet,transform.position,transform.rotation);
+    }
+
+    public void Forward(float forwardSpeed)
+    {
+        this.transform.Translate(0, 0, forwardSpeed * Time.deltaTime);
     }
 
 }

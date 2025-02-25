@@ -6,6 +6,7 @@ public class PlayerStateController : IStateController
 {   
     [SerializeField] IPlayerState[] _playerStates;
     private Animator _animator;
+    private Rigidbody _rb;
     private SpaceshipController _shipController;
 
 
@@ -13,12 +14,13 @@ public class PlayerStateController : IStateController
     {
         _animator = this.transform.GetComponent<Animator>();
         _shipController = this.transform.GetComponent<SpaceshipController>();
+        _rb = this.transform.GetComponent<Rigidbody>();
 
         _stateTable = new Dictionary<System.Type, IState>(_playerStates.Length);
 
         foreach(IPlayerState state in _playerStates)
         {
-            state.Initialize(this, _animator, _shipController);
+            state.Initialize(this, _animator, _shipController, _rb);
             _stateTable.Add(state.GetType(), state);
         }
     }
