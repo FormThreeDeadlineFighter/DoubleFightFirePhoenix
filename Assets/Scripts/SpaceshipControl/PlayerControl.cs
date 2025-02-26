@@ -46,7 +46,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Shoot"",
+                    ""name"": ""Player1_Shoot"",
                     ""type"": ""Button"",
                     ""id"": ""89cacea1-70e6-45ad-a72b-cf9709a153bd"",
                     ""expectedControlType"": """",
@@ -61,6 +61,15 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Player2_Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""f46b0154-4cb6-433b-8f26-16c49f6bb2e3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
                     ""initialStateCheck"": false
                 }
             ],
@@ -204,7 +213,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Shoot"",
+                    ""action"": ""Player1_Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -215,7 +224,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Shoot"",
+                    ""action"": ""Player1_Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -227,6 +236,17 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SwitchWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b7200b3e-a788-4807-b7ca-1a8afae4cae2"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Player2_Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -816,8 +836,9 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
         m_PlayerNormal = asset.FindActionMap("PlayerNormal", throwIfNotFound: true);
         m_PlayerNormal_Move = m_PlayerNormal.FindAction("Move", throwIfNotFound: true);
         m_PlayerNormal_Impulse = m_PlayerNormal.FindAction("Impulse", throwIfNotFound: true);
-        m_PlayerNormal_Shoot = m_PlayerNormal.FindAction("Shoot", throwIfNotFound: true);
+        m_PlayerNormal_Player1_Shoot = m_PlayerNormal.FindAction("Player1_Shoot", throwIfNotFound: true);
         m_PlayerNormal_SwitchWeapon = m_PlayerNormal.FindAction("SwitchWeapon", throwIfNotFound: true);
+        m_PlayerNormal_Player2_Shoot = m_PlayerNormal.FindAction("Player2_Shoot", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -899,16 +920,18 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
     private List<IPlayerNormalActions> m_PlayerNormalActionsCallbackInterfaces = new List<IPlayerNormalActions>();
     private readonly InputAction m_PlayerNormal_Move;
     private readonly InputAction m_PlayerNormal_Impulse;
-    private readonly InputAction m_PlayerNormal_Shoot;
+    private readonly InputAction m_PlayerNormal_Player1_Shoot;
     private readonly InputAction m_PlayerNormal_SwitchWeapon;
+    private readonly InputAction m_PlayerNormal_Player2_Shoot;
     public struct PlayerNormalActions
     {
         private @PlayerControl m_Wrapper;
         public PlayerNormalActions(@PlayerControl wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_PlayerNormal_Move;
         public InputAction @Impulse => m_Wrapper.m_PlayerNormal_Impulse;
-        public InputAction @Shoot => m_Wrapper.m_PlayerNormal_Shoot;
+        public InputAction @Player1_Shoot => m_Wrapper.m_PlayerNormal_Player1_Shoot;
         public InputAction @SwitchWeapon => m_Wrapper.m_PlayerNormal_SwitchWeapon;
+        public InputAction @Player2_Shoot => m_Wrapper.m_PlayerNormal_Player2_Shoot;
         public InputActionMap Get() { return m_Wrapper.m_PlayerNormal; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -924,12 +947,15 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
             @Impulse.started += instance.OnImpulse;
             @Impulse.performed += instance.OnImpulse;
             @Impulse.canceled += instance.OnImpulse;
-            @Shoot.started += instance.OnShoot;
-            @Shoot.performed += instance.OnShoot;
-            @Shoot.canceled += instance.OnShoot;
+            @Player1_Shoot.started += instance.OnPlayer1_Shoot;
+            @Player1_Shoot.performed += instance.OnPlayer1_Shoot;
+            @Player1_Shoot.canceled += instance.OnPlayer1_Shoot;
             @SwitchWeapon.started += instance.OnSwitchWeapon;
             @SwitchWeapon.performed += instance.OnSwitchWeapon;
             @SwitchWeapon.canceled += instance.OnSwitchWeapon;
+            @Player2_Shoot.started += instance.OnPlayer2_Shoot;
+            @Player2_Shoot.performed += instance.OnPlayer2_Shoot;
+            @Player2_Shoot.canceled += instance.OnPlayer2_Shoot;
         }
 
         private void UnregisterCallbacks(IPlayerNormalActions instance)
@@ -940,12 +966,15 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
             @Impulse.started -= instance.OnImpulse;
             @Impulse.performed -= instance.OnImpulse;
             @Impulse.canceled -= instance.OnImpulse;
-            @Shoot.started -= instance.OnShoot;
-            @Shoot.performed -= instance.OnShoot;
-            @Shoot.canceled -= instance.OnShoot;
+            @Player1_Shoot.started -= instance.OnPlayer1_Shoot;
+            @Player1_Shoot.performed -= instance.OnPlayer1_Shoot;
+            @Player1_Shoot.canceled -= instance.OnPlayer1_Shoot;
             @SwitchWeapon.started -= instance.OnSwitchWeapon;
             @SwitchWeapon.performed -= instance.OnSwitchWeapon;
             @SwitchWeapon.canceled -= instance.OnSwitchWeapon;
+            @Player2_Shoot.started -= instance.OnPlayer2_Shoot;
+            @Player2_Shoot.performed -= instance.OnPlayer2_Shoot;
+            @Player2_Shoot.canceled -= instance.OnPlayer2_Shoot;
         }
 
         public void RemoveCallbacks(IPlayerNormalActions instance)
@@ -1130,8 +1159,9 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnImpulse(InputAction.CallbackContext context);
-        void OnShoot(InputAction.CallbackContext context);
+        void OnPlayer1_Shoot(InputAction.CallbackContext context);
         void OnSwitchWeapon(InputAction.CallbackContext context);
+        void OnPlayer2_Shoot(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

@@ -33,10 +33,10 @@ public class PlayerState_Idle : IPlayerState
     public override void PhysicsUpdate()
     {
         // 物理相關的更新（如果有的話）
-        if(_shipController.IsShoot)
+        /*if(_shipController.IsShoot)
         {
             _shipController.Shoot();
-        }
+        }*/
 
         _shipController.Forward(moveSpeed);
     }

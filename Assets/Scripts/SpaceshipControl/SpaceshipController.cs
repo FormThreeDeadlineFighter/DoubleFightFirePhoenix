@@ -9,7 +9,7 @@ public class SpaceshipController : MonoBehaviour
 
     private PlayerControl playerControl;
     private Vector2 _moveVector;
-    public bool IsShoot => playerControl.PlayerNormal.Shoot.IsPressed();
+    //public bool IsShoot => playerControl.PlayerNormal.Shoot.IsPressed();
 
     public bool IsImpulse => playerControl.PlayerNormal.Impulse.IsPressed();
     public bool Move => _moveVector != Vector2.zero;
@@ -37,7 +37,7 @@ public class SpaceshipController : MonoBehaviour
 
     public void Shoot()
     {
-        Instantiate(_bullet,transform.position,transform.rotation);
+        //Instantiate(_bullet,transform.position,transform.rotation);
     }
 
     public void Forward(float forwardSpeed)

@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Shoot",
+                    "name": "Player1_Shoot",
                     "type": "Button",
                     "id": "89cacea1-70e6-45ad-a72b-cf9709a153bd",
                     "expectedControlType": "",
@@ -39,6 +39,15 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Player2_Shoot",
+                    "type": "Button",
+                    "id": "f46b0154-4cb6-433b-8f26-16c49f6bb2e3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
                     "initialStateCheck": false
                 }
             ],
@@ -182,7 +191,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Shoot",
+                    "action": "Player1_Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -193,7 +202,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Shoot",
+                    "action": "Player1_Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -205,6 +214,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "SwitchWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b7200b3e-a788-4807-b7ca-1a8afae4cae2",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Player2_Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
