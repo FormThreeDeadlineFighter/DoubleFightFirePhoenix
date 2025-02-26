@@ -5,11 +5,11 @@ using UnityEngine.InputSystem;
 
 public class WeaponState_weapon2 : IWeaponState
 {
-    [SerializeField] float moveSpeed;
+    [SerializeField] float _waitTime = 0f;
     [SerializeField] GameObject _bullet;
-
     public override void EnterState()
     {
+        
         Debug.Log("武器2");
     }
 
@@ -19,15 +19,27 @@ public class WeaponState_weapon2 : IWeaponState
     }
 
     public override void LogicUpdate()
-    {        
-        if(_weaponContoller.IsSwitch)
-        {            
+    {
+        _waitTime += Time.deltaTime;
+
+        if(_weaponContoller.IsSwitch && _waitTime >= 1f)
+        {
+            _waitTime = 0f;
+            
             _controller.SetState(typeof(WeaponState_weapon1));
         }
+        
     }
 
     public override void PhysicsUpdate()
     {
-
+        if(_weaponContoller.IsShoot_1)
+        {
+            _weaponContoller.Weapon_2();
+        }
+        if(_weaponContoller.IsShoot_2)
+        {
+            _weaponContoller.Weapon_2();
+        }
     }
 }
