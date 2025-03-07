@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Player1_Shoot",
+                    "name": "Shoot",
                     "type": "Button",
                     "id": "89cacea1-70e6-45ad-a72b-cf9709a153bd",
                     "expectedControlType": "",
@@ -42,9 +42,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Player2_Shoot",
+                    "name": "Player1_Shoot",
                     "type": "Button",
                     "id": "f46b0154-4cb6-433b-8f26-16c49f6bb2e3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Player2_Shoot",
+                    "type": "Button",
+                    "id": "ee78bf6a-fee9-4f0c-ab38-93a6c0f7f532",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -191,7 +200,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Player1_Shoot",
+                    "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -202,7 +211,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Player1_Shoot",
+                    "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -221,6 +230,17 @@
                     "name": "",
                     "id": "b7200b3e-a788-4807-b7ca-1a8afae4cae2",
                     "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Player1_Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "13d626eb-e8ba-446a-882a-2af9e2641e0a",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

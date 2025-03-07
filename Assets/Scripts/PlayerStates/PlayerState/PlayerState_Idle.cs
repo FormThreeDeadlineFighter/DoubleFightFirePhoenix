@@ -8,12 +8,12 @@ public class PlayerState_Idle : IPlayerState
 
     public override void EnterState()
     {
-        Debug.Log("玩家進入待機狀態");
+        Debug.Log(_controller.PlayerName +"進入待機狀態");
     }
 
     public override void ExitState()
     {
-        Debug.Log("玩家離開待機狀態");
+        Debug.Log(_controller.PlayerName +"離開待機狀態");
     }
 
     public override void LogicUpdate()
@@ -33,10 +33,10 @@ public class PlayerState_Idle : IPlayerState
     public override void PhysicsUpdate()
     {
         // 物理相關的更新（如果有的話）
-        /*if(_shipController.IsShoot)
+        if(_shipController.IsShoot)
         {
             _shipController.Shoot();
-        }*/
+        }
 
         _shipController.Forward(moveSpeed);
     }

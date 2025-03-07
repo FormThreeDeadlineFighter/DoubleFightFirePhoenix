@@ -8,12 +8,12 @@ public class PlayerState_Move : IPlayerState
 
     public override void EnterState()
     {
-        Debug.Log("玩家進入移動狀態");
+        Debug.Log(_controller.PlayerName +"進入移動狀態");
     }
 
     public override void ExitState()
     {
-        Debug.Log("玩家離開移動狀態");
+        Debug.Log(_controller.PlayerName +"離開移動狀態");
     }
 
     public override void LogicUpdate()

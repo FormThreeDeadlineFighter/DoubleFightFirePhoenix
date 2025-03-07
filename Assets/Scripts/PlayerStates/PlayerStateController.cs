@@ -8,13 +8,16 @@ public class PlayerStateController : IStateController
     private Animator _animator;
     private Rigidbody _rb;
     private SpaceshipController _shipController;
+    
+    public string PlayerName;
 
 
     private void Awake()
     {
         _animator = this.transform.GetComponent<Animator>();
-        _shipController = this.transform.GetComponent<SpaceshipController>();
-        _rb = this.transform.GetComponent<Rigidbody>();
+        _shipController = this.transform.parent.GetComponent<SpaceshipController>();
+        _rb = this.transform.parent.GetComponent<Rigidbody>();
+        PlayerName = this.transform.name;
 
         _stateTable = new Dictionary<System.Type, IState>(_playerStates.Length);
 
