@@ -3,28 +3,20 @@ using UnityEngine;
 
 public class Enemy_1 : MonoBehaviour
 {
-    string m_Name = "章魚小怪";
-    int m_EnemyHP = 10;
-    int m_AttackPower = 1;
-    float m_EnemyLeaveTime = 15f;
-    int m_Enemy1num = 0;
-    float offsetMin = -4f;
-    float offsetMax = 4f;
+    //string m_Name = "章魚小怪";
+    //int m_EnemyHP = 10;
+    //int m_AttackPower = 1;
+    public float m_EnemyLeaveTime = 15f;
     
     void FixedUpdate()
     {   
         //章魚存活時間       
         m_EnemyLeaveTime -=Time.deltaTime;
-        if(m_EnemyLeaveTime == 0)
+        if(m_EnemyLeaveTime <= 0)
         {
             Leave();
-        }
-        //章魚生成
-        if(m_Enemy1num <= 2)
-        {
-            EnemyRespawn();
-            m_Enemy1num++;
-        }
+            m_EnemyLeaveTime = 15f;
+        }      
         
     }
     public void Attack()
@@ -34,16 +26,21 @@ public class Enemy_1 : MonoBehaviour
     }
     public void Leave()
     {      
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
-    public void EnemyRespawn()
+    //被子彈擊中
+    private void OnTriggerEnter(Collider other)
     {
-        //章魚生成        
-        Instantiate(
-            this,
-            new Vector3(Random.Range(offsetMin,offsetMax),0,10),
-            transform.rotation
-            );
+        // 判斷來撞(或進入Trigger)的物件是否有子彈標籤
+        if (other.CompareTag("Bullet"))
+        {
+            // 做任何你想做的事，這裡是「小怪消失」
+            Destroy(gameObject);
+            // 或如果你想做特效、扣血等，也可以先做再銷毀
+            // e.g. m_EnemyHP -= 10;
+            // if(m_EnemyHP <= 0) Destroy(gameObject);
+        }
     }
+    
 
 }

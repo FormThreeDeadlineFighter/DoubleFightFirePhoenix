@@ -38,7 +38,7 @@ public class SpaceshipController : MonoBehaviour
 
     public void Shoot()
     {
-        Instantiate(_bullet,transform.position,transform.rotation);
+        Instantiate(_bullet,transform.position + new Vector3(0,0,5),transform.rotation);
     }
 
     public void Forward(float forwardSpeed)

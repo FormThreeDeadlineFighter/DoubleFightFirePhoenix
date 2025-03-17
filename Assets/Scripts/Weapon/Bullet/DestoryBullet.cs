@@ -7,4 +7,12 @@ public class DestoryBullet : MonoBehaviour
     {
         Destroy(gameObject , lifetime);
     }
+    //擊中敵人
+    private void OnTriggerEnter(Collider other)
+    {        
+        if (other.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }
