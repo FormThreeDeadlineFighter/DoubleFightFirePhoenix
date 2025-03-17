@@ -6,7 +6,9 @@ public class Enemy_1 : MonoBehaviour
     //string m_Name = "章魚小怪";
     //int m_EnemyHP = 10;
     //int m_AttackPower = 1;
+    public GameObject _Bullet;
     public float m_EnemyLeaveTime = 15f;
+    float m_EnemyShootTime = 3f; //攻擊間隔 3 秒
     
     void FixedUpdate()
     {   
@@ -16,14 +18,26 @@ public class Enemy_1 : MonoBehaviour
         {
             Leave();
             m_EnemyLeaveTime = 15f;
-        }      
+        }
+        //攻擊間隔
+        m_EnemyShootTime -=Time.deltaTime;
+        if(m_EnemyShootTime <= 0)
+        {
+            Attack();
+            m_EnemyShootTime = 3f;
+        }
         
     }
     public void Attack()
     {        
-        Debug.Log("開始射擊");     
+        Debug.Log("開始射擊"); 
+        Instantiate(
+        _Bullet,
+        transform.position + new Vector3(0,0,-5),
+        transform.rotation);    
            
     }
+    //章魚自然死亡
     public void Leave()
     {      
         Destroy(gameObject);

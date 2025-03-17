@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6773782064709882009
+--- !u!1 &7449039841977143347
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2228613227484427077}
-  - component: {fileID: 7012172117235158216}
-  - component: {fileID: 419871800787197129}
-  - component: {fileID: 4739008005389719376}
-  - component: {fileID: 366994627117928209}
-  - component: {fileID: 568743650282939912}
+  - component: {fileID: 3028386417645221033}
+  - component: {fileID: 4551762366300373535}
+  - component: {fileID: 2027590280812934287}
+  - component: {fileID: 4823732203909920538}
+  - component: {fileID: 6780619162170821043}
+  - component: {fileID: 3343937842596114032}
   m_Layer: 0
-  m_Name: "\u7AE0\u9B5A\u5C0F\u602A"
-  m_TagString: Enemy
+  m_Name: Enemy_1_Bullet
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2228613227484427077
+--- !u!4 &3028386417645221033
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6773782064709882009}
+  m_GameObject: {fileID: 7449039841977143347}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.15, y: 5.2, z: 0}
-  m_LocalScale: {x: 2, y: 3, z: 2}
+  m_LocalPosition: {x: -6.4, y: 8, z: 7.38}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7012172117235158216
+--- !u!33 &4551762366300373535
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6773782064709882009}
+  m_GameObject: {fileID: 7449039841977143347}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &419871800787197129
+--- !u!23 &2027590280812934287
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6773782064709882009}
+  m_GameObject: {fileID: 7449039841977143347}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -89,13 +89,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4739008005389719376
+--- !u!65 &4823732203909920538
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6773782064709882009}
+  m_GameObject: {fileID: 7449039841977143347}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -104,35 +104,34 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &366994627117928209
+--- !u!114 &6780619162170821043
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6773782064709882009}
+  m_GameObject: {fileID: 7449039841977143347}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e3c38397d8ed754d8e75023a0e78eeb, type: 3}
+  m_Script: {fileID: 11500000, guid: 24eaebd05a470794789cb80df1af93e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &568743650282939912
+--- !u!114 &3343937842596114032
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6773782064709882009}
+  m_GameObject: {fileID: 7449039841977143347}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa45814e6049c9b4bad4bf82e411750e, type: 3}
+  m_Script: {fileID: 11500000, guid: b7a37f916e09b034c97b50df57923d7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Bullet: {fileID: 7449039841977143347, guid: 28f5e64e40a161e40afcb37f3a419632, type: 3}
-  m_EnemyLeaveTime: 15
+  lifetime: 2
