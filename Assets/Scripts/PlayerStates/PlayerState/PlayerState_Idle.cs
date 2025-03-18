@@ -8,12 +8,12 @@ public class PlayerState_Idle : IPlayerState
 
     public override void EnterState()
     {
-        Debug.Log(_controller.PlayerName +"進入待機狀態");
+        //Debug.Log(_controller.PlayerName +"進入待機狀態");
     }
 
     public override void ExitState()
     {
-        Debug.Log(_controller.PlayerName +"離開待機狀態");
+        //Debug.Log(_controller.PlayerName +"離開待機狀態");
     }
 
     public override void LogicUpdate()

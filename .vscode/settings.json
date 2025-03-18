@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "DoubleFightFirePhoenix.sln"
+    "dotnet.defaultSolution": "DoubleFightFirePhoenix-main.sln"
 }

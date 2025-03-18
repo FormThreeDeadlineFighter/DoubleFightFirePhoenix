@@ -80,6 +80,15 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""EnemyBox"",
+                    ""type"": ""Button"",
+                    ""id"": ""49026f37-5b3c-4e6a-9e0a-befde4938826"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -267,6 +276,50 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Player2_Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e772fdd6-5f6b-4a21-a836-11ab4732881c"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EnemyBox"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""35e13054-4652-4cd7-ba1b-2fdc7dc4fd61"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EnemyBox"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""da7d7adf-1e62-44d6-a5a1-2218e6082b1e"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EnemyBox"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""093ca8ca-406e-4efa-8077-d85d729d1e4a"",
+                    ""path"": ""<Keyboard>/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EnemyBox"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -860,6 +913,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
         m_PlayerNormal_SwitchWeapon = m_PlayerNormal.FindAction("SwitchWeapon", throwIfNotFound: true);
         m_PlayerNormal_Player1_Shoot = m_PlayerNormal.FindAction("Player1_Shoot", throwIfNotFound: true);
         m_PlayerNormal_Player2_Shoot = m_PlayerNormal.FindAction("Player2_Shoot", throwIfNotFound: true);
+        m_PlayerNormal_EnemyBox = m_PlayerNormal.FindAction("EnemyBox", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -945,6 +999,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerNormal_SwitchWeapon;
     private readonly InputAction m_PlayerNormal_Player1_Shoot;
     private readonly InputAction m_PlayerNormal_Player2_Shoot;
+    private readonly InputAction m_PlayerNormal_EnemyBox;
     public struct PlayerNormalActions
     {
         private @PlayerControl m_Wrapper;
@@ -955,6 +1010,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
         public InputAction @SwitchWeapon => m_Wrapper.m_PlayerNormal_SwitchWeapon;
         public InputAction @Player1_Shoot => m_Wrapper.m_PlayerNormal_Player1_Shoot;
         public InputAction @Player2_Shoot => m_Wrapper.m_PlayerNormal_Player2_Shoot;
+        public InputAction @EnemyBox => m_Wrapper.m_PlayerNormal_EnemyBox;
         public InputActionMap Get() { return m_Wrapper.m_PlayerNormal; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -982,6 +1038,9 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
             @Player2_Shoot.started += instance.OnPlayer2_Shoot;
             @Player2_Shoot.performed += instance.OnPlayer2_Shoot;
             @Player2_Shoot.canceled += instance.OnPlayer2_Shoot;
+            @EnemyBox.started += instance.OnEnemyBox;
+            @EnemyBox.performed += instance.OnEnemyBox;
+            @EnemyBox.canceled += instance.OnEnemyBox;
         }
 
         private void UnregisterCallbacks(IPlayerNormalActions instance)
@@ -1004,6 +1063,9 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
             @Player2_Shoot.started -= instance.OnPlayer2_Shoot;
             @Player2_Shoot.performed -= instance.OnPlayer2_Shoot;
             @Player2_Shoot.canceled -= instance.OnPlayer2_Shoot;
+            @EnemyBox.started -= instance.OnEnemyBox;
+            @EnemyBox.performed -= instance.OnEnemyBox;
+            @EnemyBox.canceled -= instance.OnEnemyBox;
         }
 
         public void RemoveCallbacks(IPlayerNormalActions instance)
@@ -1192,6 +1254,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
         void OnSwitchWeapon(InputAction.CallbackContext context);
         void OnPlayer1_Shoot(InputAction.CallbackContext context);
         void OnPlayer2_Shoot(InputAction.CallbackContext context);
+        void OnEnemyBox(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

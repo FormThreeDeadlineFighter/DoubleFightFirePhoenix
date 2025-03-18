@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "EnemyBox",
+                    "type": "Button",
+                    "id": "49026f37-5b3c-4e6a-9e0a-befde4938826",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -245,6 +254,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "Player2_Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e772fdd6-5f6b-4a21-a836-11ab4732881c",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EnemyBox",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "35e13054-4652-4cd7-ba1b-2fdc7dc4fd61",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EnemyBox",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "da7d7adf-1e62-44d6-a5a1-2218e6082b1e",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EnemyBox",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "093ca8ca-406e-4efa-8077-d85d729d1e4a",
+                    "path": "<Keyboard>/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "EnemyBox",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
