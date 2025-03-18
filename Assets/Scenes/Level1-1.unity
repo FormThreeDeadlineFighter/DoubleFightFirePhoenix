@@ -1025,6 +1025,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 673460416532917964, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 673460416532917964, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
+      propertyPath: m_NeverAutoSwitchControlSchemes
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 980240293570265117, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
       propertyPath: m_Name
       value: Spaceship
@@ -1068,6 +1076,42 @@ PrefabInstance:
     - target: {fileID: 1808838168420141789, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247240973991992851, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247240973991992851, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
+      propertyPath: m_UIInputModule
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247240973991992851, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
+      propertyPath: m_NotificationBehavior
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247240973991992851, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247240973991992851, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
+      propertyPath: m_NeverAutoSwitchControlSchemes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247240973991992851, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_ActionId
+      value: ee78bf6a-fee9-4f0c-ab38-93a6c0f7f532
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247240973991992851, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_ActionId
+      value: 49026f37-5b3c-4e6a-9e0a-befde4938826
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247240973991992851, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_ActionName
+      value: PlayerNormal/Player2_Shoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247240973991992851, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
+      propertyPath: m_ActionEvents.Array.data[16].m_ActionName
+      value: 'PlayerNormal/EnemyBox[/Keyboard/y]'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1396,7 +1440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NotificationBehavior: 0
   m_MaxPlayerCount: 2
-  m_AllowJoining: 1
+  m_AllowJoining: 0
   m_JoinBehavior: 0
   m_PlayerJoinedEvent:
     m_PersistentCalls:
@@ -1416,7 +1460,7 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 0}
-  m_PlayerPrefab: {fileID: 980240293570265117, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
+  m_PlayerPrefab: {fileID: 0}
   m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
   m_FixedNumberOfSplitScreens: -1
