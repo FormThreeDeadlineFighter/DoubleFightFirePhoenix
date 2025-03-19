@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fe03e52340736045ab1c12bd2086a9d, type: 3}
   m_Name: PlayerState_Impulse
   m_EditorClassIdentifier: 
-  _forceSpeed: 10
+  _forceSpeed: 5
   _drag: 0.95
