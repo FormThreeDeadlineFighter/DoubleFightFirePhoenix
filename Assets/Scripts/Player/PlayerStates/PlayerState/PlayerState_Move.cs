@@ -8,27 +8,29 @@ public class PlayerState_Move : IPlayerState
 
     public override void EnterState()
     {
-        Debug.Log(_controller.PlayerName +"進入移動狀態");
+        Debug.Log(_name +"進入移動狀態");
     }
 
     public override void ExitState()
     {
-        Debug.Log(_controller.PlayerName +"離開移動狀態");
+        Debug.Log(_name +"離開移動狀態");
     }
 
     public override void LogicUpdate()
     {
-        Debug.Log(_controller.PlayerName +"正在移動");
+        Debug.Log(_name +"正在移動");
         
-        if(!_shipController.IsMove(_controller.PlayerName))
+        if(!_shipController.IsMove(_name))
         {
             _controller.SetState(typeof(PlayerState_Idle));
         }   
 
-        if(_shipController.IsImpulse(_controller.PlayerName))  
+        if(_shipController.IsImpulse(_name))  
         {
             _controller.SetState(typeof(PlayerState_Impulse));
         }  
+        
+        _controller.ImpulseBar += 10f * Time.deltaTime;
     }
 
     public override void PhysicsUpdate()

@@ -92,7 +92,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 64
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &441367157503138474
 MonoBehaviour:
@@ -107,9 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bullet: {fileID: 6809347357280316662, guid: b0082e59d098eea4a8fbef5ef9816744, type: 3}
-  _shipSpeed: 10
-  IsShoot: 0
-  IsImpulse: 0
+  _shipSpeed: 5
 --- !u!1 &2205242130432884929
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,7 +180,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 07678a41bf2a1434bbd79d4e79d7ac62, type: 2}
   - {fileID: 11400000, guid: 7643cb142bf5db443b1a1bbe728e4e30, type: 2}
   - {fileID: 11400000, guid: 2f3d57c0389da0c4a92fb7087a6d6676, type: 2}
-  PlayerName: player1
+  _name: player1
+  _impulseBar: 0
+  _impulseBarImage: {fileID: 0}
 --- !u!1 &3372155554258707504
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,10 +252,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerStates:
-  - {fileID: 11400000, guid: 07678a41bf2a1434bbd79d4e79d7ac62, type: 2}
-  - {fileID: 11400000, guid: 7643cb142bf5db443b1a1bbe728e4e30, type: 2}
-  - {fileID: 11400000, guid: 2f3d57c0389da0c4a92fb7087a6d6676, type: 2}
-  PlayerName: player2
+  - {fileID: 11400000, guid: cbf16afcbe258e24a8c9e43979782860, type: 2}
+  - {fileID: 11400000, guid: 69fedf20454baa8498bd0af092b34028, type: 2}
+  - {fileID: 11400000, guid: e252a0f268f7cfa4bb17863c539a6b43, type: 2}
+  _name: player2
+  _impulseBar: 0
+  _impulseBarImage: {fileID: 0}
 --- !u!1 &3662731278095718086
 GameObject:
   m_ObjectHideFlags: 0

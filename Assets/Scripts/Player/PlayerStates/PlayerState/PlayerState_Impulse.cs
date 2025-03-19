@@ -10,30 +10,34 @@ public class PlayerState_Impulse : IPlayerState
 
     public override void EnterState()
     {
-        Debug.Log(_controller.PlayerName + "進入加速狀態");
+        Debug.Log(_name + "進入加速狀態");
         _rb.AddForce(_shipController.transform.forward *_forceSpeed, ForceMode.Impulse);
         _rb.AddForce(new Vector3(_positionx,0,0), ForceMode.Impulse);
+        
+        _controller.ImpulseBar -= 1f;
+        Debug.Log(_controller.ImpulseBar);
+        
         IsComplete = false;
     }
 
     public override void ExitState()
     {
-        Debug.Log(_controller.PlayerName + "離開加速狀態");
+        Debug.Log(_name + "離開加速狀態");
     }
 
     public override void LogicUpdate()
     {
-        if(!_shipController.IsMove(_controller.PlayerName) && IsComplete)
+        if(!_shipController.IsMove(_name) && IsComplete)
         {
             _controller.SetState(typeof(PlayerState_Idle));
         }   
 
-        if(_shipController.IsMove(_controller.PlayerName) && IsComplete)  
+        if(_shipController.IsMove(_name) && IsComplete)  
         {
             _controller.SetState(typeof(PlayerState_Move));
         } 
 
-        if(_shipController.IsImpulse(_controller.PlayerName))  
+        if(_shipController.IsImpulse(_name))  
         {
             _controller.SetState(typeof(PlayerState_Impulse));
         }
