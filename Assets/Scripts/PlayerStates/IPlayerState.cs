@@ -8,7 +8,7 @@ public class IPlayerState : ScriptableObject ,IState
     protected Rigidbody _rb;
     protected SpaceshipController _shipController;
 
-    protected bool IsComplete { get; private set; }
+    protected bool IsComplete;
 
     public void Initialize(PlayerStateController controller, Animator animator, SpaceshipController spaceshipController, Rigidbody rigidbody)
     {

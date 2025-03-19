@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 [CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/Move", fileName = "PlayerState_Move")]
 public class PlayerState_Move : IPlayerState
 {
-    [SerializeField] float moveSpeed;
+    [SerializeField] float _forwardSpeed;
 
     public override void EnterState()
     {
@@ -18,13 +18,14 @@ public class PlayerState_Move : IPlayerState
 
     public override void LogicUpdate()
     {
-        Debug.Log("玩家正在移動");
-        if(!_shipController.Move)
+        Debug.Log(_controller.PlayerName +"正在移動");
+        
+        if(!_shipController.IsMove(_controller.PlayerName))
         {
             _controller.SetState(typeof(PlayerState_Idle));
         }   
 
-        if(_shipController.IsImpulse)  
+        if(_shipController.IsImpulse(_controller.PlayerName))  
         {
             _controller.SetState(typeof(PlayerState_Impulse));
         }  
@@ -34,6 +35,6 @@ public class PlayerState_Move : IPlayerState
     {
         _shipController.ShipMove();
 
-        _shipController.Forward(moveSpeed);
+        _shipController.Forward(_forwardSpeed);
     }
 }

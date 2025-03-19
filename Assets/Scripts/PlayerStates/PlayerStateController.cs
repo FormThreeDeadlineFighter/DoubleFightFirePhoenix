@@ -17,7 +17,6 @@ public class PlayerStateController : IStateController
         _animator = this.transform.GetComponent<Animator>();
         _shipController = this.transform.parent.GetComponent<SpaceshipController>();
         _rb = this.transform.parent.GetComponent<Rigidbody>();
-        PlayerName = this.transform.name;
 
         _stateTable = new Dictionary<System.Type, IState>(_playerStates.Length);
 

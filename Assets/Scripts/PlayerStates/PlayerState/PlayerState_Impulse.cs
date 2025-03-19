@@ -5,14 +5,15 @@ using UnityEngine.InputSystem;
 public class PlayerState_Impulse : IPlayerState
 {
     [SerializeField] float _forceSpeed;
+    [SerializeField] float _positionx;
     [SerializeField] float _drag;
-    bool _impulseEnd;
 
     public override void EnterState()
     {
         Debug.Log(_controller.PlayerName + "進入加速狀態");
         _rb.AddForce(_shipController.transform.forward *_forceSpeed, ForceMode.Impulse);
-       _impulseEnd = false;
+        _rb.AddForce(new Vector3(_positionx,0,0), ForceMode.Impulse);
+        IsComplete = false;
     }
 
     public override void ExitState()
@@ -22,17 +23,17 @@ public class PlayerState_Impulse : IPlayerState
 
     public override void LogicUpdate()
     {
-        if(!_shipController.Move && _impulseEnd)
+        if(!_shipController.IsMove(_controller.PlayerName) && IsComplete)
         {
             _controller.SetState(typeof(PlayerState_Idle));
         }   
 
-        if(_shipController.Move && _impulseEnd)  
+        if(_shipController.IsMove(_controller.PlayerName) && IsComplete)  
         {
             _controller.SetState(typeof(PlayerState_Move));
         } 
 
-        if(_shipController.IsImpulse)  
+        if(_shipController.IsImpulse(_controller.PlayerName))  
         {
             _controller.SetState(typeof(PlayerState_Impulse));
         }
@@ -50,7 +51,7 @@ public class PlayerState_Impulse : IPlayerState
         else
         {
             _rb.linearVelocity = Vector3.forward * 10;
-            _impulseEnd = true;
+            IsComplete = true;
         } 
     }
 }
