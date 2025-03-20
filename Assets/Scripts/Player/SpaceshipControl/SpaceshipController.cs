@@ -4,44 +4,50 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.InputSystem.Users;
 
+
 public class SpaceshipController : MonoBehaviour
 {
     [SerializeField] GameObject _bullet;
     [SerializeField] float _shipSpeed = 10;
 
-    private InputUser player1;
-    private InputUser player2;
+    private InputUser _player1;
+    private InputUser _player2;
 
-    private PlayerControl playerControl1;
-    private PlayerControl playerControl2;
+    private PlayerInput _playerInput1;
+    private PlayerInput _playerInput2;
+    public PlayerInput PlayerInput1 { get { return _playerInput1; } private set { PlayerInput1 = _playerInput1; } }
+    public PlayerInput PlayerInput2 { get { return _playerInput2; } private set { PlayerInput2 = _playerInput2; } }
+
     private Vector2 _player1MoveVector;
     private Vector2 _player2MoveVector;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
         // 创建两个用户
-        player1 = InputUser.CreateUserWithoutPairedDevices();
-        player2 = InputUser.CreateUserWithoutPairedDevices();
+        _player1 = InputUser.CreateUserWithoutPairedDevices();
+        _player2 = InputUser.CreateUserWithoutPairedDevices();
 
         // 监听设备的连接
         InputUser.onUnpairedDeviceUsed += OnUnpairedDeviceUsed;
+
+        _playerInput1 = new PlayerInput();
+        _playerInput2 = new PlayerInput();
+
+        _playerInput1.PlayerControl.Enable();
+        _playerInput2.PlayerControl.Enable();
+    }
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {          
+        _player1.AssociateActionsWithUser(_playerInput1);
+        _player2.AssociateActionsWithUser(_playerInput2);
         
-        playerControl1 = new PlayerControl();
-        playerControl2 = new PlayerControl();
         
-        playerControl1.PlayerNormal.Enable();
-        playerControl2.PlayerNormal.Enable();
+        _playerInput1.PlayerControl.Move.performed += GetMoveVector1;
+        _playerInput1.PlayerControl.Move.canceled += GetMoveVector1; 
         
-        player1.AssociateActionsWithUser(playerControl1);
-        player2.AssociateActionsWithUser(playerControl2);
-        
-        
-        playerControl1.PlayerNormal.Move.performed += GetMoveVector1;
-        playerControl1.PlayerNormal.Move.canceled += GetMoveVector1; 
-        
-        playerControl2.PlayerNormal.Move.performed += GetMoveVector2;                         
-        playerControl2.PlayerNormal.Move.canceled += GetMoveVector2;
+        _playerInput2.PlayerControl.Move.performed += GetMoveVector2;                         
+        _playerInput2.PlayerControl.Move.canceled += GetMoveVector2;
         
     }
 
@@ -52,14 +58,14 @@ public class SpaceshipController : MonoBehaviour
         // 如果是手柄设备，则自动分配给一个未分配设备的用户
         if (device is Gamepad || device is Keyboard)
         {
-            if (player1.pairedDevices.Count == 0)
+            if (_player1.pairedDevices.Count == 0)
             {
-                InputUser.PerformPairingWithDevice(device, player1);
+                InputUser.PerformPairingWithDevice(device, _player1);
                 Debug.Log(device.ToString() + " assigned to Player 1");
             }
-            else if (player2.pairedDevices.Count == 0)
+            else if (_player2.pairedDevices.Count == 0)
             {
-                InputUser.PerformPairingWithDevice(device, player2);
+                InputUser.PerformPairingWithDevice(device, _player2);
                 Debug.Log(device.ToString() +" assigned to Player 2");
             }
         }
@@ -120,10 +126,10 @@ public class SpaceshipController : MonoBehaviour
         switch(playerName)
         {
             case "player1":
-            return playerControl1.PlayerNormal.Shoot.IsPressed();
+            return _playerInput1.PlayerControl.Shoot.IsPressed();
             
             case "player2":
-            return playerControl2.PlayerNormal.Shoot.IsPressed();
+            return _playerInput2.PlayerControl.Shoot.IsPressed();
             
             default:
             return false;
@@ -135,10 +141,10 @@ public class SpaceshipController : MonoBehaviour
         switch(playerName)
         {
             case "player1":
-            return playerControl1.PlayerNormal.Impulse.IsPressed();
+            return _playerInput1.PlayerControl.Impulse.IsPressed();
             
             case "player2":
-            return playerControl2.PlayerNormal.Impulse.IsPressed();
+            return _playerInput2.PlayerControl.Impulse.IsPressed();
             
             default:
             return false;
