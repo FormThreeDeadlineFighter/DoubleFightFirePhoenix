@@ -1,3 +1,4 @@
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,33 +12,34 @@ public class SpaceshipController : MonoBehaviour
     [SerializeField] float _shipSpeed = 10;
     [SerializeField] GameObject[] _players;
     
-    private SinglePlayerControl[] _playerControls;
+    private SinglePlayerControl _playerControl1 => _players[0].GetComponent<SinglePlayerControl>();
+    private SinglePlayerControl _playerControl2 => _players[1].GetComponent<SinglePlayerControl>();
 
     private InputUser _player1;
     private InputUser _player2;
 
-    private PlayerInput _playerInput1;
-    private PlayerInput _playerInput2;
-
-    private Vector2 _player1MoveVector => _playerControls[0].PlayerMoveVector;
-    private Vector2 _player2MoveVector => _playerControls[1].PlayerMoveVector;
+    [SerializeField] private Vector2 _player1MoveVector => _playerControl1.PlayerMoveVector;
+    [SerializeField] private Vector2 _player2MoveVector => _playerControl2.PlayerMoveVector;
 
     private void Awake()
     {
-        _player1 = _playerControls[0].Player;
-        _player2 = _playerControls[1].Player;
+        _player1 = InputUser.CreateUserWithoutPairedDevices();
+        _player2 = InputUser.CreateUserWithoutPairedDevices();
 
-
-        InputUser.onUnpairedDeviceUsed += OnUnpairedDeviceUsed;
+        InputUser.onUnpairedDeviceUsed += OnUnpairedDeviceUsed;       
+        
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {          
-        _player1.AssociateActionsWithUser(_playerControls[0].PlayerInput);
-        _player2.AssociateActionsWithUser(_playerControls[1].PlayerInput);
+    {                  
+        _playerControl1.PlayerInput = new PlayerInput();
+        _playerControl2.PlayerInput = new PlayerInput();
+    
+        _player1.AssociateActionsWithUser(_playerControl1.PlayerInput);
+        _player2.AssociateActionsWithUser(_playerControl2.PlayerInput);
 
-        _playerControls[0].PlayerInput.Enable();
-        _playerControls[1].PlayerInput.Enable();
+        _playerControl1.PlayerInput.Enable();
+        _playerControl2.PlayerInput.Enable();
     }
 
     private void OnUnpairedDeviceUsed(InputControl control, InputEventPtr eventPtr)

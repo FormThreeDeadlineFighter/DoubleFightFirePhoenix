@@ -4,7 +4,7 @@ using UnityEngine.InputSystem.Users;
 
 public class SinglePlayerControl : MonoBehaviour
 {
-    private InputUser _player;
+    //private InputUser _player;
     private PlayerInput _playerInput;
     private Vector2 _playerMoveVector;
 
@@ -12,24 +12,19 @@ public class SinglePlayerControl : MonoBehaviour
     public bool IsShoot => _playerInput.PlayerControl.Shoot.IsPressed();
     public bool IsImpulse => _playerInput.PlayerControl.Impulse.IsPressed();
 
-    #region ¦s¨ú¾¹
-    public InputUser Player
-    {
-        get { return _player; }
-        set 
-        { 
-            if (_player == null)
-            { 
-                _player = value; 
-            }
-            else { return; }
-        }
-    } 
-
+    #region getset  
     public PlayerInput PlayerInput
     {   
         get { return _playerInput; } 
-        set { PlayerInput = _playerInput; } 
+        set 
+        { 
+            if (_playerInput == null)
+            { 
+                _playerInput = value; 
+            }
+            else { return; }
+           
+        } 
     }
 
     public Vector2 PlayerMoveVector
@@ -41,13 +36,12 @@ public class SinglePlayerControl : MonoBehaviour
 
     private void Awake()
     {
-        _player = InputUser.CreateUserWithoutPairedDevices();
-        _playerInput = new PlayerInput();
+
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _playerInput.Enable();
+        
     }
 
 
