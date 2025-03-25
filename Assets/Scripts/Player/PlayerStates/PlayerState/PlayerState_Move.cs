@@ -20,12 +20,12 @@ public class PlayerState_Move : IPlayerState
     {
         Debug.Log(_name +"正在移動");
         
-        if(!_shipController.IsMove(_name))
+        if(!_playerControl.IsMove)
         {
             _controller.SetState(typeof(PlayerState_Idle));
         }   
 
-        if(_shipController.IsImpulse(_name))  
+        if(_playerControl.IsImpulse)  
         {
             _controller.SetState(typeof(PlayerState_Impulse));
         }  

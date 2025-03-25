@@ -15,7 +15,7 @@ public class PlayerState_Impulse : IPlayerState
         _rb.AddForce(new Vector3(_positionx,0,0), ForceMode.Impulse);
         
         _controller.ImpulseBar -= 1f;
-        Debug.Log(_controller.ImpulseBar);
+        //Debug.Log(_controller.ImpulseBar);
         
         IsComplete = false;
     }
@@ -27,17 +27,17 @@ public class PlayerState_Impulse : IPlayerState
 
     public override void LogicUpdate()
     {
-        if(!_shipController.IsMove(_name) && IsComplete)
+        if(!_playerControl.IsMove && IsComplete)
         {
             _controller.SetState(typeof(PlayerState_Idle));
         }   
 
-        if(_shipController.IsMove(_name) && IsComplete)  
+        if(_playerControl.IsMove && IsComplete)  
         {
             _controller.SetState(typeof(PlayerState_Move));
         } 
 
-        if(_shipController.IsImpulse(_name))  
+        if(_playerControl.IsImpulse)  
         {
             _controller.SetState(typeof(PlayerState_Impulse));
         }

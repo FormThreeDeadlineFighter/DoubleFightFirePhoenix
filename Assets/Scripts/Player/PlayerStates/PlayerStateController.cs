@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(SinglePlayerControl))]
 public class PlayerStateController : IStateController
 {   
     [SerializeField] IPlayerState[] _playerStates;
@@ -9,6 +10,7 @@ public class PlayerStateController : IStateController
     private Animator _animator;
     private Rigidbody _rb;
     private SpaceshipController _shipController;
+    private SinglePlayerControl _playerControl;
     
     [SerializeField] private float _impulseBar;
     public float ImpulseBar 
@@ -33,13 +35,14 @@ public class PlayerStateController : IStateController
     {
         _animator = this.transform.GetComponent<Animator>();
         _shipController = this.transform.parent.GetComponent<SpaceshipController>();
+        _playerControl = this.transform.GetComponent<SinglePlayerControl>();
         _rb = this.transform.parent.GetComponent<Rigidbody>();
 
         _stateTable = new Dictionary<System.Type, IState>(_playerStates.Length);
 
         foreach(IPlayerState state in _playerStates)
         {
-            state.Initialize(this, _animator, _shipController, _rb, _name);
+            state.Initialize(this, _animator, _playerControl, _shipController, _rb, _name);
             _stateTable.Add(state.GetType(), state);
         }
         
