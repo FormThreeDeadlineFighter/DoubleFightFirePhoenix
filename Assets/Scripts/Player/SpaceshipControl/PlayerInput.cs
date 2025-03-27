@@ -62,6 +62,24 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchWeapon"",
+                    ""type"": ""Button"",
+                    ""id"": ""aa06e4c5-9272-413c-9d17-03055315e6a1"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""EnemyBox"",
+                    ""type"": ""Button"",
+                    ""id"": ""49026f37-5b3c-4e6a-9e0a-befde4938826"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -216,6 +234,61 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b8d70f65-992a-4df2-84bf-7ea2e237ed55"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e772fdd6-5f6b-4a21-a836-11ab4732881c"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EnemyBox"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""35e13054-4652-4cd7-ba1b-2fdc7dc4fd61"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EnemyBox"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""da7d7adf-1e62-44d6-a5a1-2218e6082b1e"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EnemyBox"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""093ca8ca-406e-4efa-8077-d85d729d1e4a"",
+                    ""path"": ""<Keyboard>/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EnemyBox"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -829,6 +902,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_PlayerControl_Look = m_PlayerControl.FindAction("Look", throwIfNotFound: true);
         m_PlayerControl_Impulse = m_PlayerControl.FindAction("Impulse", throwIfNotFound: true);
         m_PlayerControl_Shoot = m_PlayerControl.FindAction("Shoot", throwIfNotFound: true);
+        m_PlayerControl_SwitchWeapon = m_PlayerControl.FindAction("SwitchWeapon", throwIfNotFound: true);
+        m_PlayerControl_EnemyBox = m_PlayerControl.FindAction("EnemyBox", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -912,6 +987,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerControl_Look;
     private readonly InputAction m_PlayerControl_Impulse;
     private readonly InputAction m_PlayerControl_Shoot;
+    private readonly InputAction m_PlayerControl_SwitchWeapon;
+    private readonly InputAction m_PlayerControl_EnemyBox;
     public struct PlayerControlActions
     {
         private @PlayerInput m_Wrapper;
@@ -920,6 +997,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_PlayerControl_Look;
         public InputAction @Impulse => m_Wrapper.m_PlayerControl_Impulse;
         public InputAction @Shoot => m_Wrapper.m_PlayerControl_Shoot;
+        public InputAction @SwitchWeapon => m_Wrapper.m_PlayerControl_SwitchWeapon;
+        public InputAction @EnemyBox => m_Wrapper.m_PlayerControl_EnemyBox;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControl; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -941,6 +1020,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
+            @SwitchWeapon.started += instance.OnSwitchWeapon;
+            @SwitchWeapon.performed += instance.OnSwitchWeapon;
+            @SwitchWeapon.canceled += instance.OnSwitchWeapon;
+            @EnemyBox.started += instance.OnEnemyBox;
+            @EnemyBox.performed += instance.OnEnemyBox;
+            @EnemyBox.canceled += instance.OnEnemyBox;
         }
 
         private void UnregisterCallbacks(IPlayerControlActions instance)
@@ -957,6 +1042,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
+            @SwitchWeapon.started -= instance.OnSwitchWeapon;
+            @SwitchWeapon.performed -= instance.OnSwitchWeapon;
+            @SwitchWeapon.canceled -= instance.OnSwitchWeapon;
+            @EnemyBox.started -= instance.OnEnemyBox;
+            @EnemyBox.performed -= instance.OnEnemyBox;
+            @EnemyBox.canceled -= instance.OnEnemyBox;
         }
 
         public void RemoveCallbacks(IPlayerControlActions instance)
@@ -1143,6 +1234,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnImpulse(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnSwitchWeapon(InputAction.CallbackContext context);
+        void OnEnemyBox(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

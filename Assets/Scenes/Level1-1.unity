@@ -1343,6 +1343,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 441367157503138474, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
+      propertyPath: _shipSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 441367157503138474, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
+      propertyPath: _players.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 441367157503138474, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
+      propertyPath: '_players.Array.data[0]'
+      value: 
+      objectReference: {fileID: 549836883}
+    - target: {fileID: 441367157503138474, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
+      propertyPath: '_players.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1584592359}
+    - target: {fileID: 441367157503138474, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
+      propertyPath: _playerControls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 980240293570265117, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
       propertyPath: m_Name
       value: Spaceship
