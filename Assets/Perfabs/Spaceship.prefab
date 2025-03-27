@@ -108,6 +108,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bullet: {fileID: 6809347357280316662, guid: b0082e59d098eea4a8fbef5ef9816744, type: 3}
   _shipSpeed: 5
+  _players:
+  - {fileID: 2205242130432884929}
+  - {fileID: 3372155554258707504}
 --- !u!1 &1578854514891535517
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,6 +194,7 @@ GameObject:
   - component: {fileID: 531676916835943959}
   - component: {fileID: 4751642822422755183}
   - component: {fileID: 1151442026209684497}
+  - component: {fileID: 7268085921401262917}
   - component: {fileID: 5667479152410330536}
   m_Layer: 0
   m_Name: Player1
@@ -256,6 +260,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2f3d57c0389da0c4a92fb7087a6d6676, type: 2}
   _name: player1
   _impulseBar: 0
+--- !u!114 &7268085921401262917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2205242130432884929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b444025bf541ce48bd5678bc2227c2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5667479152410330536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,7 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 194f7ea04d055bf41965373e345c8e36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crossHair: {fileID: 0}
+  crossHair: {fileID: 3030473287262720139}
 --- !u!1 &2302862130910110495
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,6 +572,7 @@ GameObject:
   - component: {fileID: 8896995084109479035}
   - component: {fileID: 6459635877790375408}
   - component: {fileID: 2104170311206250815}
+  - component: {fileID: 955351880806225672}
   - component: {fileID: 6644580237608697063}
   m_Layer: 0
   m_Name: Player2
@@ -621,6 +638,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e252a0f268f7cfa4bb17863c539a6b43, type: 2}
   _name: player2
   _impulseBar: 0
+--- !u!114 &955351880806225672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3372155554258707504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b444025bf541ce48bd5678bc2227c2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6644580237608697063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -633,7 +662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 194f7ea04d055bf41965373e345c8e36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crossHair: {fileID: 0}
+  crossHair: {fileID: 3202982345035219394}
 --- !u!1 &3662731278095718086
 GameObject:
   m_ObjectHideFlags: 0

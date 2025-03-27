@@ -19,25 +19,25 @@ public class PlayerState_Idle : IPlayerState
     public override void LogicUpdate()
     {
         //Debug.Log("玩家在閒置狀態");
-        if(_shipController.IsMove(_name))
+        if(_playerControl.IsMove)
         {
             _controller.SetState(typeof(PlayerState_Move));
         }
 
-        if(_shipController.IsImpulse(_name))  
+        if(_playerControl.IsImpulse && _playerControl.CanImpulse)  
         {
             _controller.SetState(typeof(PlayerState_Impulse));
-        }  
-        
-        _controller.ImpulseBar += 10f * Time.deltaTime;
+        }
+
+        _playerControl.ImpulseBar += 10f * Time.deltaTime;
     }
 
     public override void PhysicsUpdate()
     {
         // 物理相關的更新（如果有的話）
-        if(_shipController.IsShoot(_name))
+        if(_playerControl.IsShoot)
         {
-            _shipController.Shoot();
+            //_shipController.Shoot();
         }
 
         _shipController.Forward(_forwardSpeed);
