@@ -7,6 +7,7 @@ public class PlayerState_Impulse : IPlayerState
     [SerializeField] float _forceSpeed;
     [SerializeField] float _positionx;
     [SerializeField] float _drag;
+    [SerializeField] float _barReduce;
 
     public override void EnterState()
     {
@@ -14,7 +15,7 @@ public class PlayerState_Impulse : IPlayerState
         _rb.AddForce(_shipController.transform.forward *_forceSpeed, ForceMode.Impulse);
         _rb.AddForce(new Vector3(_positionx,0,0), ForceMode.Impulse);
         
-        _controller.ImpulseBar -= 1f;
+        _playerControl.ImpulseBar -= _barReduce * Time.deltaTime;
         //Debug.Log(_controller.ImpulseBar);
         
         IsComplete = false;
@@ -37,7 +38,7 @@ public class PlayerState_Impulse : IPlayerState
             _controller.SetState(typeof(PlayerState_Move));
         } 
 
-        if(_playerControl.IsImpulse)  
+        if(_playerControl.IsImpulse && _playerControl.CanImpulse)  
         {
             _controller.SetState(typeof(PlayerState_Impulse));
         }

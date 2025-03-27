@@ -25,12 +25,12 @@ public class PlayerState_Move : IPlayerState
             _controller.SetState(typeof(PlayerState_Idle));
         }   
 
-        if(_playerControl.IsImpulse)  
+        if(_playerControl.IsImpulse && _playerControl.CanImpulse)  
         {
             _controller.SetState(typeof(PlayerState_Impulse));
         }  
         
-        _controller.ImpulseBar += 10f * Time.deltaTime;
+        _playerControl.ImpulseBar += 10f * Time.deltaTime;
     }
 
     public override void PhysicsUpdate()

@@ -74,11 +74,6 @@ public class SpaceshipController : MonoBehaviour
         transform.Translate(move, Space.World);
     }
 
-    /*public void Shoot()
-    {   
-        Instantiate(_bullet,transform.position,transform.rotation);
-    }*/
-
     public void Forward(float forwardSpeed)
     {
         this.transform.Translate(0, 0, forwardSpeed * Time.deltaTime, Space.World);
