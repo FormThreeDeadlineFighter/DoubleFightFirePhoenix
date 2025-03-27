@@ -121,7 +121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 447c2d0c93843674b81f4f850a376bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponType: 0
   damage: 0
   maxAmmo: 0
   weaponModel: {fileID: 5305821869157053147}

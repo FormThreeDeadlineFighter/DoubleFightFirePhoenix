@@ -17,7 +17,7 @@ public class Weapon_1 : IWeapon
 
     public override void Attack()
     {
-        if (HasAmmo())
+        if (HasAmmo)
         {
             currentAmmo--;
             Debug.Log($"Rifle fired! Remaining ammo: {currentAmmo}");
