@@ -5,16 +5,12 @@ public class WeaponManager : MonoBehaviour
     // 存放所有可切換的武器，這些武器都必須繼承 IWeapon
     public IWeapon[] weapons;
     private int currentWeaponIndex = 0;
-    private PlayerInput _playerInput;
     private void Awake()
     {
-        _playerInput = new PlayerInput();
-        _playerInput.PlayerControl.SwitchWeapon.performed += ctx => SwitchWeapon();
     }
 
     private void Start()
-    { 
-        _playerInput.PlayerControl.Enable();       
+    {    
         // 初始化時只啟用當前武器，其他武器關閉
         for (int i = 0; i < weapons.Length; i++)
         {
@@ -26,7 +22,7 @@ public class WeaponManager : MonoBehaviour
     {
 
     }
-    private void SwitchWeapon()
+    public void SwitchWeapon()
     {  
         // 停用目前武器
         weapons[currentWeaponIndex].gameObject.SetActive(false);

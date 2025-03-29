@@ -12,11 +12,10 @@ public abstract class IWeapon : MonoBehaviour
 
     protected virtual void Awake()
     {
-        
         currentAmmo = maxAmmo;
     }
 
-    public abstract void Attack();
+    public abstract void Attack(Transform transform);
 
     public virtual void Reload()
     {

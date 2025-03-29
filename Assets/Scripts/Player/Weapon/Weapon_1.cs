@@ -5,17 +5,14 @@ public class Weapon_1 : IWeapon
 {
     public float fireRate = 0.1f;
     private float nextFireTime = 0f;
+    
 
     private void Update()
     {
-        if (Input.GetButton("Fire1") && Time.time >= nextFireTime)
-        {
-            Attack();
-            nextFireTime = Time.time + fireRate;
-        }
+        
     }
 
-    public override void Attack()
+    public override void Attack(Transform transform)
     {
         if (HasAmmo)
         {

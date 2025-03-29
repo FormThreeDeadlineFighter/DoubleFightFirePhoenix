@@ -8,14 +8,10 @@ public class Weapon_2 : IWeapon
 
     private void Update()
     {
-        if (Input.GetButton("Fire1") && Time.time >= nextFireTime)
-        {
-            Attack();
-            nextFireTime = Time.time + fireRate;
-        }
+        
     }
 
-    public override void Attack()
+    public override void Attack(Transform transform)
     {
         if (HasAmmo)
         {
