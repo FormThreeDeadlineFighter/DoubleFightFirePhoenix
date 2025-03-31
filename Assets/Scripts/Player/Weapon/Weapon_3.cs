@@ -3,16 +3,10 @@ using UnityEngine.InputSystem;
 
 public class Weapon_3 : IWeapon
 {
-    public float fireRate = 0.1f;
-    private float nextFireTime = 0f;
-
-    private void Update()
+    private void Start()
     {
-        if (Input.GetButton("Fire1") && Time.time >= nextFireTime)
-        {
-            Attack();
-            nextFireTime = Time.time + fireRate;
-        }
+        maxAmmo = 30; 
+        fireRate = 3f;
     }
 
     public override void Attack()
@@ -20,17 +14,19 @@ public class Weapon_3 : IWeapon
         if (HasAmmo)
         {
             currentAmmo--;
-            Debug.Log($"Rifle fired! Remaining ammo: {currentAmmo}");
+            Debug.Log($"Weapon_3 fired! Remaining ammo: {currentAmmo}");
 
             // Instantiate bullet if prefab exists
             if (bulletPrefab != null)
             {
                 Instantiate(bulletPrefab, transform.position, transform.rotation);
             }
+            nextFireTime = Time.time + fireRate;
         }
         else
         {
             Debug.Log("Out of ammo!");
+            Reload();
         }
     }
 }

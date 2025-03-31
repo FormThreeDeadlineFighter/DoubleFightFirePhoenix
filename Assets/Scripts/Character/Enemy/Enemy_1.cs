@@ -1,13 +1,14 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Enemy_1 : MonoBehaviour
+public class Enemy_1 : IEnemy
 {
-    //string m_Name = "章魚小怪";
-    //int m_EnemyHP = 10;
-    //int m_AttackPower = 1;
-    public GameObject _Bullet;
-    public float m_EnemyLeaveTime = 15f;
+    private void Start()
+    {
+        m_Name = "章魚小怪";
+        m_EnemyHP = 10;
+        m_AttackPower = 1;
+    }
     float m_EnemyShootTime = 3f; //攻擊間隔 3 秒
     
     void FixedUpdate()
@@ -28,11 +29,11 @@ public class Enemy_1 : MonoBehaviour
         }
         
     }
-    public void Attack()
+    public override void Attack()
     {        
         Debug.Log("開始射擊"); 
         Instantiate(
-        _Bullet,
+        m_EnemyBullet,
         transform.position + new Vector3(0,0,-5),
         transform.rotation);    
            
@@ -45,14 +46,16 @@ public class Enemy_1 : MonoBehaviour
     //被子彈擊中
     private void OnTriggerEnter(Collider other)
     {
+        other.GetComponent<IBullet>();
         // 判斷來撞(或進入Trigger)的物件是否有子彈標籤
         if (other.CompareTag("Bullet"))
         {
-            // 做任何你想做的事，這裡是「小怪消失」
-            Destroy(gameObject);
-            // 或如果你想做特效、扣血等，也可以先做再銷毀
-            // e.g. m_EnemyHP -= 10;
-            // if(m_EnemyHP <= 0) Destroy(gameObject);
+            m_EnemyHP -=5;
+            if(m_EnemyHP ==0)
+            {
+                Destroy(gameObject);
+            }     
+            
         }
     }
     
