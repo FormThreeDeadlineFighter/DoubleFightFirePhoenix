@@ -43,15 +43,17 @@ public class Enemy_1 : IEnemy
     {      
         Destroy(gameObject);
     }
+    
     //被子彈擊中
     private void OnTriggerEnter(Collider other)
     {
-        other.GetComponent<IBullet>();
+        IBullet _bullet = other.GetComponent<IBullet>();
         // 判斷來撞(或進入Trigger)的物件是否有子彈標籤
         if (other.CompareTag("Bullet"))
         {
-            m_EnemyHP -=5;
-            if(m_EnemyHP ==0)
+            m_EnemyHP -= _bullet.damage;
+
+            if(m_EnemyHP <=0)
             {
                 Destroy(gameObject);
             }     

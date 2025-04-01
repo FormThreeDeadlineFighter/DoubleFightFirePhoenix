@@ -2,11 +2,11 @@ using UnityEngine;
 
 public abstract class IEnemy : MonoBehaviour
 {
-    protected string m_Name; //角色名字
-    protected int m_AttackPower; //攻擊力
-    protected int m_EnemyHP; //角色血量
-    protected float m_EnemyLeaveTime; //敵人自然死亡時間
-    protected GameObject m_EnemyBullet; //敵人的子彈
+    public string m_Name; //角色名字
+    public int m_AttackPower; //攻擊力
+    public int m_EnemyHP; //角色血量
+    public float m_EnemyLeaveTime; //敵人自然死亡時間
+    public GameObject m_EnemyBullet; //敵人的子彈
     
     // 強制所有敵人子類別實作「攻擊行為」
     public abstract void Attack();

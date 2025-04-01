@@ -9,7 +9,7 @@ public class Weapon_1 : IWeapon
         fireRate = 0.1f;
         damage = 1;
     }
-
+    #region 攻擊
     public override void Attack()
     {
         if (HasAmmo && Time.time >= nextFireTime)
@@ -30,4 +30,5 @@ public class Weapon_1 : IWeapon
             Reload();
         }
     }
+    #endregion
 }
