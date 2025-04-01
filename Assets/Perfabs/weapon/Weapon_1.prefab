@@ -124,5 +124,4 @@ MonoBehaviour:
   damage: 0
   maxAmmo: 0
   weaponModel: {fileID: 5305821869157053147}
-  bulletPrefab: {fileID: 6809347357280316662, guid: b0082e59d098eea4a8fbef5ef9816744, type: 3}
-  fireRate: 0.1
+  bulletPrefab: {fileID: 6809347357280316662, guid: cc6b3d0492bc4ea48ae955edfb5a1135, type: 3}

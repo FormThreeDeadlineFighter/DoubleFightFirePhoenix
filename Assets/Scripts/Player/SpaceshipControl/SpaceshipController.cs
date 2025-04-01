@@ -46,7 +46,7 @@ public class SpaceshipController : MonoBehaviour
     {
         var device = control.device;
         
-        if (device is Gamepad || device is Keyboard)
+        if (device is Gamepad || device is Keyboard || device is Mouse)
         {
             if (_player1.pairedDevices.Count == 0)
             {
@@ -56,14 +56,9 @@ public class SpaceshipController : MonoBehaviour
             else if (_player2.pairedDevices.Count == 0)
             {
                 InputUser.PerformPairingWithDevice(device, _player2);
-                Debug.Log(device.ToString() +" assigned to Player 2");
+                Debug.Log(device.ToString() + " assigned to Player 2");
             }
         }
-    }
-
-    private void OnDisable()
-    {
-        InputUser.onUnpairedDeviceUsed -= OnUnpairedDeviceUsed;
     }
 
     public void ShipMove()

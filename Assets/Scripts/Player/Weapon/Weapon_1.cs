@@ -2,32 +2,32 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Weapon_1 : IWeapon
-{
-    public float fireRate = 0.1f;
-    private float nextFireTime = 0f;
-    
-
-    private void Update()
+{ 
+    private void Start()
     {
-        
+        maxAmmo = 30; 
+        fireRate = 0.1f;
+        damage = 1;
     }
 
-    public override void Attack(Transform transform)
+    public override void Attack()
     {
-        if (HasAmmo)
+        if (HasAmmo && Time.time >= nextFireTime)
         {
             currentAmmo--;
-            Debug.Log($"Rifle fired! Remaining ammo: {currentAmmo}");
+            Debug.Log($"Weapon_1 fired! Remaining ammo: {currentAmmo}");
 
             // Instantiate bullet if prefab exists
             if (bulletPrefab != null)
             {
                 Instantiate(bulletPrefab, transform.position, transform.rotation);
             }
+            nextFireTime = Time.time + fireRate;
         }
         else
         {
             Debug.Log("Out of ammo!");
+            Reload();
         }
     }
 }
