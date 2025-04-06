@@ -1523,17 +1523,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5667479152410330536, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
-      propertyPath: crossHair
-      value: 
-      objectReference: {fileID: 235744367}
-    - target: {fileID: 5667479152410330536, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
       propertyPath: crosshair
       value: 
       objectReference: {fileID: 235744369}
-    - target: {fileID: 6644580237608697063, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
-      propertyPath: crossHair
-      value: 
-      objectReference: {fileID: 694966234}
     - target: {fileID: 6644580237608697063, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
       propertyPath: crosshair
       value: 

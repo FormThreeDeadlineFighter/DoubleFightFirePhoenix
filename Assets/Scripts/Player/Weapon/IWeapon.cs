@@ -8,9 +8,11 @@ public abstract class IWeapon : MonoBehaviour
     public float damage; //武器傷害
     protected int maxAmmo; //最大子彈數
     protected int currentAmmo; //當前擁有的子彈
-    protected bool HasAmmo => currentAmmo > 0; //判斷是否有子彈
+    
     protected float fireRate ; //射速
     protected float nextFireTime = 0f; //下一發射擊的冷卻時間
+    protected bool HasAmmo => currentAmmo > 0; //判斷是否有子彈
+    public virtual void Reload() => currentAmmo = maxAmmo; //裝填子彈
     
 
     protected virtual void Awake()
@@ -21,9 +23,4 @@ public abstract class IWeapon : MonoBehaviour
 
     public abstract void Attack();
 
-    public virtual void Reload()
-    {
-        currentAmmo = maxAmmo;
-        Debug.Log($"{gameObject.name} reloaded.");
-    }
 }

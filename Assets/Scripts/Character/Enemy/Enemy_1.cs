@@ -5,11 +5,12 @@ public class Enemy_1 : IEnemy
 {
     private void Start()
     {
-        m_Name = "章魚小怪";
-        m_EnemyHP = 10;
-        m_AttackPower = 1;
+        m_Name = "章魚小怪";     //名字
+        m_EnemyHP = 10;         //血量
+        m_AttackPower = 1;      //攻擊力
+        m_EnemyLeaveTime = 15f; //小怪死亡時間
+        m_EnemyShootTime = 3f;  //攻擊間隔
     }
-    float m_EnemyShootTime = 3f; //攻擊間隔 3 秒
     
     void FixedUpdate()
     {   
@@ -17,7 +18,7 @@ public class Enemy_1 : IEnemy
         m_EnemyLeaveTime -=Time.deltaTime;
         if(m_EnemyLeaveTime <= 0)
         {
-            Leave();
+            Die();
             m_EnemyLeaveTime = 15f;
         }
         //攻擊間隔
@@ -38,11 +39,6 @@ public class Enemy_1 : IEnemy
         transform.rotation);    
            
     }
-    //章魚自然死亡
-    public void Leave()
-    {      
-        Destroy(gameObject);
-    }
     
     //被子彈擊中
     private void OnTriggerEnter(Collider other)
@@ -53,9 +49,9 @@ public class Enemy_1 : IEnemy
         {
             m_EnemyHP -= _bullet.damage;
 
-            if(m_EnemyHP <=0)
+            if(m_EnemyHP <= 0)
             {
-                Destroy(gameObject);
+                Die();
             }     
             
         }
