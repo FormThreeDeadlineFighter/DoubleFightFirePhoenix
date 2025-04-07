@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class Bullet_1 : IBullet
+public class Bullet_3 : IBullet
 {
     
     private void Start()
     {
-        damage = 4;
+        damage = 10;
     }
 }
