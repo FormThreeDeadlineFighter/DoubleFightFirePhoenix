@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Forward : MonoBehaviour
+public class PlayerPos : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -9,8 +9,8 @@ public class Forward : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        transform.Translate(Vector3.forward*20*Time.deltaTime);
+        
     }
 }

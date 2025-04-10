@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4551762366300373535}
   - component: {fileID: 2027590280812934287}
   - component: {fileID: 4823732203909920538}
-  - component: {fileID: 6780619162170821043}
-  - component: {fileID: 3343937842596114032}
+  - component: {fileID: 7359048567885684514}
+  - component: {fileID: 8663928556978253267}
   m_Layer: 0
   m_Name: EnemyBullet_1
   m_TagString: Untagged
@@ -104,13 +104,25 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6780619162170821043
+--- !u!114 &7359048567885684514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7449039841977143347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a743b1c36116b284889487e346160991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8663928556978253267
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,16 +134,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24eaebd05a470794789cb80df1af93e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3343937842596114032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7449039841977143347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7a37f916e09b034c97b50df57923d7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifetime: 2
+  speed: 1000
+  damage: 0

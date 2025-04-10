@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public abstract class IEnemy : MonoBehaviour
 {
@@ -10,23 +12,27 @@ public abstract class IEnemy : MonoBehaviour
     public float m_EnemyShootTime; //敵人攻擊間隔時間
     public GameObject m_EnemyBullet; //敵人的子彈
     public GameObject Player; //玩家物件
-    private Vector3 PlayerPos => Player.transform.position; //玩家位置
+    public TextMeshPro m_HP;
     public void Die() => Destroy(gameObject); //敵人死亡
-    int forwardspeed = 20;
+    int forwardspeed = 200;
     
     // 強制所有敵人子類別實作「攻擊行為」
     public abstract void Attack();
     private void Start()
     {
-        
+
     }
     private void Update()
     {
+        Vector3 PlayerPos = Player.transform.position;
+        //transform.Translate(Vector3.forward * forwardspeed * Time.deltaTime);
+        Debug.Log(transform.position.z - PlayerPos.z);
         //如果玩家靠近 小怪自動向前
-        if(Vector3.Distance(PlayerPos,transform.position) < 5f)
+        if(transform.position.z - PlayerPos.z <= 400f)
         {
             transform.Translate(Vector3.forward * forwardspeed * Time.deltaTime);
         }
     }
+
 
 }
