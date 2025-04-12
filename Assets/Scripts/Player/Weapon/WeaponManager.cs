@@ -35,4 +35,9 @@ public class WeaponManager : MonoBehaviour
 
         Debug.Log("切換到武器：" + weapons[currentWeaponIndex].name);  
     }
+
+    public void Attack()
+    {
+        weapons[currentWeaponIndex].Attack();
+    }
 }

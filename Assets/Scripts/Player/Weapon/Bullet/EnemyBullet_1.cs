@@ -4,7 +4,7 @@ public class EnemyBullet_1 : IBullet
 {
     void Start()
     {
-        speed = 500;
+        speed = 100;
     }
 
     void Update()

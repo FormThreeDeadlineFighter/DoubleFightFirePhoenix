@@ -189,6 +189,7 @@ GameObject:
   - component: {fileID: 419871800787197129}
   - component: {fileID: 4739008005389719376}
   - component: {fileID: 568743650282939912}
+  - component: {fileID: 8591419470766168797}
   m_Layer: 0
   m_Name: "\u7AE0\u9B5A\u5C0F\u602A"
   m_TagString: Enemy
@@ -304,5 +305,25 @@ MonoBehaviour:
   m_EnemyLeaveTime: 15
   m_EnemyShootTime: 10
   m_EnemyBullet: {fileID: 7449039841977143347, guid: 28f5e64e40a161e40afcb37f3a419632, type: 3}
-  Player: {fileID: 980240293570265117, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
   m_HP: {fileID: 3054580505424829371}
+--- !u!65 &8591419470766168797
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6773782064709882009}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 1, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}

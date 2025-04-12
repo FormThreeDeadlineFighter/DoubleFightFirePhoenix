@@ -11,28 +11,39 @@ public abstract class IEnemy : MonoBehaviour
     public float m_EnemyLeaveTime; //敵人自然死亡時間
     public float m_EnemyShootTime; //敵人攻擊間隔時間
     public GameObject m_EnemyBullet; //敵人的子彈
-    public GameObject Player; //玩家物件
     public TextMeshPro m_HP;
     public void Die() => Destroy(gameObject); //敵人死亡
-    int forwardspeed = 200;
+    private void MoveForward() => transform.Translate(Vector3.forward * 200 * Time.deltaTime);  //敵人前進  
     
     // 強制所有敵人子類別實作「攻擊行為」
     public abstract void Attack();
     private void Start()
     {
-
+        
+        
     }
     private void Update()
     {
-        Vector3 PlayerPos = Player.transform.position;
-        //transform.Translate(Vector3.forward * forwardspeed * Time.deltaTime);
-        Debug.Log(transform.position.z - PlayerPos.z);
-        //如果玩家靠近 小怪自動向前
-        if(transform.position.z - PlayerPos.z <= 400f)
+        if (IsPlayerClose())
         {
-            transform.Translate(Vector3.forward * forwardspeed * Time.deltaTime);
+            MoveForward();
         }
     }
 
+    //玩家靠近
+    private bool IsPlayerClose()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player != null)
+        {
+            float PlayerPos = player.transform.position.z;
+            float EnemyPos = transform.position.z;
+
+            return (EnemyPos - PlayerPos <= 800f);
+        }
+
+        return false;
+    }
 
 }
