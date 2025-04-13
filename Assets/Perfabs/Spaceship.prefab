@@ -106,8 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01f6fdb23de0d484785cdb06614af9b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bullet: {fileID: 6809347357280316662, guid: b0082e59d098eea4a8fbef5ef9816744, type: 3}
-  _shipSpeed: 5
+  _shipMoveSpeed: 10
+  _shipforwardSpeed: 0
   _players:
   - {fileID: 2205242130432884929}
   - {fileID: 3372155554258707504}
@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b444025bf541ce48bd5678bc2227c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _impulseBar: 100
+  _impulseBarValue: 0
 --- !u!114 &5667479152410330536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crosshair: {fileID: 0}
+  _firePoint: {fileID: 7163131241961792588}
 --- !u!114 &6750133866501703219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,7 +240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7163131241961792588}
   m_Layer: 0
-  m_Name: "\u69CD\u53E3"
+  m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -254,8 +255,8 @@ Transform:
   m_GameObject: {fileID: 2609670922435435881}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.007, y: -0.029, z: 0.574}
-  m_LocalScale: {x: 0.10298505, y: 0.20270048, z: 0.08072473}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 531676916835943959}
@@ -348,7 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b444025bf541ce48bd5678bc2227c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _impulseBar: 100
+  _impulseBarValue: 0
 --- !u!114 &6644580237608697063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,6 +363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crosshair: {fileID: 0}
+  _firePoint: {fileID: 3122492940598747184}
 --- !u!114 &5855123158853137791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,7 +390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3122492940598747184}
   m_Layer: 0
-  m_Name: "\u69CD\u53E3"
+  m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -403,8 +405,8 @@ Transform:
   m_GameObject: {fileID: 8260581185905927071}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0029999763, y: -0.029, z: 0.574}
-  m_LocalScale: {x: 0.10298505, y: 0.20270048, z: 0.08072473}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8896995084109479035}

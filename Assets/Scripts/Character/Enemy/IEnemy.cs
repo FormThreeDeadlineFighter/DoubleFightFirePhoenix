@@ -26,7 +26,7 @@ public abstract class IEnemy : MonoBehaviour
     {
         if (IsPlayerClose())
         {
-            MoveForward();
+            //MoveForward();
         }
     }
 

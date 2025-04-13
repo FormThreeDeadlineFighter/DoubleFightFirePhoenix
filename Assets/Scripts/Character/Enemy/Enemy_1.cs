@@ -35,10 +35,7 @@ public class Enemy_1 : IEnemy
     public override void Attack()
     {        
         Debug.Log("開始射擊"); 
-        Instantiate(
-        m_EnemyBullet,
-        transform.position + new Vector3(0,0,-5),
-        transform.rotation);    
+        Instantiate(m_EnemyBullet,transform.position + new Vector3(0,0,-5),transform.rotation);    
            
     }
     

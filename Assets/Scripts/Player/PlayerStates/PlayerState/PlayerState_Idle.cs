@@ -4,8 +4,6 @@ using UnityEngine.InputSystem;
 [CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/Idle", fileName = "PlayerState_Idle")]
 public class PlayerState_Idle : IPlayerState
 {
-    [SerializeField] float _forwardSpeed;
-
     public override void EnterState()
     {
         Debug.Log(_name +"進入待機狀態");
@@ -40,6 +38,6 @@ public class PlayerState_Idle : IPlayerState
             //_shipController.Shoot();
         }
 
-        _shipController.Forward(_forwardSpeed);
+        _shipController.Forward();
     }
 }

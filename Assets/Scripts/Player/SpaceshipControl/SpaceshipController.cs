@@ -8,8 +8,9 @@ using UnityEngine.InputSystem.Users;
 
 public class SpaceshipController : MonoBehaviour
 {
-    [SerializeField] GameObject _bullet;
-    [SerializeField] float _shipSpeed = 10;
+
+    [SerializeField] float _shipMoveSpeed = 10f;
+    [SerializeField] float _shipforwardSpeed = 100f;
     [SerializeField] GameObject[] _players;
     
     private SinglePlayerControl _playerControl1 => _players[0].GetComponent<SinglePlayerControl>();
@@ -46,7 +47,7 @@ public class SpaceshipController : MonoBehaviour
     {
         var device = control.device;
         
-        if (device is Gamepad || device is Keyboard || device is Mouse)
+        if (device is Gamepad || device is Keyboard)
         {
             if (_player1.pairedDevices.Count == 0)
             {
@@ -64,11 +65,16 @@ public class SpaceshipController : MonoBehaviour
     public void ShipMove()
     {
         Vector2 finalMoveInput = (_player1MoveVector + _player2MoveVector).normalized;       
-        Vector3 move = new Vector3(finalMoveInput.x, finalMoveInput.y, 0) * _shipSpeed * Time.deltaTime;
+        Vector3 move = new Vector3(finalMoveInput.x, finalMoveInput.y, 0) * _shipMoveSpeed * Time.deltaTime;
         
         transform.Translate(move, Space.World);
     }
 
+    public void Forward()
+    {
+        this.transform.Translate(0, 0, _shipforwardSpeed * Time.deltaTime, Space.World);
+    }
+    
     public void Forward(float forwardSpeed)
     {
         this.transform.Translate(0, 0, forwardSpeed * Time.deltaTime, Space.World);

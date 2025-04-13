@@ -6,21 +6,30 @@ using UnityEngine.InputSystem.Users;
 
 public class SinglePlayerControl : MonoBehaviour
 {
+    // Unity input system : PlayerInput Script Creates
     private PlayerInput _playerInput;
+    //player Move Vector
     private Vector2 _playerMoveVector => _playerInput.PlayerControl.Move.ReadValue<Vector2>();
+    
+    //player Look position
     public Vector2 _playerLookPosition => _playerInput.UI.Look.ReadValue<Vector2>();
+    
+    // Is player moving
     public bool IsMove => _playerMoveVector != Vector2.zero;
+    // Is player shooting 
     public bool IsShoot => _playerInput.PlayerControl.Shoot.IsPressed();
+    // Is player Impulsing
     public bool IsImpulse => _playerInput.PlayerControl.Impulse.IsPressed();
 
-    [SerializeField] private float _impulseBar = 100f;
+    // bar value
+    [SerializeField] private float _impulseBarValue;
 
     #region getset
     public bool CanImpulse
     {
         get
         {
-            if (_impulseBar <= 0)
+            if (_impulseBarValue <= 0)
             {
                 return false;
             }
@@ -30,19 +39,19 @@ public class SinglePlayerControl : MonoBehaviour
     }
     public float ImpulseBar
     {
-        get { return _impulseBar; }
+        get { return _impulseBarValue; }
         set
         {
-            if (_impulseBar > 100)
+            if (_impulseBarValue > 100)
             {
-                _impulseBar = 100;
+                _impulseBarValue = 100;
             }
-            else if (_impulseBar < 0)
+            else if (_impulseBarValue < 0)
             {
-                _impulseBar = 0;
+                _impulseBarValue = 0;
             }
             else
-                _impulseBar = value;
+                _impulseBarValue = value;
         }
     }
     public PlayerInput PlayerInput
@@ -65,6 +74,7 @@ public class SinglePlayerControl : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _impulseBar = 100f;
+        //when Start sure bar value is 100
+        _impulseBarValue = 100f;
     }
 }

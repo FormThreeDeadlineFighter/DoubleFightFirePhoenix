@@ -4,6 +4,8 @@ using UnityEngine.UI;
 public class CrosshairControl : MonoBehaviour
 {
     [SerializeField] Image crosshair;
+    [SerializeField] Transform _firePoint;
+    //[SerializeField] Transform _raycastPoint;
 
     SinglePlayerControl pc;
 
@@ -12,14 +14,26 @@ public class CrosshairControl : MonoBehaviour
     {
         pc = GetComponent<SinglePlayerControl>();
         crosshair.transform.position = Vector2.zero;
-        Cursor.visible = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         Vector2 crossHairPosition = pc._playerLookPosition;
-        Debug.Log(crossHairPosition);
-        crosshair.transform.position = crossHairPosition;
+        
+        crosshair.transform.position += new Vector3(crossHairPosition.x, crossHairPosition.y, 0) * 5;
+        
+        Ray ray = Camera.main.ScreenPointToRay(crosshair.transform.position);
+        if(Physics.Raycast(ray, out RaycastHit hit, 100f))
+        {
+            Vector3 targetPoint = hit.point;
+            Debug.DrawLine(ray.origin, targetPoint, crosshair.color, 2f);
+            
+            if(hit.collider.tag == "Enemy")
+            {
+                Debug.Log("鎖定敵人");
+            }
+            
+        }
     }
 }

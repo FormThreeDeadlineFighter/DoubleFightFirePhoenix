@@ -4,8 +4,6 @@ using UnityEngine.InputSystem;
 [CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/Move", fileName = "PlayerState_Move")]
 public class PlayerState_Move : IPlayerState
 {
-    [SerializeField] float _forwardSpeed;
-
     public override void EnterState()
     {
         Debug.Log(_name +"進入移動狀態");
@@ -37,6 +35,6 @@ public class PlayerState_Move : IPlayerState
     {
         _shipController.ShipMove();
 
-        _shipController.Forward(_forwardSpeed);
+        _shipController.Forward();
     }
 }
