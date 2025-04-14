@@ -10,7 +10,7 @@ public class WeaponManager : MonoBehaviour
     }
 
     private void Start()
-    {    
+    {  
         // 初始化時只啟用當前武器，其他武器關閉
         for (int i = 0; i < weapons.Length; i++)
         {

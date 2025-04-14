@@ -8,7 +8,7 @@ public class Enemy_1 : IEnemy
         m_Name = "章魚小怪";     //名字
         m_EnemyHP = 10;         //血量
         m_AttackPower = 1;      //攻擊力
-        m_EnemyLeaveTime = 15f; //小怪死亡時間
+        m_EnemyLeaveTime = 150f; //小怪死亡時間
         m_EnemyShootTime = 3f;  //攻擊間隔
                 
         m_HP.text = "HP : " + m_EnemyHP;
@@ -16,26 +16,33 @@ public class Enemy_1 : IEnemy
     
     void FixedUpdate()
     {   
-        //章魚存活時間       
+        /*//章魚存活時間       
         m_EnemyLeaveTime -=Time.deltaTime;
         if(m_EnemyLeaveTime <= 0)
         {
             Die();
             m_EnemyLeaveTime = 15f;
-        }
-        //攻擊間隔
-        m_EnemyShootTime -=Time.deltaTime;
-        if(m_EnemyShootTime <= 0)
+        }*/
+        
+        if (IsPlayerClose())
         {
-            Attack();
-            m_EnemyShootTime = 3f;
+            //MoveForward();
+
+            //攻擊間隔
+            m_EnemyShootTime -=Time.deltaTime;
+            if(m_EnemyShootTime <= 0)
+            {
+                Attack();
+                m_EnemyShootTime = 3f;
+            }
         }
+        
         
     }
     public override void Attack()
     {        
-        Debug.Log("開始射擊"); 
-        Instantiate(m_EnemyBullet,transform.position + new Vector3(0,0,-5),transform.rotation);    
+        Debug.Log("開始射擊");         
+        IsPlayerPos();    
            
     }
     
