@@ -13,14 +13,17 @@ public abstract class IWeapon : MonoBehaviour
     protected float nextFireTime = 0f; //下一發射擊的冷卻時間
     protected bool HasAmmo => currentAmmo > 0; //判斷是否有子彈
     public virtual void Reload() => currentAmmo = maxAmmo; //裝填子彈
+
     
 
     protected virtual void Awake()
     {       
         currentAmmo = maxAmmo;
     } 
-
+    
 
     public abstract void Attack();
+
+
 
 }

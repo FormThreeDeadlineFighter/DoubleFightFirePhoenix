@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_AttackPower: 1
   m_EnemyHP: 100
-  m_EnemyLeaveTime: 15
+  m_EnemyLeaveTime: 100
   m_EnemyShootTime: 10
   m_EnemyBullet: {fileID: 7449039841977143347, guid: 28f5e64e40a161e40afcb37f3a419632, type: 3}
   m_HP: {fileID: 3054580505424829371}

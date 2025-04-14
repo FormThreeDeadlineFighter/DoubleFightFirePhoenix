@@ -8,6 +8,7 @@ public class CrosshairControl : MonoBehaviour
     //[SerializeField] Transform _raycastPoint;
 
     SinglePlayerControl pc;
+    public Vector3 targetPoint;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,12 +27,12 @@ public class CrosshairControl : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(crosshair.transform.position);
         if(Physics.Raycast(ray, out RaycastHit hit, 100f))
         {
-            Vector3 targetPoint = hit.point;
+            targetPoint = hit.point;
             Debug.DrawLine(ray.origin, targetPoint, crosshair.color, 2f);
             
             if(hit.collider.tag == "Enemy")
             {
-                Debug.Log("鎖定敵人");
+                //Debug.Log("鎖定敵人" + targetPoint);
             }
             
         }
