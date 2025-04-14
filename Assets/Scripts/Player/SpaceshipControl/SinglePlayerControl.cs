@@ -24,7 +24,7 @@ public class SinglePlayerControl : MonoBehaviour
     // bar value
     [SerializeField] private float _impulseBarValue;
 
-    #region getset
+    #region accessor
     public bool CanImpulse
     {
         get

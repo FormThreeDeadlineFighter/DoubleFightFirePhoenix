@@ -8,9 +8,14 @@ using UnityEngine.InputSystem.Users;
 
 public class SpaceshipController : MonoBehaviour
 {
-
+    //Ship HP
+    [SerializeField] float _shipHealth = 10f;
+    //Ship moving speed
     [SerializeField] float _shipMoveSpeed = 10f;
+    // Ship forward speed
     [SerializeField] float _shipforwardSpeed = 100f;
+    
+    #region player manager
     [SerializeField] GameObject[] _players;
     
     private SinglePlayerControl _playerControl1 => _players[0].GetComponent<SinglePlayerControl>();
@@ -18,9 +23,33 @@ public class SpaceshipController : MonoBehaviour
 
     private InputUser _player1;
     private InputUser _player2;
+    
+    #endregion
 
-    [SerializeField] private Vector2 _player1MoveVector => _playerControl1.PlayerMoveVector;
-    [SerializeField] private Vector2 _player2MoveVector => _playerControl2.PlayerMoveVector;
+    #region accessor
+    
+    public float ShipHealth
+    {
+        get{ return _shipHealth;}
+        set
+        {
+            if(ShipHealth <= 0)
+            {
+                ShipHealth = 0;
+            }
+            else
+            {
+                ShipHealth = value;
+            }
+        }
+    } 
+    
+    #endregion
+    
+    // player 1 move direction
+    private Vector2 _player1MoveVector => _playerControl1.PlayerMoveVector;
+    // player 2 move direction
+    private Vector2 _player2MoveVector => _playerControl2.PlayerMoveVector;
 
     private void Awake()
     {
