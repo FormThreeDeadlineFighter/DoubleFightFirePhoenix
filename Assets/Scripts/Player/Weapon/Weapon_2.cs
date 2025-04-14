@@ -3,24 +3,32 @@ using UnityEngine.InputSystem;
 
 public class Weapon_2 : IWeapon
 {
+    private CrosshairControl crosshairControl; // ✅ 自己存一個對應準星控制器
     private void Start()
     {
         maxAmmo = 30; 
         fireRate = 2f;
+
+        // ✅ 從父物件找 CrosshairControl（也就是自己玩家的）
+        crosshairControl = GetComponentInParent<CrosshairControl>();
+        if (crosshairControl == null)
+        {
+            Debug.LogWarning($"{gameObject.name} 找不到對應的 CrosshairControl！");
+        }
     }
 
     public override void Attack()
     {
-        if (HasAmmo)
+        if (HasAmmo && Time.time >= nextFireTime)
         {
             currentAmmo--;
-            Debug.Log($"Weapon_2 fired! Remaining ammo: {currentAmmo}");
+            Debug.Log($"Weapon_1 fired! Remaining ammo: {currentAmmo}");
 
-            // Instantiate bullet if prefab exists
             if (bulletPrefab != null)
             {
-                Instantiate(bulletPrefab, transform.position, transform.rotation);
+                FireTowardCrosshair();
             }
+
             nextFireTime = Time.time + fireRate;
         }
         else
@@ -28,5 +36,17 @@ public class Weapon_2 : IWeapon
             Debug.Log("Out of ammo!");
             Reload();
         }
+    }
+    private void FireTowardCrosshair()
+    {
+        if (crosshairControl == null) return;
+
+        Vector3 targetPoint = crosshairControl.targetPoint;
+        Debug.Log($"[{gameObject.name}] 準星鎖定點: {targetPoint}");
+
+        Vector3 direction = (targetPoint - transform.position).normalized;
+        Quaternion rotation = Quaternion.LookRotation(direction);
+
+        Instantiate(bulletPrefab, transform.position, rotation);
     }
 }

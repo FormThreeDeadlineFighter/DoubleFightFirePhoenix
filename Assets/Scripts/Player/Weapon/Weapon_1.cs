@@ -21,7 +21,13 @@ public class Weapon_1 : IWeapon
 
     private void Update()
     {
-        
+        // 用 damage 當攻擊冷卻（如果是測試用 ok）
+        damage -= Time.deltaTime;
+        if (damage <= 0)
+        {
+            damage = 2f;
+            FireTowardCrosshair(); // ✅ 改名比較清楚
+        }
     }
 
     public override void Attack()
