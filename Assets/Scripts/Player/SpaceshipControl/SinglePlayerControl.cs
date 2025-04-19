@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Users;
 
+[RequireComponent(typeof(WeaponManager))]
 public class SinglePlayerControl : MonoBehaviour
 {
     // Unity input system : PlayerInput Script Creates
@@ -22,7 +23,7 @@ public class SinglePlayerControl : MonoBehaviour
     public bool IsImpulse => _playerInput.PlayerControl.Impulse.IsPressed();
 
     // bar value
-    [SerializeField] private float _impulseBarValue;
+    [SerializeField] private float _impulseBarValue;       
 
     #region accessor
     public bool CanImpulse
@@ -75,6 +76,6 @@ public class SinglePlayerControl : MonoBehaviour
     void Start()
     {
         //when Start sure bar value is 100
-        _impulseBarValue = 100f;
+        _impulseBarValue = 100f;        
     }
 }

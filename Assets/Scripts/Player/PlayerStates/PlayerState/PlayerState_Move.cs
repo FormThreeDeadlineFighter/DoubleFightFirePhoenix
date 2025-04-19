@@ -16,8 +16,7 @@ public class PlayerState_Move : IPlayerState
 
     public override void LogicUpdate()
     {
-        Debug.Log(_name +"正在移動");
-        
+           
         if(!_playerControl.IsMove)
         {
             _controller.SetState(typeof(PlayerState_Idle));
@@ -33,6 +32,13 @@ public class PlayerState_Move : IPlayerState
 
     public override void PhysicsUpdate()
     {
+        //Shooting
+        if(_playerControl.IsShoot)
+        {
+            Debug.Log(_name+" is shoot");
+            _weaponManager.Attack();
+        }
+        
         _shipController.ShipMove();
 
         _shipController.Forward();

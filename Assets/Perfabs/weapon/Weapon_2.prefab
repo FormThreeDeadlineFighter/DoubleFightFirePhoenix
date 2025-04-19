@@ -121,7 +121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2b2c8e2e51bdd44b9915bb82a28cee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  maxAmmo: 0
   weaponModel: {fileID: 5305821869157053147}
   bulletPrefab: {fileID: 6809347357280316662, guid: 450f02285ef6d064793c1ab833eec061, type: 3}
+  damage: 1

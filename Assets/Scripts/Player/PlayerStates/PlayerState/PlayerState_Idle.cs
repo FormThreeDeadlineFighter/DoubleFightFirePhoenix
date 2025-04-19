@@ -30,12 +30,14 @@ public class PlayerState_Idle : IPlayerState
         _playerControl.ImpulseBar += 10f * Time.deltaTime;
     }
 
+    // 物理相關的更新（如果有的話）
     public override void PhysicsUpdate()
     {
-        // 物理相關的更新（如果有的話）
+        //Shooting
         if(_playerControl.IsShoot)
         {
-            //_shipController.Shoot();
+            Debug.Log(_name+" is shoot");
+            _weaponManager.Attack();
         }
 
         _shipController.Forward();

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(SinglePlayerControl))]
+[RequireComponent(typeof(SinglePlayerControl), typeof(WeaponManager))]
 public class PlayerStateController : IStateController
 {   
     [SerializeField] IPlayerState[] _playerStates;
@@ -11,6 +11,7 @@ public class PlayerStateController : IStateController
     private Rigidbody _rb;
     private SpaceshipController _shipController;
     private SinglePlayerControl _playerControl;
+    private WeaponManager _weaponManager; 
     
     
 
@@ -20,12 +21,13 @@ public class PlayerStateController : IStateController
         _shipController = this.transform.parent.GetComponent<SpaceshipController>();
         _playerControl = this.transform.GetComponent<SinglePlayerControl>();
         _rb = this.transform.parent.GetComponent<Rigidbody>();
+        _weaponManager = this.transform.GetComponent<WeaponManager>();
 
         _stateTable = new Dictionary<System.Type, IState>(_playerStates.Length);
 
         foreach(IPlayerState state in _playerStates)
         {
-            state.Initialize(this, _animator, _playerControl, _shipController, _rb, _name);
+            state.Initialize(this, _animator, _playerControl, _shipController, _rb, _weaponManager, _name);
             _stateTable.Add(state.GetType(), state);
         }
         
