@@ -14,7 +14,7 @@ public class Enemy_1 : IEnemy
         m_HP.text = "HP : " + m_EnemyHP;
     }
     
-    void FixedUpdate()
+    void Update()
     {   
         /*//章魚存活時間       
         m_EnemyLeaveTime -=Time.deltaTime;
