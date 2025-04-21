@@ -4,14 +4,15 @@ using UnityEngine.InputSystem;
 [CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/Move", fileName = "PlayerState_Move")]
 public class PlayerState_Move : IPlayerState
 {
+    //進入移動狀態
     public override void EnterState()
     {
-        Debug.Log(_name +"進入移動狀態");
+        //Debug.Log(_name +"進入移動狀態");
     }
-
+    //離開移動狀態
     public override void ExitState()
     {
-        Debug.Log(_name +"離開移動狀態");
+        //Debug.Log(_name +"離開移動狀態");
     }
 
     public override void LogicUpdate()
@@ -34,8 +35,7 @@ public class PlayerState_Move : IPlayerState
     {
         //Shooting
         if(_playerControl.IsShoot)
-        {
-            Debug.Log(_name+" is shoot");
+        {           
             _weaponManager.Attack();
         }
         

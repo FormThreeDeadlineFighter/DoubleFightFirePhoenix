@@ -5,34 +5,31 @@ public class WeaponManager : MonoBehaviour
     // 存放所有可切換的武器，這些武器都必須繼承 IWeapon
     public IWeapon[] weapons;
     public GameObject _firepoint;
-    private int currentWeaponIndex = 0;
-    
-    private void Awake()
-    {
-    }
+    private int currentWeaponIndex = 0;   
 
     private void Start()
     {
         weapons[currentWeaponIndex] = SpawnWeapon(currentWeaponIndex);
+        weapons[currentWeaponIndex].InitializeWeapon();
+        weapons[currentWeaponIndex].nextFireTime = 0;
+    }
+    
+    void Update()
+    {
+        weapons[currentWeaponIndex].nextFireTime -= Time.deltaTime;
     }
 
     private IWeapon SpawnWeapon(int weaponIndex)
     {
-        GameObject weaponInstance = Instantiate(
-            weapons[weaponIndex].gameObject,
-            _firepoint.transform.position,
-            _firepoint.transform.rotation
-        );
-
-        weaponInstance.transform.SetParent(_firepoint.transform); // 設為 FirePoint 子物件
-        return weaponInstance.GetComponent<IWeapon>();             // 回傳實體的 IWeapon
+        //生成武器
+        GameObject weaponInstance = Instantiate(weapons[weaponIndex].gameObject, _firepoint.transform.position, _firepoint.transform.rotation);
+        
+        // 設為 FirePoint 子物件
+        weaponInstance.transform.SetParent(_firepoint.transform); 
+        // 回傳實體的 IWeapon
+        return weaponInstance.GetComponent<IWeapon>();             
     }
-
-
-    private void Update()
-    {
-
-    }
+    
     public void SwitchWeapon()
     {  
         // 刪除目前武器（如果有的話）
@@ -46,14 +43,15 @@ public class WeaponManager : MonoBehaviour
 
         // 生成並儲存新武器
         weapons[currentWeaponIndex] = SpawnWeapon(currentWeaponIndex);
-
-        Debug.Log("切換到武器：" + weapons[currentWeaponIndex].name);        
-
+        Debug.Log("切換到武器：" + weapons[currentWeaponIndex].name);       
         
+        // 初始化新武器
+        weapons[currentWeaponIndex].InitializeWeapon();
         }
-
+    //Attack
     public void Attack()
     {
+        //using current weapon attack
         weapons[currentWeaponIndex].Attack();
     }
 }

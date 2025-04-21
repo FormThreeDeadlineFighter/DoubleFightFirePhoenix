@@ -123,4 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponModel: {fileID: 5305821869157053147}
   bulletPrefab: {fileID: 6809347357280316662, guid: cc6b3d0492bc4ea48ae955edfb5a1135, type: 3}
-  damage: 1
+  damage: 2
+  maxAmmo: 20
+  fireRate: 0.2
+  nextFireTime: 0

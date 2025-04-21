@@ -4,14 +4,15 @@ using UnityEngine.InputSystem;
 [CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/Idle", fileName = "PlayerState_Idle")]
 public class PlayerState_Idle : IPlayerState
 {
+    //進入待機狀態
     public override void EnterState()
     {
-        Debug.Log(_name +"進入待機狀態");
+        //Debug.Log(_name +"進入待機狀態");
     }
-
+     //離開待機狀態
     public override void ExitState()
     {
-        Debug.Log(_name +"離開待機狀態");
+        //Debug.Log(_name +"離開待機狀態");
     }
 
     public override void LogicUpdate()
@@ -36,7 +37,6 @@ public class PlayerState_Idle : IPlayerState
         //Shooting
         if(_playerControl.IsShoot)
         {
-            Debug.Log(_name+" is shoot");
             _weaponManager.Attack();
         }
 

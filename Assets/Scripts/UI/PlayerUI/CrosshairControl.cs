@@ -26,13 +26,11 @@ public class CrosshairControl : MonoBehaviour
         
         Ray ray = Camera.main.ScreenPointToRay(crosshair.transform.position);
         if(Physics.Raycast(ray, out RaycastHit hit, _rayRange))
-        {
-            targetPoint = hit.point;
-            Debug.DrawLine(ray.origin, targetPoint, crosshair.color, 2f);
-            
+        {          
             if(hit.collider.tag == "Enemy")
             {           
-                Debug.Log("鎖定敵人" + targetPoint);
+                targetPoint = hit.point;
+                Debug.DrawLine(ray.origin, targetPoint, crosshair.color, 2f);
                 return;
             }   
             

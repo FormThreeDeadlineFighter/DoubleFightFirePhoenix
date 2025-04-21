@@ -8,10 +8,11 @@ public class PlayerState_Impulse : IPlayerState
     [SerializeField] float _positionx;
     [SerializeField] float _drag;
     [SerializeField] float _barReduce;
-
+    
+    //進入加速狀態
     public override void EnterState()
     {
-        Debug.Log(_name + "進入加速狀態");
+        //Debug.Log(_name + "進入加速狀態");
         _rb.AddForce(_shipController.transform.forward *_forceSpeed, ForceMode.Impulse);
         _rb.AddForce(new Vector3(_positionx,0,0), ForceMode.Impulse);
         
@@ -20,7 +21,7 @@ public class PlayerState_Impulse : IPlayerState
         
         IsComplete = false;
     }
-
+    //離開加速狀態
     public override void ExitState()
     {
         Debug.Log(_name + "離開加速狀態");
