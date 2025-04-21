@@ -5,7 +5,7 @@ public class Enemy_1 : IEnemy
 {
     private void Start()
     {
-        m_Name = "章魚小怪";     //名字
+        m_characterName = "章魚小怪";     //名字
         m_EnemyHP = 10;         //血量
         m_AttackPower = 1;      //攻擊力
         m_EnemyLeaveTime = 150f; //小怪死亡時間

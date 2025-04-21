@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 public class Weapon_1 : IWeapon
 {
     private CrosshairControl crosshairControl; // ✅ 自己存一個對應準星控制器
-
     private void Start()
     {
         maxAmmo = 30;
@@ -32,7 +31,8 @@ public class Weapon_1 : IWeapon
 
     public override void Attack()
     {
-        if (HasAmmo && Time.time >= nextFireTime)
+        FireTowardCrosshair();
+        /*if (HasAmmo)
         {
             currentAmmo--;
             Debug.Log($"Weapon_1 fired! Remaining ammo: {currentAmmo}");
@@ -48,7 +48,7 @@ public class Weapon_1 : IWeapon
         {
             Debug.Log("Out of ammo!");
             Reload();
-        }
+        }*/
     }
 
     private void FireTowardCrosshair()

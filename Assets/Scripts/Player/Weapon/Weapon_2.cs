@@ -6,8 +6,9 @@ public class Weapon_2 : IWeapon
     private CrosshairControl crosshairControl; // ✅ 自己存一個對應準星控制器
     private void Start()
     {
-        maxAmmo = 30; 
-        fireRate = 2f;
+        maxAmmo = 30;
+        fireRate = 0.1f;
+        damage = 2;
 
         // ✅ 從父物件找 CrosshairControl（也就是自己玩家的）
         crosshairControl = GetComponentInParent<CrosshairControl>();

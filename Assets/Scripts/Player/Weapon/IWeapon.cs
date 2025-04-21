@@ -23,6 +23,7 @@ public abstract class IWeapon : MonoBehaviour
     
 
     public abstract void Attack();
+    
 
 
 

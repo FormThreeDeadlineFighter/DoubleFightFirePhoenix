@@ -208,6 +208,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1584592359}
+--- !u!1 &125840968 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2609670922435435881, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
+  m_PrefabInstance: {fileID: 1179376314}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &139219580
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -467,6 +472,11 @@ CanvasRenderer:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8c2759a0df27dce49ac871616c0a48cb, type: 3}
   m_PrefabInstance: {fileID: 2090282773}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &330102283 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8260581185905927071, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
+  m_PrefabInstance: {fileID: 1179376314}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &344443455
 PrefabInstance:
@@ -1423,14 +1433,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3122492940598747184, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122492940598747184, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.7824
+      objectReference: {fileID: 0}
     - target: {fileID: 5667479152410330536, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
       propertyPath: crosshair
       value: 
       objectReference: {fileID: 235744369}
+    - target: {fileID: 5855123158853137791, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
+      propertyPath: _firepoint
+      value: 
+      objectReference: {fileID: 330102283}
     - target: {fileID: 6644580237608697063, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
       propertyPath: crosshair
       value: 
       objectReference: {fileID: 694966235}
+    - target: {fileID: 6750133866501703219, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
+      propertyPath: _firepoint
+      value: 
+      objectReference: {fileID: 125840968}
+    - target: {fileID: 7163131241961792588, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163131241961792588, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.7824
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
