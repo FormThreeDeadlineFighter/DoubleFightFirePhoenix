@@ -1446,6 +1446,10 @@ PrefabInstance:
       value: 0.7824
       objectReference: {fileID: 0}
     - target: {fileID: 5667479152410330536, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
+      propertyPath: _rayRange
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 5667479152410330536, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
       propertyPath: crosshair
       value: 
       objectReference: {fileID: 235744369}
@@ -1453,6 +1457,10 @@ PrefabInstance:
       propertyPath: _firepoint
       value: 
       objectReference: {fileID: 330102283}
+    - target: {fileID: 6644580237608697063, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
+      propertyPath: _rayRange
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 6644580237608697063, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
       propertyPath: crosshair
       value: 
