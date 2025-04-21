@@ -974,6 +974,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1367729905025743440, guid: 1dfec06fc23888d4d885990562ac1044, type: 3}
+      propertyPath: m_characterName
+      value: "\u96FB\u9BF0"
+      objectReference: {fileID: 0}
     - target: {fileID: 5986951223321643822, guid: 1dfec06fc23888d4d885990562ac1044, type: 3}
       propertyPath: m_Name
       value: "\u96FB\u9BF0"
@@ -1338,7 +1342,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 10
+  near clip plane: 1
   far clip plane: 200
   field of view: 30
   orthographic: 0
@@ -1632,7 +1636,7 @@ MonoBehaviour:
   Lens:
     FieldOfView: 30
     OrthographicSize: 5
-    NearClipPlane: 10
+    NearClipPlane: 1
     FarClipPlane: 200
     Dutch: 0
     ModeOverride: 2

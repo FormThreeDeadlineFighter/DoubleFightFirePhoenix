@@ -308,7 +308,7 @@ GameObject:
   - component: {fileID: 7443679007748247429}
   m_Layer: 0
   m_Name: "\u96FB\u9BF0"
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -341,7 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa45814e6049c9b4bad4bf82e411750e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
+  m_characterName: "\u96FB\u9BF0"
   m_AttackPower: 1
   m_EnemyHP: 10
   m_EnemyLeaveTime: 500
