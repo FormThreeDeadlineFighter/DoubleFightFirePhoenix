@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public abstract class IEnemy : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public abstract class IEnemy : MonoBehaviour
     public TextMeshPro m_HP;
     public void Die() => Destroy(gameObject); //敵人死亡
     public void MoveForward() => transform.Translate(Vector3.forward * 200 * Time.deltaTime);  //敵人前進  
+    public Action<int> damage;
     
     // 強制所有敵人子類別實作「攻擊行為」
     public abstract void Attack();
@@ -60,4 +62,19 @@ public abstract class IEnemy : MonoBehaviour
         }
     }
 
+    //被子彈擊中
+    private void OnTriggerEnter(Collider other)
+    {
+        // 判斷來撞(或進入Trigger)的物件是否有子彈標籤
+        if (other.TryGetComponent<IBullet>(out IBullet _bullet))
+        {
+            Debug.Log("hit");
+            m_EnemyHP -= _bullet.damage;
+            m_HP.text = "HP : " + m_EnemyHP;
+            if (m_EnemyHP <= 0)
+            {
+                Die();
+            }
+        }
+    }
 }

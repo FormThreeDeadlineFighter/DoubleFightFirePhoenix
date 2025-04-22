@@ -35,7 +35,8 @@ public class PlayerState_Move : IPlayerState
     {
         //Shooting
         if(_playerControl.IsShoot)
-        {           
+        {
+            //Debug.Log($"{ _name}akkack");
             _weaponManager.Attack();
         }
         

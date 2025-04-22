@@ -4,7 +4,8 @@ public class WeaponManager : MonoBehaviour
 {
     // 存放所有可切換的武器，這些武器都必須繼承 IWeapon
     public IWeapon[] weapons;
-    public GameObject _firepoint;
+    public Transform _firepoint;
+    public Transform _weaponPosition;
     private int currentWeaponIndex = 0;   
 
     private void Start()
@@ -22,10 +23,10 @@ public class WeaponManager : MonoBehaviour
     private IWeapon SpawnWeapon(int weaponIndex)
     {
         //生成武器
-        GameObject weaponInstance = Instantiate(weapons[weaponIndex].gameObject, _firepoint.transform.position, _firepoint.transform.rotation);
+        GameObject weaponInstance = Instantiate(weapons[weaponIndex].gameObject, _weaponPosition.transform.position, _weaponPosition.transform.rotation);
         
         // 設為 FirePoint 子物件
-        weaponInstance.transform.SetParent(_firepoint.transform); 
+        weaponInstance.transform.SetParent(_weaponPosition.transform); 
         // 回傳實體的 IWeapon
         return weaponInstance.GetComponent<IWeapon>();             
     }
@@ -52,6 +53,6 @@ public class WeaponManager : MonoBehaviour
     public void Attack()
     {
         //using current weapon attack
-        weapons[currentWeaponIndex].Attack();
+        weapons[currentWeaponIndex].Attack(_firepoint);
     }
 }

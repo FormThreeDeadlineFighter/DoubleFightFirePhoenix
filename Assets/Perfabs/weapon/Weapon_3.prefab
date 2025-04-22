@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5599273418104439579
 Transform:
   m_ObjectHideFlags: 0
@@ -124,3 +124,6 @@ MonoBehaviour:
   weaponModel: {fileID: 5305821869157053147}
   bulletPrefab: {fileID: 6809347357280316662, guid: 6db619f18eb5da04ea5b8eecfaa2e995, type: 3}
   damage: 1
+  maxAmmo: 0
+  fireRate: 0
+  nextFireTime: 0

@@ -17,7 +17,7 @@ public class Weapon_1 : IWeapon
         }
     }
 
-    public override void Attack()
+    public override void Attack(Transform firePoint)
     {
         if (hasAmmo)
         {
@@ -27,7 +27,7 @@ public class Weapon_1 : IWeapon
 
                 if (bulletPrefab != null)
                 {
-                    FireTowardCrosshair();
+                    FireTowardCrosshair(firePoint);
                 }
 
                 nextFireTime = fireRate;
@@ -41,16 +41,15 @@ public class Weapon_1 : IWeapon
         }
     }
 
-    private void FireTowardCrosshair()
+    private void FireTowardCrosshair(Transform firePoint)
     {
-        //if (crosshairControl == null) return;
 
         Vector3 targetPoint = crosshairControl.targetPoint;
         //Debug.Log($"[{gameObject.name}] 準星鎖定點: {targetPoint}");
 
-        Vector3 direction = (targetPoint - transform.position).normalized;
+        Vector3 direction = (targetPoint - firePoint.transform.position).normalized;
         Quaternion rotation = Quaternion.LookRotation(direction);
 
-        Instantiate(bulletPrefab, transform.position, rotation);
+        Instantiate(bulletPrefab, firePoint.transform.position, rotation);
     }
 }

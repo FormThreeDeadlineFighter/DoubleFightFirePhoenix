@@ -15,7 +15,7 @@ public abstract class IWeapon : MonoBehaviour
     protected virtual void Reload() => currentAmmo = maxAmmo; //裝填子彈
     
     public abstract void InitializeWeapon(); 
-    public abstract void Attack();
+    public abstract void Attack(Transform firePoint);
     
 
 

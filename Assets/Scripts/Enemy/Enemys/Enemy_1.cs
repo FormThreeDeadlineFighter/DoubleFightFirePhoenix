@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ public class Enemy_1 : IEnemy
         m_EnemyShootTime = 3f;  //攻擊間隔
                 
         m_HP.text = "HP : " + m_EnemyHP;
+
     }
     
     void Update()
@@ -26,8 +28,6 @@ public class Enemy_1 : IEnemy
         
         if (IsPlayerClose())
         {
-            //MoveForward();
-
             //攻擊間隔
             m_EnemyShootTime -=Time.deltaTime;
             if(m_EnemyShootTime <= 0)
@@ -42,26 +42,7 @@ public class Enemy_1 : IEnemy
     public override void Attack()
     {        
         Debug.Log("開始射擊");         
-        IsPlayerPos();    
-           
+        IsPlayerPos();        
     }
-    
-    //被子彈擊中
-    private void OnTriggerEnter(Collider other)
-    {
-        IBullet _bullet = other.GetComponent<IBullet>();
-        // 判斷來撞(或進入Trigger)的物件是否有子彈標籤
-        if (other.CompareTag("Bullet"))
-        {
-            m_EnemyHP -= _bullet.damage;
-            m_HP.text = "HP : " + m_EnemyHP;
-            if(m_EnemyHP <= 0)
-            {
-                Die();
-            }     
-            
-        }
-    }
-    
-
+ 
 }

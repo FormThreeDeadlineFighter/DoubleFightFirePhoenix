@@ -12,21 +12,12 @@ public class IBullet : MonoBehaviour
     void Update()
     {
         //子彈往前飛行
-        transform.Translate(Vector3.forward*speed*Time.deltaTime);
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
     //擊中物體
     private void OnTriggerEnter(Collider other)
     {
-        //擊中敵人        
-        if (other.CompareTag("Enemy"))
-        {
-            Destroy(gameObject);
-        }
-        //擊中玩家
-        if (other.CompareTag("Player"))
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 }

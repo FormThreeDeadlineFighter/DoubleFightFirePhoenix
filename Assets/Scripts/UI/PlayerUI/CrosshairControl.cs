@@ -28,9 +28,9 @@ public class CrosshairControl : MonoBehaviour
         if(Physics.Raycast(ray, out RaycastHit hit, _rayRange))
         {          
             if(hit.collider.tag == "Enemy")
-            {           
+            {
                 targetPoint = hit.point;
-                Debug.DrawLine(ray.origin, targetPoint, crosshair.color, 2f);
+                Debug.DrawLine(ray.origin, targetPoint, crosshair.color, 1f);
                 return;
             }   
             
