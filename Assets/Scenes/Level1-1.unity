@@ -243,6 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6418a94dcb5c6e44bb5f4a2c6232fd71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!114 &92647824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,6 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6418a94dcb5c6e44bb5f4a2c6232fd71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!4 &101902862 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2469447209970929144, guid: 970a2091635d58b4690fbe5418f0dc81, type: 3}
@@ -1741,7 +1743,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -2656,6 +2658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6418a94dcb5c6e44bb5f4a2c6232fd71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!114 &978194008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4117,6 +4120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6418a94dcb5c6e44bb5f4a2c6232fd71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!4 &1551507680 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8c2759a0df27dce49ac871616c0a48cb, type: 3}
