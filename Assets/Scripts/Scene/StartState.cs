@@ -16,6 +16,6 @@ public class StartState : ISceneState
     //更新
     public override void StateUpdate()
     {
-        //_Controller.SetState(new MainMenuState(_Controller),"MainMenuState");
+        _Controller.SetState(new MainMenuState(_Controller),"MainMenuState");
     }
 }

@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.UI;
 public class ISceneState
 {
     //狀態名稱
@@ -35,4 +35,27 @@ public class ISceneState
     {
         return string.Format("[I_SceneState: StateName = {0}]",StateName);
     }
+
+    protected void BindButton(string buttonName, UnityEngine.Events.UnityAction callback)
+    {
+        GameObject obj = GameObject.Find(buttonName);
+        if (obj != null)
+        {
+            Debug.Log($"✅ 找到 {buttonName}");
+            Button btn = obj.GetComponent<Button>();
+            if (btn != null)
+            {
+                btn.onClick.AddListener(callback);
+            }
+            else
+            {
+                Debug.LogError($"物件 {buttonName} 沒有 Button 組件！");
+            }
+        }
+        else
+        {
+            Debug.LogError($"找不到名為 {buttonName} 的按鈕！");
+        }
+    }
+
 }
