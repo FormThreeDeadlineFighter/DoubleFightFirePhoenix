@@ -15,6 +15,6 @@ public class ImpulseBarUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.localScale = new Vector3(1, pc.ImpulseBar / 100 ,1);
+        //this.transform.localScale = new Vector3(1, pc.ImpulseBar / 100 ,1);
     }
 }

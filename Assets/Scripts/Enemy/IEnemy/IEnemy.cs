@@ -15,56 +15,20 @@ public abstract class IEnemy : MonoBehaviour
     public TextMeshPro m_HP;
     public void Die() => Destroy(gameObject); //敵人死亡
     public void MoveForward() => transform.Translate(Vector3.forward * 200 * Time.deltaTime);  //敵人前進  
-    public Action<int> damage;
+    public GameObject player;
     
     // 強制所有敵人子類別實作「攻擊行為」
-    public abstract void Attack();
-    private void Start()
-    {
-        
-        
-    }
-    private void Update()
-    {
-        
-    }
+    public abstract void Attack(GameObject player);
 
-    //玩家靠近
-    public bool IsPlayerClose()
+    //碰撞判定
+    protected void OnTriggerEnter(Collider other)
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-        if (player != null)
+        if(other.CompareTag("Player"))
         {
-            float PlayerPos = player.transform.position.z;
-            float EnemyPos = transform.position.z;
-
-            return (EnemyPos - PlayerPos <= 800f);
+            Debug.Log("Find player");
+            player = other.gameObject;                 
         }
-
-        return false;
-    }
-    //玩家位置
-    public void IsPlayerPos()
-    {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-        if (player != null)
-        {
-            // 計算從敵人到玩家的方向
-            Vector3 direction = (transform.position - player.transform.position).normalized;
-
-            // 讓子彈面向玩家（注意：因為你的子彈用的是 transform.forward 前進，所以要朝向玩家）
-            Quaternion rotation = Quaternion.LookRotation(direction);
-
-            // 產生子彈並給它正確的朝向
-            Instantiate(m_EnemyBullet, transform.position, rotation);
-        }
-    }
-
-    //被子彈擊中
-    private void OnTriggerEnter(Collider other)
-    {
+        
         // 判斷來撞(或進入Trigger)的物件是否有子彈標籤
         if (other.TryGetComponent<IBullet>(out IBullet _bullet))
         {

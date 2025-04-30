@@ -4,10 +4,17 @@ using UnityEngine.InputSystem;
 [CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/Move", fileName = "PlayerState_Move")]
 public class PlayerState_Move : IPlayerState
 {
+    [SerializeField] float _dirX;
+    [SerializeField] float _barReduce;
     //進入移動狀態
     public override void EnterState()
     {
         //Debug.Log(_name +"進入移動狀態");
+        
+        // 減動力槽
+        _playerControl.ImpulseBar -= _barReduce * Time.deltaTime;
+        
+        
     }
     //離開移動狀態
     public override void ExitState()
@@ -26,9 +33,7 @@ public class PlayerState_Move : IPlayerState
         if(_playerControl.IsImpulse && _playerControl.CanImpulse)  
         {
             _controller.SetState(typeof(PlayerState_Impulse));
-        }  
-        
-        _playerControl.ImpulseBar += 10f * Time.deltaTime;
+        }         
     }
 
     public override void PhysicsUpdate()
@@ -40,8 +45,12 @@ public class PlayerState_Move : IPlayerState
             _weaponManager.Attack();
         }
         
-        _shipController.ShipMove();
+        // ship move by dirX
+        _shipController.ShipMoveAxesX(_dirX);
 
+        // ship move forward
         _shipController.Forward();
     }
+    
+    
 }

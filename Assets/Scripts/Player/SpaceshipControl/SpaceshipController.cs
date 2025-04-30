@@ -9,11 +9,11 @@ using UnityEngine.InputSystem.Users;
 public class SpaceshipController : MonoBehaviour
 {
     //Ship HP
-    [SerializeField] float _shipHealth = 10f;
+    [SerializeField] float _shipHealth;
     //Ship moving speed
-    [SerializeField] float _shipMoveSpeed = 10f;
+    [SerializeField] float _shipMoveSpeed;
     // Ship forward speed
-    [SerializeField] float _shipforwardSpeed = 100f;
+    [SerializeField] float _shipforwardSpeed;
     
     #region player manager
     [SerializeField] GameObject[] _players;
@@ -45,11 +45,6 @@ public class SpaceshipController : MonoBehaviour
     } 
     
     #endregion
-    
-    // player 1 move direction
-    private Vector2 _player1MoveVector => _playerControl1.PlayerMoveVector;
-    // player 2 move direction
-    private Vector2 _player2MoveVector => _playerControl2.PlayerMoveVector;
 
     private void Awake()
     {
@@ -91,12 +86,14 @@ public class SpaceshipController : MonoBehaviour
         }
     }
 
-    public void ShipMove()
+    public void ShipMoveAxesX(float dirX)
     {
-        Vector2 finalMoveInput = (_player1MoveVector + _player2MoveVector).normalized;       
-        Vector3 move = new Vector3(finalMoveInput.x, finalMoveInput.y, 0) * _shipMoveSpeed * Time.deltaTime;
-        
-        transform.Translate(move, Space.World);
+        this.transform.Translate(dirX, 0, 0, Space.World);
+    }
+    
+    public void ShipMoveAxesY(float dirY)
+    {
+        this.transform.Translate(0, dirY, 0, Space.World);
     }
 
     public void Forward()

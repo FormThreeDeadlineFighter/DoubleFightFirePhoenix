@@ -76,6 +76,7 @@ MonoBehaviour:
   m_EnemyShootTime: 5
   m_EnemyBullet: {fileID: 7449039841977143347, guid: 28f5e64e40a161e40afcb37f3a419632, type: 3}
   m_HP: {fileID: 878991550933578140}
+  player: {fileID: 0}
 --- !u!114 &8124087052154279414
 MonoBehaviour:
   m_ObjectHideFlags: 0
