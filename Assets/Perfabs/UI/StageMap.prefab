@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3129533622013706819}
   - component: {fileID: 4079307291166638295}
   m_Layer: 5
-  m_Name: Stage_1
+  m_Name: Stage1Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,7 +119,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3129533622013706819}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4276357352282152704, guid: 740e47ba277b78648a4fcbc7bfc0de12, type: 3}
+        m_TargetAssemblyTypeName: SceneManger, Assembly-CSharp
+        m_MethodName: StageScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1664494948892460705
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +182,7 @@ GameObject:
   - component: {fileID: 5337506192240569129}
   - component: {fileID: 6044592986471780868}
   m_Layer: 5
-  m_Name: Stage_2
+  m_Name: Stage2Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -276,7 +288,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5337506192240569129}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4276357352282152704, guid: 740e47ba277b78648a4fcbc7bfc0de12, type: 3}
+        m_TargetAssemblyTypeName: SceneManger, Assembly-CSharp
+        m_MethodName: StageScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2461558729533917951
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,7 +314,7 @@ GameObject:
   - component: {fileID: 5484474957304584526}
   - component: {fileID: 1548113272946488881}
   m_Layer: 5
-  m_Name: Stage_5
+  m_Name: Stage5Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -396,7 +420,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5484474957304584526}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4276357352282152704, guid: 740e47ba277b78648a4fcbc7bfc0de12, type: 3}
+        m_TargetAssemblyTypeName: SceneManger, Assembly-CSharp
+        m_MethodName: StageScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2643920724575638397
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,7 +486,7 @@ GameObject:
   - component: {fileID: 6551467300153971028}
   - component: {fileID: 2505066614016516907}
   m_Layer: 5
-  m_Name: Stage_4
+  m_Name: Stage4Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -556,7 +592,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6551467300153971028}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4276357352282152704, guid: 740e47ba277b78648a4fcbc7bfc0de12, type: 3}
+        m_TargetAssemblyTypeName: SceneManger, Assembly-CSharp
+        m_MethodName: StageScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6030518501590331321
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,7 +693,7 @@ GameObject:
   - component: {fileID: 8770367650391460389}
   - component: {fileID: 2866863800946869122}
   m_Layer: 5
-  m_Name: Stage_3
+  m_Name: Stage3Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -751,4 +799,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8770367650391460389}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4276357352282152704, guid: 740e47ba277b78648a4fcbc7bfc0de12, type: 3}
+        m_TargetAssemblyTypeName: SceneManger, Assembly-CSharp
+        m_MethodName: StageScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
