@@ -7,12 +7,12 @@ public class PlayerState_Idle : IPlayerState
     //進入待機狀態
     public override void EnterState()
     {
-        //Debug.Log(_name +"進入待機狀態");
+        Debug.Log(_name +"進入待機狀態");
     }
      //離開待機狀態
     public override void ExitState()
     {
-        //Debug.Log(_name +"離開待機狀態");
+        Debug.Log(_name +"離開待機狀態");
     }
 
     public override void LogicUpdate()
@@ -22,10 +22,13 @@ public class PlayerState_Idle : IPlayerState
         {
             _controller.SetState(typeof(PlayerState_Move));
         }
-
-        if(_playerControl.IsImpulse && _playerControl.CanImpulse)  
+        if(_shipController.PlayerUP && !_shipController.PlayerDown)
         {
-            _controller.SetState(typeof(PlayerState_Impulse));
+            _controller.SetState(typeof(PlayerState_Up));
+        }
+        if(_shipController.PlayerDown && !_shipController.PlayerUP)
+        {
+            _controller.SetState(typeof(PlayerState_Down));
         }
 
         _playerControl.ImpulseBar += 10f * Time.deltaTime;
@@ -41,5 +44,6 @@ public class PlayerState_Idle : IPlayerState
         }
 
         _shipController.Forward();
+        
     }
 }

@@ -24,14 +24,14 @@ public class PlayerStateController : IStateController
         _weaponManager = this.transform.GetComponent<WeaponManager>();
 
         _stateTable = new Dictionary<System.Type, IState>(_playerStates.Length);
-
+      
         foreach(IPlayerState state in _playerStates)
         {
+            
             state.Initialize(this, _animator, _playerControl, _shipController, _rb, _weaponManager, _name);
             _stateTable.Add(state.GetType(), state);
         }
         
-        //_impulseBar = 100f;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

@@ -1,5 +1,3 @@
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
@@ -14,6 +12,9 @@ public class SpaceshipController : MonoBehaviour
     [SerializeField] float _shipMoveSpeed;
     // Ship forward speed
     [SerializeField] float _shipforwardSpeed;
+    public bool PlayerUP => _playerControl1.IsUp && _playerControl2.IsUp;
+    public bool PlayerDown => _playerControl1.IsDown && _playerControl2.IsDown;
+
     
     #region player manager
     [SerializeField] GameObject[] _players;
@@ -27,7 +28,6 @@ public class SpaceshipController : MonoBehaviour
     #endregion
 
     #region accessor
-    
     public float ShipHealth
     {
         get{ return _shipHealth;}
@@ -45,7 +45,7 @@ public class SpaceshipController : MonoBehaviour
     } 
     
     #endregion
-
+    
     private void Awake()
     {
         _player1 = InputUser.CreateUserWithoutPairedDevices();
@@ -53,10 +53,6 @@ public class SpaceshipController : MonoBehaviour
 
         InputUser.onUnpairedDeviceUsed += OnUnpairedDeviceUsed;       
         
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {                  
         _playerControl1.PlayerInput = new PlayerInput();
         _playerControl2.PlayerInput = new PlayerInput();
     
@@ -66,7 +62,7 @@ public class SpaceshipController : MonoBehaviour
         _playerControl1.PlayerInput.Enable();
         _playerControl2.PlayerInput.Enable();
     }
-
+       
     private void OnUnpairedDeviceUsed(InputControl control, InputEventPtr eventPtr)
     {
         var device = control.device;
@@ -105,6 +101,5 @@ public class SpaceshipController : MonoBehaviour
     {
         this.transform.Translate(0, 0, forwardSpeed * Time.deltaTime, Space.World);
     }
-
 
 }

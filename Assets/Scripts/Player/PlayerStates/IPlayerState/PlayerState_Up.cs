@@ -21,9 +21,15 @@ public class PlayerState_Up : IPlayerState
     }
 
     public override void LogicUpdate()
-    {
-           
-        
+    {          
+        if(!_playerControl.IsUp && !_playerControl.IsMove)
+        {
+            _controller.SetState(typeof(PlayerState_Idle));
+        }
+        if(!_playerControl.IsUp && _playerControl.IsMove)
+        {
+            _controller.SetState(typeof(PlayerState_Move));
+        }
     }
 
     public override void PhysicsUpdate()
@@ -40,5 +46,6 @@ public class PlayerState_Up : IPlayerState
 
         // ship move forward
         _shipController.Forward();
+        
     }
 }

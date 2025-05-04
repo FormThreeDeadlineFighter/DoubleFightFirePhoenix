@@ -9,18 +9,19 @@ public class SinglePlayerControl : MonoBehaviour
 {
     // Unity input system : PlayerInput Script Creates
     private PlayerInput _playerInput;
-    //player Move Vector
-    private Vector2 _playerMoveVector => _playerInput.PlayerControl.Move.ReadValue<Vector2>();
-    
+
     //player Look position
     public Vector2 _playerLookPosition => _playerInput.UI.Look.ReadValue<Vector2>();
     
     // Is player moving
-    public bool IsMove => _playerMoveVector != Vector2.zero;
+    public bool IsMove =>  _playerInput.PlayerControl.Move.IsPressed();
     // Is player shooting 
     public bool IsShoot => _playerInput.PlayerControl.Shoot.IsPressed();
-    // Is player Impulsing
-    public bool IsImpulse => _playerInput.PlayerControl.Impulse.IsPressed();
+
+    // Is Pitching Up
+    public bool IsUp => _playerInput.PlayerControl.PitchUp.IsPressed();
+    // Is Pitching Down
+    public bool IsDown => _playerInput.PlayerControl.PitchDown.IsPressed();
 
     // bar value
     [SerializeField] private float _impulseBarValue;       
@@ -65,10 +66,6 @@ public class SinglePlayerControl : MonoBehaviour
                 _playerInput = value; 
             }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
         } 
-    }
-    public Vector2 PlayerMoveVector
-    {
-        get { return _playerMoveVector; }
     }
     #endregion
 

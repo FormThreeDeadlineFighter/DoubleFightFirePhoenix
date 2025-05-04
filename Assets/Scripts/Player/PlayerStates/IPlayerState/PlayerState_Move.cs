@@ -9,7 +9,7 @@ public class PlayerState_Move : IPlayerState
     //進入移動狀態
     public override void EnterState()
     {
-        //Debug.Log(_name +"進入移動狀態");
+        Debug.Log(_name +"進入移動狀態");
         
         // 減動力槽
         _playerControl.ImpulseBar -= _barReduce * Time.deltaTime;
@@ -19,7 +19,7 @@ public class PlayerState_Move : IPlayerState
     //離開移動狀態
     public override void ExitState()
     {
-        //Debug.Log(_name +"離開移動狀態");
+        Debug.Log(_name +"離開移動狀態");
     }
 
     public override void LogicUpdate()
@@ -29,11 +29,15 @@ public class PlayerState_Move : IPlayerState
         {
             _controller.SetState(typeof(PlayerState_Idle));
         }   
-
-        if(_playerControl.IsImpulse && _playerControl.CanImpulse)  
+         if(_shipController.PlayerUP && !_shipController.PlayerDown)
         {
-            _controller.SetState(typeof(PlayerState_Impulse));
-        }         
+            _controller.SetState(typeof(PlayerState_Up));
+        }
+        if(_shipController.PlayerDown && !_shipController.PlayerUP)
+        {
+            _controller.SetState(typeof(PlayerState_Down));
+        }
+       
     }
 
     public override void PhysicsUpdate()
@@ -50,6 +54,7 @@ public class PlayerState_Move : IPlayerState
 
         // ship move forward
         _shipController.Forward();
+        
     }
     
     

@@ -29,21 +29,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Move"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""8186f792-7794-4ea6-bb2b-0f5f4242142a"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Impulse"",
-                    ""type"": ""Button"",
-                    ""id"": ""e83732a1-2bbd-4670-b2f1-fcc263424487"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": ""Hold"",
-                    ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""Shoot"",
@@ -62,6 +53,24 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PitchUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""450cfdae-47e1-451a-8f48-7436a5b34b1b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""PitchDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""fc1107af-d688-44bd-8ce3-976063803119"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -72,135 +81,25 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Impulse"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""5acf5ee3-efe3-43d8-b71b-8ab2c45c96e5"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Impulse"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""WASD"",
-                    ""id"": ""0205077c-1fda-4ac0-bf3e-d6837083230c"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""Up"",
-                    ""id"": ""da4348ee-d247-4ad8-89d9-d4f6c132bc23"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Down"",
-                    ""id"": ""094da7f1-7fa2-43f8-9f92-dd1a43dd6c50"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Left"",
-                    ""id"": ""64811c62-6743-42dc-994d-29e8b3b90878"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Right"",
-                    ""id"": ""eba903c9-39fb-4876-9006-c490f0fd50b4"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Left Stick"",
-                    ""id"": ""ef5d5722-28e9-432e-8915-e872d16e349f"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""Up"",
-                    ""id"": ""d9c06629-6984-4dcb-a9d8-a0e6e778dfbd"",
-                    ""path"": ""<Gamepad>/leftStick/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Down"",
-                    ""id"": ""615236eb-d255-43de-9e40-0c46f44f05ac"",
-                    ""path"": ""<Gamepad>/leftStick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Left"",
-                    ""id"": ""8e3dc598-36f4-4be8-bb90-435947a333af"",
-                    ""path"": ""<Gamepad>/leftStick/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Right"",
-                    ""id"": ""a6c21088-0a18-4e00-80f6-f43bc0e8a7a1"",
-                    ""path"": ""<Gamepad>/leftStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
                     ""id"": ""d3d71e3f-c0d0-4218-ade0-7373d5d9c443"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -211,7 +110,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""937c5dec-9e49-4a81-bf23-6d0e5a3677c3"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -227,6 +126,50 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SwitchWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""830e1a56-cfaf-4bbc-af7a-0cca73fe99a1"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PitchUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8511583c-9844-47a4-ba8c-027b2cf3b7f7"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PitchUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""38057ac0-38af-4993-a789-c7b7b121f8d8"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PitchDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e567391c-35f7-4f59-8af0-03a2385de214"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PitchDown"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -382,9 +325,10 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         // PlayerControl
         m_PlayerControl = asset.FindActionMap("PlayerControl", throwIfNotFound: true);
         m_PlayerControl_Move = m_PlayerControl.FindAction("Move", throwIfNotFound: true);
-        m_PlayerControl_Impulse = m_PlayerControl.FindAction("Impulse", throwIfNotFound: true);
         m_PlayerControl_Shoot = m_PlayerControl.FindAction("Shoot", throwIfNotFound: true);
         m_PlayerControl_SwitchWeapon = m_PlayerControl.FindAction("SwitchWeapon", throwIfNotFound: true);
+        m_PlayerControl_PitchUp = m_PlayerControl.FindAction("PitchUp", throwIfNotFound: true);
+        m_PlayerControl_PitchDown = m_PlayerControl.FindAction("PitchDown", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Look = m_UI.FindAction("Look", throwIfNotFound: true);
@@ -456,17 +400,19 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PlayerControl;
     private List<IPlayerControlActions> m_PlayerControlActionsCallbackInterfaces = new List<IPlayerControlActions>();
     private readonly InputAction m_PlayerControl_Move;
-    private readonly InputAction m_PlayerControl_Impulse;
     private readonly InputAction m_PlayerControl_Shoot;
     private readonly InputAction m_PlayerControl_SwitchWeapon;
+    private readonly InputAction m_PlayerControl_PitchUp;
+    private readonly InputAction m_PlayerControl_PitchDown;
     public struct PlayerControlActions
     {
         private @PlayerInput m_Wrapper;
         public PlayerControlActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_PlayerControl_Move;
-        public InputAction @Impulse => m_Wrapper.m_PlayerControl_Impulse;
         public InputAction @Shoot => m_Wrapper.m_PlayerControl_Shoot;
         public InputAction @SwitchWeapon => m_Wrapper.m_PlayerControl_SwitchWeapon;
+        public InputAction @PitchUp => m_Wrapper.m_PlayerControl_PitchUp;
+        public InputAction @PitchDown => m_Wrapper.m_PlayerControl_PitchDown;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControl; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -479,15 +425,18 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
-            @Impulse.started += instance.OnImpulse;
-            @Impulse.performed += instance.OnImpulse;
-            @Impulse.canceled += instance.OnImpulse;
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
             @SwitchWeapon.started += instance.OnSwitchWeapon;
             @SwitchWeapon.performed += instance.OnSwitchWeapon;
             @SwitchWeapon.canceled += instance.OnSwitchWeapon;
+            @PitchUp.started += instance.OnPitchUp;
+            @PitchUp.performed += instance.OnPitchUp;
+            @PitchUp.canceled += instance.OnPitchUp;
+            @PitchDown.started += instance.OnPitchDown;
+            @PitchDown.performed += instance.OnPitchDown;
+            @PitchDown.canceled += instance.OnPitchDown;
         }
 
         private void UnregisterCallbacks(IPlayerControlActions instance)
@@ -495,15 +444,18 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
-            @Impulse.started -= instance.OnImpulse;
-            @Impulse.performed -= instance.OnImpulse;
-            @Impulse.canceled -= instance.OnImpulse;
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
             @SwitchWeapon.started -= instance.OnSwitchWeapon;
             @SwitchWeapon.performed -= instance.OnSwitchWeapon;
             @SwitchWeapon.canceled -= instance.OnSwitchWeapon;
+            @PitchUp.started -= instance.OnPitchUp;
+            @PitchUp.performed -= instance.OnPitchUp;
+            @PitchUp.canceled -= instance.OnPitchUp;
+            @PitchDown.started -= instance.OnPitchDown;
+            @PitchDown.performed -= instance.OnPitchDown;
+            @PitchDown.canceled -= instance.OnPitchDown;
         }
 
         public void RemoveCallbacks(IPlayerControlActions instance)
@@ -615,9 +567,10 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     public interface IPlayerControlActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnImpulse(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnSwitchWeapon(InputAction.CallbackContext context);
+        void OnPitchUp(InputAction.CallbackContext context);
+        void OnPitchDown(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
