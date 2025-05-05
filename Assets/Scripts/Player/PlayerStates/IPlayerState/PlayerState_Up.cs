@@ -22,11 +22,11 @@ public class PlayerState_Up : IPlayerState
 
     public override void LogicUpdate()
     {          
-        if(!_playerControl.IsUp && !_playerControl.IsMove)
+        if(!_shipController.PlayerUP && !_playerControl.IsMove)
         {
             _controller.SetState(typeof(PlayerState_Idle));
         }
-        if(!_playerControl.IsUp && _playerControl.IsMove)
+        if(!_shipController.PlayerUP && _playerControl.IsMove)
         {
             _controller.SetState(typeof(PlayerState_Move));
         }

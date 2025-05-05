@@ -12,6 +12,7 @@ public class AISensor : MonoBehaviour
     [SerializeField] Color _meshColor = Color.red;
     [SerializeField] int _scanFrequrncy = 30;
     [SerializeField] LayerMask _layers;
+    [SerializeField] LayerMask _occlusionLayers;
     public List<GameObject> Objects = new List<GameObject>();
     
     
@@ -55,6 +56,26 @@ public class AISensor : MonoBehaviour
     
     public bool IsInSight(GameObject obj)
     {   
+        Vector3 origin = transform.position;
+        Vector3 dest = obj.transform.position;
+        Vector3 direction = dest - origin;
+        if(direction.y < -_height || direction.y > _height)
+        {
+            return false;
+        }
+        
+        direction.y = 0;
+        float deltaAngle = Vector3.Angle(direction, transform.forward);
+        if(deltaAngle > _angle)
+        {
+            return false;
+        }       
+        
+        if(Physics.Linecast(origin, dest, _occlusionLayers))
+        {
+            return false;
+        }
+        
         return true;
     }
 
@@ -151,10 +172,11 @@ public class AISensor : MonoBehaviour
         if(_mesh)
         {
             Gizmos.color = _meshColor;
-            Gizmos.DrawMesh(_mesh, transform.position, transform.rotation);
+            Gizmos.DrawMesh(_mesh, transform.position, transform.rotation);        
         }
         
         Gizmos.DrawWireSphere(transform.position, _distance);
+        Gizmos.color = Color.red;
         for(int i = 0; i < _count; ++i)
         {
             

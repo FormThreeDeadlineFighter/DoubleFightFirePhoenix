@@ -1,41 +1,63 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class Enemy_1 : IEnemy
+
+[RequireComponent(typeof(AISensor), typeof(FollowPlayer))]
+public class Enemy_1 :  IEnemy
 {
-    private void Start()
+    [SerializeField] Vector3 _followRange;
+    [SerializeField] GameObject player;
+     
+    private AISensor sensor;
+    private FollowPlayer follower;
+
+    void Awake()
     {
-        m_characterName = "章魚小怪";     //名字
+        sensor = transform.GetComponent<AISensor>();
+        follower = transform.GetComponent<FollowPlayer>();     
+    }
+    
+    private void Start()
+    {    
+        m_EneryName = "章魚小怪";     //名字
         m_EnemyHP = 10;         //血量
         m_AttackPower = 1;      //攻擊力
         m_EnemyLeaveTime = 150f; //小怪死亡時間
         m_EnemyShootTime = 3f;  //攻擊間隔
-                
+       
         m_HP.text = "HP : " + m_EnemyHP;
-
+        
+        _followRange.x = Random.Range(-10, 10);
+        _followRange.y = Random.Range(-10, 10);
     }
     
     void Update()
-    {   
-        /*//章魚存活時間       
-        m_EnemyLeaveTime -=Time.deltaTime;
-        if(m_EnemyLeaveTime <= 0)
+    {    
+        player = null;
+        if(sensor.Objects.Count > 0)
         {
-            Die();
-            m_EnemyLeaveTime = 15f;
-        }*/
-
+            player = sensor.Objects[0];
+        }   
+            
         //攻擊間隔
         m_EnemyShootTime -=Time.deltaTime;
-        if(m_EnemyShootTime <= 0)
+        if(m_EnemyShootTime <= 0 && player != null)
         {
             Attack(player);
             m_EnemyShootTime = 3f;
-        }       
-               
+        }                  
     }
-    public override void Attack(GameObject player)
+    
+    void LateUpdate()
+    {
+        //transform.position =  follower.followPlayer(playerPosition, _followRange);
+    }
+    
+    private void OnValidate()
+    {
+        
+    }
+    
+    protected override void Attack(GameObject player)
     {        
         Debug.Log("開始射擊");                
               
@@ -51,6 +73,20 @@ public class Enemy_1 : IEnemy
             Instantiate(m_EnemyBullet, transform.position, rotation);      
         }
     }
+    protected override void Die() => Destroy(gameObject);
  
-    
+    void OnTriggerEnter(Collider other)
+    {       
+        // 判斷來撞(或進入Trigger)的物件是否有子彈標籤
+        if (other.TryGetComponent<IBullet>(out IBullet _bullet))
+        {
+            Debug.Log("hit");
+            m_EnemyHP -= _bullet.damage;
+            m_HP.text = "HP : " + m_EnemyHP;
+            if (m_EnemyHP <= 0)
+            {
+                Die();
+            }
+        }
+    }
 }
