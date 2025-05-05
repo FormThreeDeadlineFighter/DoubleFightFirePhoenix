@@ -4,9 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneManger : MonoBehaviour
 {
-    public void StageMap()
+    public void MainGround()
     {
-        SceneManager.LoadScene("StageScene"); // 替換成關卡圖
+        SceneManager.LoadScene("MainGround"); // 替換成關卡圖
     }
     public void StageScene()
     {
@@ -17,7 +17,30 @@ public class SceneManger : MonoBehaviour
         BindButton("Stage4Button", () => OnStageButtonClick(4));
         BindButton("Stage5Button", () => OnStageButtonClick(5));
     }
-    private void OnStageButtonClick(int stageNumber)
+    public void ReturnStage()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName); // 替換成關卡圖
+    }
+    public void NextStage()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;  // 例如 Level1-1
+        Debug.Log(currentSceneName);
+        // 以 '-' 分割：得到 ["Level1", "1"]
+        string[] parts = currentSceneName.Split('-');
+        
+        if (int.TryParse(parts[1], out int levelNumber))
+        {
+            levelNumber++;
+            string nextSceneName = parts[0] + "-" + levelNumber;
+            SceneManager.LoadScene(nextSceneName);
+        }
+        else
+        {
+            Debug.LogError("轉換失敗：不是有效的數字 -> " + parts[1]);
+        }
+    }
+    protected void OnStageButtonClick(int stageNumber)
     {
         Debug.Log($"點擊了第 {stageNumber} 關！");
         // 你可以根據 stageNumber 載入對應關卡：
