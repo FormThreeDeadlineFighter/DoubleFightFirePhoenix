@@ -4,7 +4,6 @@ using UnityEngine;
 [RequireComponent(typeof(AISensor), typeof(FollowPlayer))]
 public class Enemy_1 :  IEnemy
 {
-    [SerializeField] Vector3 _followRange;
     [SerializeField] GameObject player;
      
     private AISensor sensor;
@@ -25,9 +24,6 @@ public class Enemy_1 :  IEnemy
         m_EnemyShootTime = 3f;  //攻擊間隔
        
         m_HP.text = "HP : " + m_EnemyHP;
-        
-        _followRange.x = Random.Range(-10, 10);
-        _followRange.y = Random.Range(-10, 10);
     }
     
     void Update()
@@ -49,7 +45,7 @@ public class Enemy_1 :  IEnemy
     
     void LateUpdate()
     {
-        //transform.position =  follower.followPlayer(playerPosition, _followRange);
+        transform.position += Vector3.forward * m_EnemySpeed * Time.deltaTime;
     }
     
     private void OnValidate()
@@ -73,6 +69,7 @@ public class Enemy_1 :  IEnemy
             Instantiate(m_EnemyBullet, transform.position, rotation);      
         }
     }
+
     protected override void Die() => Destroy(gameObject);
  
     void OnTriggerEnter(Collider other)

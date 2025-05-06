@@ -94,7 +94,7 @@ public class SpaceshipController : MonoBehaviour
 
     public void Forward()
     {
-        this.transform.Translate(0, 0, _shipforwardSpeed * Time.deltaTime, Space.World);
+        this.transform.Translate(0, 0, _shipforwardSpeed/2 * Time.deltaTime, Space.World);
     }
     
     public void Forward(float forwardSpeed)

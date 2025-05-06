@@ -73,12 +73,12 @@ MonoBehaviour:
   m_EneryName: "\u7AE0\u9B5A"
   m_AttackPower: 1
   m_EnemyHP: 10
+  m_EnemySpeed: 1
   m_EnemyLeaveTime: 500
   m_EnemyShootTime: 5
   m_EnemyBullet: {fileID: 7449039841977143347, guid: 28f5e64e40a161e40afcb37f3a419632, type: 3}
   m_HP: {fileID: 878991550933578140}
-  _followRange: {x: 10, y: 10, z: 0}
-  playerPosition: {fileID: 0}
+  player: {fileID: 0}
 --- !u!114 &8124087052154279414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,8 +115,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   Objects:
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
 --- !u!1 &8561048657945605596
 GameObject:
