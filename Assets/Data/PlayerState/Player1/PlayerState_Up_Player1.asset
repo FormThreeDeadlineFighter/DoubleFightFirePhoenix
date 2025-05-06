@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7841fb8043fd994a9fe91e2d6d95344, type: 3}
   m_Name: PlayerState_Up_Player1
   m_EditorClassIdentifier: 
-  _dirX: 0
-  _dirY: 5
+  _dirX: 1
+  _dirY: 3

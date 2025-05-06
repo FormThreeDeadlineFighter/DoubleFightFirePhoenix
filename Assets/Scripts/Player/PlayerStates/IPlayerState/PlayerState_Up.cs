@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 [CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/Up", fileName = "PlayerState_Up")]
 public class PlayerState_Up : IPlayerState
 {
-    [SerializeField] float _dirX;
     [SerializeField] float _dirY;
     //進入上升狀態
     public override void EnterState()
@@ -40,9 +39,6 @@ public class PlayerState_Up : IPlayerState
             //use Weapon Attack          
             _weaponManager.Attack();
         }
-        
-         // ship move by dirX
-        _shipController.ShipMoveAxesX(_dirX);
 
         // ship move forward
         _shipController.Forward();
