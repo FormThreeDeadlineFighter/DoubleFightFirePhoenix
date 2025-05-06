@@ -184,7 +184,7 @@ public class AISensor : MonoBehaviour
         }
         
         Gizmos.color = Color.green;
-        foreach(var obj in Objects)
+        foreach(GameObject obj in Objects)
         {
             Gizmos.DrawSphere(obj.transform.position, 5f);
         }
