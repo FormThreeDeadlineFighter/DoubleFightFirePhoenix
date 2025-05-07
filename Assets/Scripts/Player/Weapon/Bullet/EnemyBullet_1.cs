@@ -2,11 +2,6 @@ using UnityEngine;
 
 public class EnemyBullet_1 : IBullet
 {
-    void Start()
-    {
-        SpaceshipController.current.OnPlayerHurt += HurtPlayer;
-    }
-
     void Update()
     {
         //子彈向後飛行
@@ -22,7 +17,9 @@ public class EnemyBullet_1 : IBullet
     {
         if (other.CompareTag("Player"))
         {
+            SpaceshipController.current.OnPlayerHurt += HurtPlayer;
             SpaceshipController.current.PlayerHurt(damage);
+            SpaceshipController.current.OnPlayerHurt -= HurtPlayer;
         }
     }
 }

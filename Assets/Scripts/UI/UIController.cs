@@ -5,7 +5,6 @@ using System;
 public class UIController : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI m_coinNumUI;
-
     public static UIController current;
     public int _coinNum { get; private set; }
 

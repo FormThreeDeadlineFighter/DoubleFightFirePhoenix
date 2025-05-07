@@ -3,20 +3,17 @@ using UnityEngine.Events;
 
 public class Coin : MonoBehaviour
 {
-    private void Start()
-    {
-        UIController.current.OnCoinCollect += CoincoinCollect;
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            UIController.current.OnCoinCollect += CoinCollect;
             UIController.current.CoinCollect();
+            UIController.current.OnCoinCollect -= CoinCollect;
         }
     }
 
-    public void CoincoinCollect()
+    public void CoinCollect()
     {
         print("coin collect");
         Destroy(gameObject);
