@@ -5,14 +5,14 @@ public class Coin : MonoBehaviour
 {
     private void Start()
     {
-        UIController.s_UIController.OnCoinCollect += CoincoinCollect;
+        UIController.current.OnCoinCollect += CoincoinCollect;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            UIController.s_UIController.CoinCollect();
+            UIController.current.CoinCollect();
         }
     }
 

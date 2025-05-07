@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
@@ -15,7 +16,9 @@ public class SpaceshipController : MonoBehaviour
     public bool PlayerUP => _playerControl1.IsUp && _playerControl2.IsUp;
     public bool PlayerDown => _playerControl1.IsDown && _playerControl2.IsDown;
 
-    
+    public static SpaceshipController current;
+
+
     #region player manager
     [SerializeField] GameObject[] _players;
     
@@ -31,7 +34,7 @@ public class SpaceshipController : MonoBehaviour
     public float ShipHealth
     {
         get{ return _shipHealth;}
-        set
+        private set
         {
             if(ShipHealth <= 0)
             {
@@ -42,12 +45,16 @@ public class SpaceshipController : MonoBehaviour
                 ShipHealth = value;
             }
         }
-    } 
-    
+    }
+
     #endregion
+
+    public event Action OnPlayerHurt;
     
     private void Awake()
     {
+        current = this;
+
         _player1 = InputUser.CreateUserWithoutPairedDevices();
         _player2 = InputUser.CreateUserWithoutPairedDevices();
 
@@ -102,4 +109,12 @@ public class SpaceshipController : MonoBehaviour
         this.transform.Translate(0, 0, forwardSpeed * Time.deltaTime, Space.World);
     }
 
+    public void PlayerHurt(int damage)
+    {
+        if(OnPlayerHurt != null)
+        {
+            _shipHealth -= damage;
+            OnPlayerHurt();
+        }
+    }
 }

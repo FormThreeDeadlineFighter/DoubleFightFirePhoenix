@@ -6,16 +6,14 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI m_coinNumUI;
 
-    public static UIController s_UIController;
-
+    public static UIController current;
     public int _coinNum { get; private set; }
-
 
     public event Action OnCoinCollect;
 
     private void Awake()
     {
-        s_UIController = this;
+        current = this;
     }
 
     private void Update()

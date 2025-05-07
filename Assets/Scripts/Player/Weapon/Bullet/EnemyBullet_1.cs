@@ -4,12 +4,25 @@ public class EnemyBullet_1 : IBullet
 {
     void Start()
     {
-        speed = 100;
+        SpaceshipController.current.OnPlayerHurt += HurtPlayer;
     }
 
     void Update()
     {
         //子彈向後飛行
         transform.Translate(Vector3.back*speed*Time.deltaTime);
+    }
+    
+    private void HurtPlayer()
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            SpaceshipController.current.PlayerHurt(damage);
+        }
     }
 }
