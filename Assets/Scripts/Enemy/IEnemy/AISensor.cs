@@ -176,17 +176,19 @@ public class AISensor : MonoBehaviour
         }
         
         Gizmos.DrawWireSphere(transform.position, _distance);
-        Gizmos.color = Color.red;
-        for(int i = 0; i < _count; ++i)
-        {
-            
-            Gizmos.DrawSphere(_colliders[i].transform.position, 5f);
-        }
+            Gizmos.color = Color.red;
+            for(int i = 0; i < _count; ++i)
+            {           
+                Gizmos.DrawSphere(_colliders[i].transform.position, 5f);
+            }
         
-        Gizmos.color = Color.green;
-        foreach(GameObject obj in Objects)
-        {
-            Gizmos.DrawSphere(obj.transform.position, 5f);
+        if(Objects != null) 
+        { 
+            Gizmos.color = Color.green;
+            foreach(GameObject obj in Objects)
+            {
+                Gizmos.DrawSphere(obj.transform.position, 5f);
+            }
         }
     }
 }
