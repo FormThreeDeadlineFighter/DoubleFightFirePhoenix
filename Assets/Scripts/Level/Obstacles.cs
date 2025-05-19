@@ -2,15 +2,22 @@ using UnityEngine;
 
 public class Obstacles : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] int damage;
     void Start()
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
+    private void HurtPlayer()
     {
-        
+        Destroy(gameObject);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            SpaceshipController.current.OnPlayerHurt += HurtPlayer;
+            SpaceshipController.current.PlayerHurt(damage);
+            SpaceshipController.current.OnPlayerHurt -= HurtPlayer;
+        }
     }
 }

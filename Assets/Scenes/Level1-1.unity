@@ -361,7 +361,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6418a94dcb5c6e44bb5f4a2c6232fd71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1174580624}
 --- !u!4 &101902862 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2469447209970929144, guid: 970a2091635d58b4690fbe5418f0dc81, type: 3}
@@ -845,11 +844,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c2759a0df27dce49ac871616c0a48cb, type: 3}
---- !u!1 &263033828 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2205242130432884929, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
-  m_PrefabInstance: {fileID: 1179376314}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &275803087 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8c2759a0df27dce49ac871616c0a48cb, type: 3}
@@ -3272,11 +3266,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c2759a0df27dce49ac871616c0a48cb, type: 3}
---- !u!1 &1174580624 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3372155554258707504, guid: f6ae29a1721bee840bc44c16a3ac7e1c, type: 3}
-  m_PrefabInstance: {fileID: 1179376314}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1176692834 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8c2759a0df27dce49ac871616c0a48cb, type: 3}
@@ -4582,7 +4571,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6418a94dcb5c6e44bb5f4a2c6232fd71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 263033828}
 --- !u!1 &1545280418
 GameObject:
   m_ObjectHideFlags: 0
@@ -4654,6 +4642,7 @@ GameObject:
   - component: {fileID: 1585819229}
   - component: {fileID: 1585819228}
   - component: {fileID: 1585819227}
+  - component: {fileID: 1585819231}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -4750,6 +4739,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1585819231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585819226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80103f0761ebad144bab66f29755709d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
 --- !u!1001 &1587221314
 PrefabInstance:
   m_ObjectHideFlags: 0
