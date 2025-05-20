@@ -28,6 +28,24 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             ""id"": ""df70fa95-8a34-4494-b137-73ab6b9c7d37"",
             ""actions"": [
                 {
+                    ""name"": ""Pitching"",
+                    ""type"": ""Value"",
+                    ""id"": ""450cfdae-47e1-451a-8f48-7436a5b34b1b"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Rolling"",
+                    ""type"": ""Value"",
+                    ""id"": ""4948f7ce-7e3c-45a1-bb97-9117c8958f0e"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
                     ""name"": ""Shoot"",
                     ""type"": ""Button"",
                     ""id"": ""89cacea1-70e6-45ad-a72b-cf9709a153bd"",
@@ -44,15 +62,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press"",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Pitching"",
-                    ""type"": ""Value"",
-                    ""id"": ""450cfdae-47e1-451a-8f48-7436a5b34b1b"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -132,6 +141,50 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Pitching"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Two Modifiers"",
+                    ""id"": ""de546e61-2d1d-421a-ba9a-c29f313d851b"",
+                    ""path"": ""TwoModifiers"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rolling"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier1"",
+                    ""id"": ""8f9e18b6-59ca-474f-ba73-ea090241625f"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rolling"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""modifier2"",
+                    ""id"": ""3cd49684-065d-42b0-b0d2-c30ba6271b5d"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rolling"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""513b373f-6f2c-4338-8371-f8a6ea84ca8c"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rolling"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -207,9 +260,10 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
 }");
         // PlayerControl
         m_PlayerControl = asset.FindActionMap("PlayerControl", throwIfNotFound: true);
+        m_PlayerControl_Pitching = m_PlayerControl.FindAction("Pitching", throwIfNotFound: true);
+        m_PlayerControl_Rolling = m_PlayerControl.FindAction("Rolling", throwIfNotFound: true);
         m_PlayerControl_Shoot = m_PlayerControl.FindAction("Shoot", throwIfNotFound: true);
         m_PlayerControl_SwitchWeapon = m_PlayerControl.FindAction("SwitchWeapon", throwIfNotFound: true);
-        m_PlayerControl_Pitching = m_PlayerControl.FindAction("Pitching", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
     }
@@ -279,16 +333,18 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     // PlayerControl
     private readonly InputActionMap m_PlayerControl;
     private List<IPlayerControlActions> m_PlayerControlActionsCallbackInterfaces = new List<IPlayerControlActions>();
+    private readonly InputAction m_PlayerControl_Pitching;
+    private readonly InputAction m_PlayerControl_Rolling;
     private readonly InputAction m_PlayerControl_Shoot;
     private readonly InputAction m_PlayerControl_SwitchWeapon;
-    private readonly InputAction m_PlayerControl_Pitching;
     public struct PlayerControlActions
     {
         private @PlayerInput m_Wrapper;
         public PlayerControlActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Pitching => m_Wrapper.m_PlayerControl_Pitching;
+        public InputAction @Rolling => m_Wrapper.m_PlayerControl_Rolling;
         public InputAction @Shoot => m_Wrapper.m_PlayerControl_Shoot;
         public InputAction @SwitchWeapon => m_Wrapper.m_PlayerControl_SwitchWeapon;
-        public InputAction @Pitching => m_Wrapper.m_PlayerControl_Pitching;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControl; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -298,28 +354,34 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerControlActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerControlActionsCallbackInterfaces.Add(instance);
+            @Pitching.started += instance.OnPitching;
+            @Pitching.performed += instance.OnPitching;
+            @Pitching.canceled += instance.OnPitching;
+            @Rolling.started += instance.OnRolling;
+            @Rolling.performed += instance.OnRolling;
+            @Rolling.canceled += instance.OnRolling;
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
             @SwitchWeapon.started += instance.OnSwitchWeapon;
             @SwitchWeapon.performed += instance.OnSwitchWeapon;
             @SwitchWeapon.canceled += instance.OnSwitchWeapon;
-            @Pitching.started += instance.OnPitching;
-            @Pitching.performed += instance.OnPitching;
-            @Pitching.canceled += instance.OnPitching;
         }
 
         private void UnregisterCallbacks(IPlayerControlActions instance)
         {
+            @Pitching.started -= instance.OnPitching;
+            @Pitching.performed -= instance.OnPitching;
+            @Pitching.canceled -= instance.OnPitching;
+            @Rolling.started -= instance.OnRolling;
+            @Rolling.performed -= instance.OnRolling;
+            @Rolling.canceled -= instance.OnRolling;
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
             @SwitchWeapon.started -= instance.OnSwitchWeapon;
             @SwitchWeapon.performed -= instance.OnSwitchWeapon;
             @SwitchWeapon.canceled -= instance.OnSwitchWeapon;
-            @Pitching.started -= instance.OnPitching;
-            @Pitching.performed -= instance.OnPitching;
-            @Pitching.canceled -= instance.OnPitching;
         }
 
         public void RemoveCallbacks(IPlayerControlActions instance)
@@ -422,9 +484,10 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     }
     public interface IPlayerControlActions
     {
+        void OnPitching(InputAction.CallbackContext context);
+        void OnRolling(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnSwitchWeapon(InputAction.CallbackContext context);
-        void OnPitching(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
