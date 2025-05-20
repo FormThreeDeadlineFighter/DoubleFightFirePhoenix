@@ -22,16 +22,6 @@ public class PlayerState_Idle : IPlayerState
         {
             _controller.SetState(typeof(PlayerState_Move));
         }
-        if(_shipController.PlayerUP && !_shipController.PlayerDown)
-        {
-            _controller.SetState(typeof(PlayerState_Up));
-        }
-        if(_shipController.PlayerDown && !_shipController.PlayerUP)
-        {
-            _controller.SetState(typeof(PlayerState_Down));
-        }
-
-        _playerControl.ImpulseBar += 10f * Time.deltaTime;
     }
 
     // 物理相關的更新（如果有的話）

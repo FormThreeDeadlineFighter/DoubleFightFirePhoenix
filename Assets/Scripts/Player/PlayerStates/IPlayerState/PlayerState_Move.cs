@@ -29,14 +29,6 @@ public class PlayerState_Move : IPlayerState
         {
             _controller.SetState(typeof(PlayerState_Idle));
         }   
-         if(_shipController.PlayerUP && !_shipController.PlayerDown)
-        {
-            _controller.SetState(typeof(PlayerState_Up));
-        }
-        if(_shipController.PlayerDown && !_shipController.PlayerUP)
-        {
-            _controller.SetState(typeof(PlayerState_Down));
-        }
        
     }
 
