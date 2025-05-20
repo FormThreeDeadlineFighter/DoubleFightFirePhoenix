@@ -11,17 +11,17 @@ public class SinglePlayerControl : MonoBehaviour
     private PlayerInput _playerInput;
 
     //player Look position
-    public Vector2 _playerLookPosition => _playerInput.UI.Look.ReadValue<Vector2>();
+    public Vector2 _playerLookPosition;
     
     // Is player moving
-    public bool IsMove =>  _playerInput.PlayerControl.Move.IsPressed();
+    public bool IsMove;
     // Is player shooting 
     public bool IsShoot => _playerInput.PlayerControl.Shoot.IsPressed();
 
     // Is Pitching Up
-    public bool IsUp => _playerInput.PlayerControl.PitchUp.IsPressed();
+    public bool IsUp;
     // Is Pitching Down
-    public bool IsDown => _playerInput.PlayerControl.PitchDown.IsPressed();
+    public bool IsDown;
 
     // bar value
     [SerializeField] private float _impulseBarValue;       
