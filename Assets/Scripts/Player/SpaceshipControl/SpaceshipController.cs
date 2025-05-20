@@ -16,7 +16,7 @@ public class SpaceshipController : MonoBehaviour
     public bool PlayerUP => _playerControl1.IsUp && _playerControl2.IsUp;
     public bool PlayerDown => _playerControl1.IsDown && _playerControl2.IsDown;
 
-    public static SpaceshipController current;
+    //public static SpaceshipController current;
 
 
     #region player manager
@@ -49,12 +49,10 @@ public class SpaceshipController : MonoBehaviour
 
     #endregion
 
-    public event Action OnPlayerHurt;
+    //public event Action OnPlayerHurt;
     
     private void Awake()
     {
-        current = this;
-
         _player1 = InputUser.CreateUserWithoutPairedDevices();
         _player2 = InputUser.CreateUserWithoutPairedDevices();
 
@@ -109,12 +107,12 @@ public class SpaceshipController : MonoBehaviour
         this.transform.Translate(0, 0, forwardSpeed * Time.deltaTime, Space.World);
     }
 
-    public void PlayerHurt(int damage)
+    /*public void PlayerHurt(int damage)
     {
         if(OnPlayerHurt != null)
         {
             _shipHealth -= damage;
             OnPlayerHurt();
         }
-    }
+    }*/
 }

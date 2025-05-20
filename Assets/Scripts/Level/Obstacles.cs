@@ -15,9 +15,9 @@ public class Obstacles : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            SpaceshipController.current.OnPlayerHurt += HurtPlayer;
-            SpaceshipController.current.PlayerHurt(damage);
-            SpaceshipController.current.OnPlayerHurt -= HurtPlayer;
+            Box.current.OnPlayerHurt += HurtPlayer;
+            Box.current.PlayerHurt(damage);
+            Box.current.OnPlayerHurt -= HurtPlayer;
         }
     }
 }

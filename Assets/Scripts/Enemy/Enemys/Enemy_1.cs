@@ -1,17 +1,13 @@
 using UnityEngine;
 
 
-[RequireComponent(typeof(AISensor), typeof(FollowPlayer))]
+[RequireComponent( typeof(FollowPlayer))]
 public class Enemy_1 :  IEnemy
-{
-    [SerializeField] GameObject player;
-     
-    private AISensor sensor;
+{    
     private FollowPlayer follower;
 
     void Awake()
     {
-        sensor = transform.GetComponent<AISensor>();
         follower = transform.GetComponent<FollowPlayer>();     
     }
     
@@ -28,17 +24,12 @@ public class Enemy_1 :  IEnemy
     
     void Update()
     {    
-        player = null;
-        if(sensor.Objects.Count > 0)
-        {
-            player = sensor.Objects[0];
-        }   
             
         //攻擊間隔
         m_EnemyShootTime -=Time.deltaTime;
-        if(m_EnemyShootTime <= 0 && player != null)
+        if(m_EnemyShootTime <= 0)
         {
-            Attack(player);
+            Attack(Vector3.back);
             m_EnemyShootTime = 3f;
         }                  
     }
@@ -53,21 +44,19 @@ public class Enemy_1 :  IEnemy
         
     }
     
-    protected override void Attack(GameObject player)
+    protected override void Attack(Vector3 dir)
     {        
-        Debug.Log("開始射擊");                
-              
-        if(player != null)
-        {
-            // 計算從敵人到玩家的方向
-            Vector3 direction = (transform.position - player.transform.position).normalized;
+        Debug.Log("開始射擊");                         
 
-            // 讓子彈面向玩家（注意：因為你的子彈用的是 transform.forward 前進，所以要朝向玩家）
-            Quaternion rotation = Quaternion.LookRotation(direction);
+        // 計算從敵人到玩家的方向
+        Vector3 direction = (transform.position - dir).normalized;
 
-            // 產生子彈並給它正確的朝向
-            Instantiate(m_EnemyBullet, transform.position, rotation);      
-        }
+        // 讓子彈面向玩家（注意：因為你的子彈用的是 transform.forward 前進，所以要朝向玩家）
+        Quaternion rotation = Quaternion.LookRotation(direction);
+
+        // 產生子彈並給它正確的朝向
+        Instantiate(m_EnemyBullet, transform.position, rotation);      
+        
     }
 
     protected override void Die() => Destroy(gameObject);

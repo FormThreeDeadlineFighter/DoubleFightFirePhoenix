@@ -16,5 +16,5 @@ public abstract class IEnemy : MonoBehaviour
     //敵人死亡
     protected virtual void Die() {}   
     // 強制所有敵人子類別實作「攻擊行為」
-    protected virtual void Attack(GameObject playerPosition) {}
+    protected virtual void Attack(Vector3 dir) {}
 }
