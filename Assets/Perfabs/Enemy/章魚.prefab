@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 434714114229261626}
   - component: {fileID: 4236249938718607913}
   - component: {fileID: 8124087052154279414}
-  - component: {fileID: 5855038429038788194}
   m_Layer: 7
   m_Name: "\u7AE0\u9B5A"
   m_TagString: Enemy
@@ -78,7 +77,6 @@ MonoBehaviour:
   m_EnemyShootTime: 5
   m_EnemyBullet: {fileID: 7449039841977143347, guid: 28f5e64e40a161e40afcb37f3a419632, type: 3}
   m_HP: {fileID: 878991550933578140}
-  player: {fileID: 0}
 --- !u!114 &8124087052154279414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,31 +89,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00eededb4853492419b1e195561046a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5855038429038788194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1919235037842366812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1df809cd53bf8f2408f48751e042ee11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _distance: 120
-  _angle: 15
-  _height: 15
-  _meshColor: {r: 1, g: 0, b: 0, a: 0.078431375}
-  _scanFrequrncy: 30
-  _layers:
-    serializedVersion: 2
-    m_Bits: 8
-  _occlusionLayers:
-    serializedVersion: 2
-    m_Bits: 64
-  Objects:
-  - {fileID: 0}
 --- !u!1 &8561048657945605596
 GameObject:
   m_ObjectHideFlags: 0

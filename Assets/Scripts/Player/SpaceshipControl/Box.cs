@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 
 public class Box : MonoBehaviour
@@ -29,11 +30,9 @@ public class Box : MonoBehaviour
             }
         }
     }
-    
     public static Box current;
-
     public event Action OnPlayerHurt;
-
+    
     private void Awake()
     {
         current = this;
@@ -45,12 +44,18 @@ public class Box : MonoBehaviour
 
     private void FollowPlayer()
     {
-        Vector3 player1dir = playersPosition[0].position;
-        Vector3 player2dir = playersPosition[1].position;
-
-        Vector3 dir = player1dir - player2dir;
-        this.transform.position = dir / 2;
+        Vector3 dir = Vector3.forward;
+        
+        if(playersPosition.Count() == 2)
+        {
+            Vector3 player1dir = playersPosition[0].position;
+            Vector3 player2dir = playersPosition[1].position;     
+            dir = player1dir - player2dir; 
+        }
+        transform.position =  dir / 2;
     }
+        
+        
     public void PlayerHurt(int damage)
     {
         if (OnPlayerHurt != null)
