@@ -1005,7 +1005,6 @@ GameObject:
   - component: {fileID: 1048107377}
   - component: {fileID: 1048107376}
   - component: {fileID: 1048107375}
-  - component: {fileID: 1048107380}
   m_Layer: 0
   m_Name: box
   m_TagString: Untagged
@@ -1119,30 +1118,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1048107380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1048107374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1df809cd53bf8f2408f48751e042ee11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _distance: 15.76
-  _angle: 30
-  _height: 10
-  _meshColor: {r: 1, g: 0, b: 0, a: 1}
-  _scanFrequrncy: 30
-  _layers:
-    serializedVersion: 2
-    m_Bits: 0
-  _occlusionLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  Objects: []
 --- !u!1 &1164242649
 GameObject:
   m_ObjectHideFlags: 0
