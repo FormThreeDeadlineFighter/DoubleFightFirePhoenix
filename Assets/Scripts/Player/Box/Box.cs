@@ -1,14 +1,19 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxSensor))]
 public class Box : MonoBehaviour
 {
     //box HP
     [SerializeField] float _boxHealth;
     //box mix hp
     [SerializeField] float _maxHealth;
-    [SerializeField] Transform[] playersPosition = new Transform[2];
+    [SerializeField] List<Transform> playersPosition = new List<Transform>();
+
+    private BoxSensor boxSensor;
+    
     //BoxHP
     public float BoxHealth
     {
@@ -36,11 +41,20 @@ public class Box : MonoBehaviour
     private void Awake()
     {
         current = this;
+
+        boxSensor = GetComponent<BoxSensor>();
     }
     private void Update()
     {
+        playersPosition.Clear();
+        foreach (GameObject gameObject in boxSensor.Objects)
+        {       
+            playersPosition.Add(gameObject.transform);
+        }
+        
         FollowPlayer();
     }
+    
 
     private void FollowPlayer()
     {
@@ -50,9 +64,9 @@ public class Box : MonoBehaviour
         {
             Vector3 player1dir = playersPosition[0].position;
             Vector3 player2dir = playersPosition[1].position;     
-            dir = player1dir - player2dir; 
+            dir = (player1dir + player2dir) / 2f; 
         }
-        transform.position =  dir / 2;
+        transform.position =  dir ;
     }
         
         
