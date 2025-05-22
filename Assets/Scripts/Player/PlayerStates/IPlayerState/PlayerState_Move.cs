@@ -6,16 +6,11 @@ using UnityEngine.InputSystem;
 public class PlayerState_Move : IPlayerState
 {
     [SerializeField] float _dirX;
-    [SerializeField] float _barReduce;
+    
     //進入移動狀態
     public override void EnterState()
     {
-        Debug.Log(_name +"進入移動狀態");
-        
-        // 減動力槽
-        _playerControl.ImpulseBar -= _barReduce * Time.deltaTime;
-        
-        
+        Debug.Log(_name +"進入移動狀態");       
     }
     //離開移動狀態
     public override void ExitState()
@@ -26,28 +21,20 @@ public class PlayerState_Move : IPlayerState
     public override void LogicUpdate()
     {
            
-        if(!_playerControl.IsMove)
+        if(!_playerControl.IsMoving)
         {
             _controller.SetState(typeof(PlayerState_Idle));
-        }   
+        } 
+        else if (_playerControl.IsShoot)
+        {
+            _controller.SetState(typeof(PlayerState_Shooting));
+        }  
        
     }
 
     public override void PhysicsUpdate()
     {
-        //Shooting
-        if(_playerControl.IsShoot)
-        {
-            //Debug.Log($"{ _name}akkack");
-            _weaponManager.Attack();
-        }
-        
-        // ship move by dirX
-        _shipController.ShipMoveAxesX(_dirX);
-
-        // ship move forward
-        _shipController.Forward();
-        
+        _rb.position += new Vector3(_playerControl.MoveValue.x,_playerControl.MoveValue.y,0) * _playerControl._moveSpeed * Time.fixedDeltaTime;
     }
     
     

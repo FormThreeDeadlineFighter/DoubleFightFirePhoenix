@@ -7,17 +7,15 @@ public class IPlayerState : ScriptableObject ,IState
     protected PlayerStateController _controller;
     protected Animator _animator;
     protected Rigidbody _rb;
-    protected SinglePlayerControl _playerControl;
-    protected SpaceshipController _shipController;
+    protected PlayerControl _playerControl;
     protected WeaponManager _weaponManager;
     protected bool IsComplete;
 
-    public void Initialize(PlayerStateController controller, Animator animator, SinglePlayerControl playerControl, SpaceshipController spaceshipController, Rigidbody rigidbody, WeaponManager weaponManager, string playerName)
+    public void Initialize(PlayerStateController controller, Animator animator, PlayerControl playerControl, Rigidbody rigidbody, WeaponManager weaponManager, string playerName)
     {
         _controller = controller;
         _animator = animator;
         _playerControl = playerControl;
-        _shipController = spaceshipController;
         _rb = rigidbody;
         _weaponManager = weaponManager;
         _name = playerName;

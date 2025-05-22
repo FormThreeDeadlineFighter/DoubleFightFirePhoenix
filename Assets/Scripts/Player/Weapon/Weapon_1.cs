@@ -3,18 +3,10 @@ using UnityEngine.InputSystem;
 
 public class Weapon_1 : IWeapon
 {
-    private CrosshairControl crosshairControl; // ✅ 自己存一個對應準星控制器
     public override void InitializeWeapon()
     {
         //現在子彈數等於最大數
         currentAmmo = maxAmmo;
-        
-        // ✅ 從父物件找 CrosshairControl（也就是自己玩家的）
-        crosshairControl = GetComponentInParent<CrosshairControl>();
-        if (crosshairControl == null)
-        {
-            Debug.LogWarning($"{gameObject.name} 找不到對應的 CrosshairControl！");
-        }
     }
 
     public override void Attack(Transform firePoint)
@@ -44,7 +36,7 @@ public class Weapon_1 : IWeapon
     private void FireTowardCrosshair(Transform firePoint)
     {
 
-        Vector3 targetPoint = crosshairControl.targetPoint;
+        Vector3 targetPoint = Vector3.forward;
         //Debug.Log($"[{gameObject.name}] 準星鎖定點: {targetPoint}");
 
         Vector3 direction = (targetPoint - firePoint.transform.position).normalized;
