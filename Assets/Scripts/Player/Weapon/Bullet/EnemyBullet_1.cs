@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public class EnemyBullet_1 : IBullet
 {
     void Update()

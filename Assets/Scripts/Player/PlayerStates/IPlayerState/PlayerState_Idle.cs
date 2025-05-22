@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/Idle", fileName = "PlayerState_Idle")]
+[System.Serializable]
 public class PlayerState_Idle : IPlayerState
 {
     //進入待機狀態

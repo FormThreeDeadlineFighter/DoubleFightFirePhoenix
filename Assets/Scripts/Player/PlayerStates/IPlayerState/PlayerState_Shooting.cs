@@ -1,26 +1,24 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/Move", fileName = "PlayerState_Move")]
-[System.Serializable]
-public class PlayerState_Move : IPlayerState
+[CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/Shooting", fileName = "PlayerState_Shooting")]
+public class PlayerState_Shooting : IPlayerState
 {
     [SerializeField] float _dirX;
     [SerializeField] float _barReduce;
     //進入移動狀態
     public override void EnterState()
     {
-        Debug.Log(_name +"進入移動狀態");
+        Debug.Log(_name +"進入Rolling");
         
         // 減動力槽
-        _playerControl.ImpulseBar -= _barReduce * Time.deltaTime;
         
         
     }
     //離開移動狀態
     public override void ExitState()
     {
-        Debug.Log(_name +"離開移動狀態");
+        Debug.Log(_name +"離開Rolling");
     }
 
     public override void LogicUpdate()
