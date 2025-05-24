@@ -12,11 +12,12 @@ GameObject:
   - component: {fileID: 6701384073149283802}
   - component: {fileID: 4846768858429157383}
   - component: {fileID: 3376659978009041437}
+  - component: {fileID: 5030370100096991185}
   - component: {fileID: 2653259028443919572}
   - component: {fileID: 510912614205416127}
   - component: {fileID: 223430560455441310}
   m_Layer: 3
-  m_Name: Player1
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95,6 +96,72 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5030370100096991185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980240293570265117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 510912614205416127}
+        m_TargetAssemblyTypeName: PlayerControl, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4948f7ce-7e3c-45a1-bb97-9117c8958f0e
+    m_ActionName: 'PlayerControl/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/DualSenseGamepadHID/leftStick/down,/DualSenseGamepadHID/leftStick/up,/DualSenseGamepadHID/rightStick/left,/DualSenseGamepadHID/rightStick/right]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 510912614205416127}
+        m_TargetAssemblyTypeName: PlayerControl, Assembly-CSharp
+        m_MethodName: OnShoot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 89cacea1-70e6-45ad-a72b-cf9709a153bd
+    m_ActionName: 'PlayerControl/Shoot[/Keyboard/shift,/DualSenseGamepadHID/leftTrigger]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: aa06e4c5-9272-413c-9d17-03055315e6a1
+    m_ActionName: 'PlayerControl/SwitchWeapon[/Keyboard/q]'
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: PlayerControl
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!114 &2653259028443919572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,11 +174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce15c67654e898d4f94c89d1e26d3f9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerStates:
-  - {fileID: 11400000, guid: 99e3e57233ebe2f4db38dafe3cdad400, type: 2}
-  - {fileID: 11400000, guid: 862e01d1c2ebe0b49bcdd90abbeb1a8a, type: 2}
-  - {fileID: 11400000, guid: 84a56e6d01d37c548aa5bacf577a23d7, type: 2}
-  _name: Player1
+  _name: Player
+  _playerStates: []
 --- !u!114 &510912614205416127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +188,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b444025bf541ce48bd5678bc2227c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _moveSpeed: 10
+  IsShoot: 0
+  MoveValue: {x: 0, y: 0}
 --- !u!114 &223430560455441310
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -5,14 +6,19 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerControl), typeof(WeaponManager))]
 public class PlayerStateController : IStateController
 {   
-    [SerializeField] IPlayerState[] _playerStates;
     [SerializeField] string _name;
+    [SerializeField] IPlayerState[] _playerStates;
     private Animator _animator;
     private Rigidbody _rb;
     private PlayerControl _playerControl;
     private WeaponManager _weaponManager; 
     
+    #region PlayerStates
+    PlayerState_Idle idleState = new PlayerState_Idle();
+    PlayerState_Move moveState = new PlayerState_Move();
+    PlayerState_Shooting shootState = new PlayerState_Shooting();
     
+    #endregion
 
     private void Awake()
     {
@@ -22,6 +28,8 @@ public class PlayerStateController : IStateController
         _weaponManager = this.transform.GetComponent<WeaponManager>();
 
         _stateTable = new Dictionary<System.Type, IState>(_playerStates.Length);
+    
+        _playerStates = new IPlayerState[] {idleState, moveState, shootState};
       
         foreach(IPlayerState state in _playerStates)
         {

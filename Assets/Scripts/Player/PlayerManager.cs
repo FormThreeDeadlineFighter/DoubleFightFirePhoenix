@@ -3,8 +3,11 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    public void PlayerJoin()
+    [SerializeField] Transform SpawnPoint1, SpawnPoint2;
+    [SerializeField] GameObject Player;
+    void Awake()
     {
-        //Debug.Log("player join");
+        Instantiate(Player, SpawnPoint1.position , SpawnPoint1.rotation);
+        Instantiate(Player, SpawnPoint2.position , SpawnPoint2.rotation);
     }
 }
