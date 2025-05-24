@@ -35,6 +35,7 @@ public class PlayerState_Move : IPlayerState
     public override void PhysicsUpdate()
     {
         _rb.position += new Vector3(_playerControl.MoveValue.x,_playerControl.MoveValue.y,0) * _playerControl._moveSpeed * Time.fixedDeltaTime;
+        _rb.position += Vector3.forward * _playerControl._forwardSpeed * Time.fixedDeltaTime;
     }
     
     

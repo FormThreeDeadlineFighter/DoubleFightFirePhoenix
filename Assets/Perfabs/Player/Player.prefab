@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 10
+  _forwardSpeed: 10
   IsShoot: 0
   MoveValue: {x: 0, y: 0}
 --- !u!114 &223430560455441310

@@ -5,20 +5,14 @@ using UnityEngine.InputSystem;
 public class PlayerControl : MonoBehaviour
 {
     [SerializeField] public float _moveSpeed;
-    // Unity input system : PlayerInput Script Creates
-    //private PlayerInput _playerInput;
+    [SerializeField] public float _forwardSpeed;
+
     // Is player shooting 
     public bool IsShoot;
     //Moving Value
     public Vector2 MoveValue;
     // Is Moving
     public bool IsMoving => MoveValue != Vector2.zero;    
-    
-    void Awake()
-    {
-        //_playerInput = new PlayerInput();
-        //_playerInput.Enable();
-    }
     
     public void OnMove(InputAction.CallbackContext context)
     {

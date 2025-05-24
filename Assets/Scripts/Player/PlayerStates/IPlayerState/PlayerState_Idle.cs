@@ -27,12 +27,12 @@ public class PlayerState_Idle : IPlayerState
         {
             _controller.SetState(typeof(PlayerState_Shooting));
         }  
+        
     }
 
     // 物理相關的更新（如果有的話）
     public override void PhysicsUpdate()
     {
-        
-        
+        _rb.position += Vector3.forward * _playerControl._forwardSpeed * Time.fixedDeltaTime;
     }
 }
