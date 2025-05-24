@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class IPlayerState : MonoBehaviour ,IState
+public class IPlayerState : ScriptableObject ,IState
 { 
     protected string _name;
     protected PlayerStateController _controller;

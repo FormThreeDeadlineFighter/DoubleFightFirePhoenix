@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerControl), typeof(WeaponManager))]
 public class PlayerStateController : IStateController
@@ -14,9 +12,9 @@ public class PlayerStateController : IStateController
     private WeaponManager _weaponManager; 
     
     #region PlayerStates
-    PlayerState_Idle idleState = new PlayerState_Idle();
-    PlayerState_Move moveState = new PlayerState_Move();
-    PlayerState_Shooting shootState = new PlayerState_Shooting();
+    PlayerState_Idle idleState;
+    PlayerState_Move moveState;
+    PlayerState_Shooting shootState;
     
     #endregion
 
@@ -29,6 +27,10 @@ public class PlayerStateController : IStateController
 
         _stateTable = new Dictionary<System.Type, IState>(_playerStates.Length);
     
+        idleState = ScriptableObject.CreateInstance<PlayerState_Idle>();
+        moveState = ScriptableObject.CreateInstance<PlayerState_Move>();
+        shootState = ScriptableObject.CreateInstance<PlayerState_Shooting>();
+
         _playerStates = new IPlayerState[] {idleState, moveState, shootState};
       
         foreach(IPlayerState state in _playerStates)
