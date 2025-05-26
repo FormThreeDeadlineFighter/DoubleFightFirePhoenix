@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Obstacles : MonoBehaviour
+public class Wall : MonoBehaviour
 {
     [SerializeField] int damage;
     void Start()
@@ -9,7 +9,7 @@ public class Obstacles : MonoBehaviour
     }
     private void HurtPlayer()
     {
-        Destroy(this);
+        
     }
     
     private void OnTriggerEnter(Collider other)

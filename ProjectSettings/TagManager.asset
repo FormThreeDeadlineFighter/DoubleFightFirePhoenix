@@ -7,11 +7,12 @@ TagManager:
   - Bullet
   - Enemy
   - Level
+  - Box
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Character
+  - Player
   - Water
   - UI
   - Level

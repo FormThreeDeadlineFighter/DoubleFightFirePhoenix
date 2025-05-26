@@ -5,7 +5,7 @@ public class Coin : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("Box"))
         {
             UIController.current.OnCoinCollect += CoinCollect;
             UIController.current.CoinCollect();

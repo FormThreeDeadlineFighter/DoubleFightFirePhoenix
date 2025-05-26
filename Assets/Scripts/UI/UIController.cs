@@ -9,6 +9,7 @@ public class UIController : MonoBehaviour
     public int _coinNum { get; private set; }
 
     public event Action OnCoinCollect;
+    //public event Action GameUI;
 
     private void Awake()
     {
@@ -28,4 +29,6 @@ public class UIController : MonoBehaviour
             OnCoinCollect();
         }       
     }
+    
+    
 }
