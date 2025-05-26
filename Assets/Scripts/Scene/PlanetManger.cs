@@ -1,21 +1,17 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlanetManger : MonoBehaviour
 {
-    public GameObject[] Planet;
     public GameObject[] Stage;
+    public GameObject SpaceCenter;
     public Canvas uiCanvas;
-    GameObject currentModel;
+    int[] planet = new int[] { 0,90,180,270};
     GameObject currentStage;
     int currentIndex = 0;
     void Start()
     {
-        ShowModel(currentIndex);
         ShowStageButton(currentIndex);
-    }
-    void ShowModel(int index)
-    {
-        currentModel = Instantiate(Planet[index]);
     }
     void ShowStageButton(int index)
     {
@@ -23,26 +19,46 @@ public class PlanetManger : MonoBehaviour
     }
     public void RightButton()
     {
-        Destroy(currentModel);
         Destroy(currentStage);
         currentIndex++;
-        if (currentIndex >= Planet.Length)
+        if (currentIndex == Stage.Length)
         {
             currentIndex = 0;
         }
-        ShowModel(currentIndex);
+        StartCoroutine(PlanetMove(currentIndex));
         ShowStageButton(currentIndex);
     }
     public void LeftButton()
     {
-        Destroy(currentModel);
         Destroy(currentStage);
         currentIndex--;
         if (currentIndex < 0)
         {
-            currentIndex = Planet.Length-1;
+            currentIndex = Stage.Length - 1;
         }
-        ShowModel(currentIndex);
+        StartCoroutine(PlanetMove(currentIndex));
         ShowStageButton(currentIndex);
     }
+    IEnumerator PlanetMove(int index)
+    {
+        Quaternion startRot = SpaceCenter.transform.rotation;
+        Quaternion targetRot = Quaternion.Euler(0, planet[index], 0);
+
+        float duration = 1f;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+
+            // 平滑插值
+            SpaceCenter.transform.rotation = Quaternion.Slerp(startRot, targetRot, t);
+            yield return null;
+        }
+
+        // 最後保證精準到達目標角度
+        SpaceCenter.transform.rotation = targetRot;
+    }
+    
 }
