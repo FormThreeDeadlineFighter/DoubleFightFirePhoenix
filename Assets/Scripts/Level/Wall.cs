@@ -14,7 +14,7 @@ public class Wall : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Box"))
+        if (other.CompareTag("Box") || other.CompareTag("Player"))
         {
             Box.current.OnPlayerHurt += HurtPlayer;
             Box.current.PlayerHurt(damage);

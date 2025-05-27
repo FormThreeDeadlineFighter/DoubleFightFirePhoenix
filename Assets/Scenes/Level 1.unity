@@ -4935,7 +4935,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI: {fileID: 622609968}
-  winUI: {fileID: 358811922245845370, guid: da4768d9da94c4e4faa6a086665f491e, type: 3}
   loseUI: {fileID: 4394407262582961624, guid: eca232f5f6bebbf40b2dfae6a3d1b061, type: 3}
 --- !u!4 &1545280420
 Transform:
@@ -6482,6 +6481,7 @@ GameObject:
   - component: {fileID: 5845659522797114247}
   - component: {fileID: 564061438557635092}
   - component: {fileID: 5845659522797114248}
+  - component: {fileID: 5845659522797114249}
   m_Layer: 6
   m_Name: Goat
   m_TagString: Level
@@ -6518,6 +6518,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5, y: 2.0000005, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5845659522797114249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4976995029201875779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dab320ba353d1b42b828a9fde887813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UI: {fileID: 622609968}
+  winUI: {fileID: 358811922245845370, guid: da4768d9da94c4e4faa6a086665f491e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

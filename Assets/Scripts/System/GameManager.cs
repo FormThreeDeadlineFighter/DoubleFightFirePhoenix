@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] Canvas UI;
-    [SerializeField] GameObject winUI;
     [SerializeField] GameObject loseUI;
     
     void Update()
@@ -21,6 +20,7 @@ public class GameManager : MonoBehaviour
     IEnumerator SwitchScene(int time)
     {
         yield return new WaitForSecondsRealtime(time);
-        SceneManager.LoadScene("StageScene");    
+        SceneManager.LoadScene("StageScene", LoadSceneMode.Additive);
+        SceneManager.UnloadScene("Level 1");
     }
 }
