@@ -6,21 +6,26 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] Canvas UI;
     [SerializeField] GameObject loseUI;
+    bool isGameOver = false;
     
     void Update()
     {
-        if(Box.current.BoxHealth <= 0)
+        if(!isGameOver && Box.current.BoxHealth <= 0)
         {
-            Instantiate(loseUI, UI.transform.position, UI.transform.rotation, UI.transform);
+            isGameOver = true;
+            Instantiate(loseUI, UI.transform);
             Time.timeScale = 0f;
             StartCoroutine(SwitchScene(3));        
         }
     }
-    
+
     IEnumerator SwitchScene(int time)
     {
         yield return new WaitForSecondsRealtime(time);
-        SceneManager.LoadScene("StageScene", LoadSceneMode.Additive);
-        SceneManager.UnloadScene("Level 1");
+        SceneManager.LoadScene("StageScene");
+        //SceneManager.LoadScene("StageScene", LoadSceneMode.Additive);
+        yield return null;
+        SceneManager.UnloadSceneAsync("Level 0");
     }
+    
 }

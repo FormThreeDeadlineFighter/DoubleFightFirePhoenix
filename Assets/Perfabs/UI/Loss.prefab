@@ -695,7 +695,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6635987904425942727}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4276357352282152704, guid: 740e47ba277b78648a4fcbc7bfc0de12, type: 3}
+        m_TargetAssemblyTypeName: SceneManger, Assembly-CSharp
+        m_MethodName: StageScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4394407262582961624
 GameObject:
   m_ObjectHideFlags: 0

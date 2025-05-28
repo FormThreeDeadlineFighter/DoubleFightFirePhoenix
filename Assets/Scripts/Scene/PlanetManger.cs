@@ -6,11 +6,12 @@ public class PlanetManger : MonoBehaviour
     public GameObject[] Stage;
     public GameObject SpaceCenter;
     public Canvas uiCanvas;
-    int[] planet = new int[] { 0,90,180,270};
+    int[] planet = new int[] {0,90,180,270};
     GameObject currentStage;
-    int currentIndex = 0;
+    public static int currentIndex = 0;
     void Start()
     {
+        StartCoroutine(PlanetMove(currentIndex));
         ShowStageButton(currentIndex);
     }
     void ShowStageButton(int index)

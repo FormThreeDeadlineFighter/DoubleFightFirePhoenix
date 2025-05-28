@@ -295,7 +295,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4276357352282152704, guid: 740e47ba277b78648a4fcbc7bfc0de12, type: 3}
         m_TargetAssemblyTypeName: SceneManger, Assembly-CSharp
-        m_MethodName: StageScene
+        m_MethodName: Stage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -27,6 +27,6 @@ public class Around : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
         }
-        SceneManager.LoadScene("Level1-1");
+        SceneManager.LoadScene("StageScene");
     }
 }

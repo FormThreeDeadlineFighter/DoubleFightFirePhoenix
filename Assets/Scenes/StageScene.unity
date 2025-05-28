@@ -488,6 +488,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9218050303420148922, guid: 86ab4c0a051c9a843b7128cd713c9830, type: 3}
     - target: {fileID: 2000367790165478889, guid: 0cdac9c4c41fe5c40a83e690775b907b, type: 3}
+      propertyPath: 'Stage.Array.data[4]'
+      value: 
+      objectReference: {fileID: 9218050303420148922, guid: 86ab4c0a051c9a843b7128cd713c9830, type: 3}
+    - target: {fileID: 2000367790165478889, guid: 0cdac9c4c41fe5c40a83e690775b907b, type: 3}
       propertyPath: 'Planet.Array.data[3]'
       value: 
       objectReference: {fileID: 919132149155446097, guid: 2a69307be8c5a6a42b4359f4c3664b07, type: 3}
