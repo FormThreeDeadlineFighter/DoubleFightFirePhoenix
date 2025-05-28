@@ -20,7 +20,7 @@ public class PlayerState_Shooting : IPlayerState
     public override void LogicUpdate()
     {
 
-        if (!_playerControl.IsShoot && !!_playerControl.IsMoving)
+        if (!_playerControl.IsShoot && !_playerControl.IsMoving)
         {
             _controller.SetState(typeof(PlayerState_Idle));
         }
@@ -32,7 +32,7 @@ public class PlayerState_Shooting : IPlayerState
 
     public override void PhysicsUpdate()
     {
-        _weaponManager.Attack(); 
+        _weaponManager.PlayerAttack(); 
         _rb.position += Vector3.forward * _playerControl._forwardSpeed * Time.fixedDeltaTime;  
     }
     

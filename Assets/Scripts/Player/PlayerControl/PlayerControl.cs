@@ -7,10 +7,11 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] public float _moveSpeed;
     [SerializeField] public float _forwardSpeed;
 
+    //Moving Value
+    [HideInInspector] public Vector2 MoveValue;
+    
     // Is player shooting 
     public bool IsShoot;
-    //Moving Value
-    public Vector2 MoveValue;
     // Is Moving
     public bool IsMoving => MoveValue != Vector2.zero;    
     

@@ -1,18 +1,24 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+
+[RequireComponent(typeof(AISensor))]
 public class WeaponManager : MonoBehaviour
 {
     // 存放所有可切換的武器，這些武器都必須繼承 IWeapon
     public IWeapon[] weapons;
     public Transform _firepoint;
     public Transform _weaponPosition;
-    private int currentWeaponIndex = 0;   
+    private int currentWeaponIndex = 0;
+
+    private AISensor sensor;
 
     private void Start()
     {
         weapons[currentWeaponIndex] = SpawnWeapon(currentWeaponIndex);
         weapons[currentWeaponIndex].InitializeWeapon();
         weapons[currentWeaponIndex].nextFireTime = 0;
+
+        sensor = GetComponent<AISensor>();
     }
     
     void Update()
@@ -50,8 +56,13 @@ public class WeaponManager : MonoBehaviour
         weapons[currentWeaponIndex].InitializeWeapon();
         }
     //Attack
-    public void Attack()
+    public void PlayerAttack()
     {
+        if(sensor.Objects.Count != 0)
+        {
+            weapons[currentWeaponIndex].Attack(_firepoint, sensor.Objects[0].transform);
+            return;
+        }
         //using current weapon attack
         weapons[currentWeaponIndex].Attack(_firepoint);
     }

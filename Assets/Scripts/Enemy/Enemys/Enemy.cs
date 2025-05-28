@@ -2,7 +2,7 @@ using UnityEngine;
 
 
 [RequireComponent( typeof(FollowPlayer))]
-public class Enemy_1 :  IEnemy
+public class Enemy :  IEnemy
 {    
     private FollowPlayer follower;
 
@@ -29,7 +29,7 @@ public class Enemy_1 :  IEnemy
         m_EnemyShootTime -=Time.deltaTime;
         if(m_EnemyShootTime <= 0)
         {
-            Attack(Vector3.back);
+            Attack(Vector3.forward);
             m_EnemyShootTime = 3f;
         }                  
     }
@@ -49,7 +49,7 @@ public class Enemy_1 :  IEnemy
         Debug.Log("開始射擊");                         
 
         // 計算從敵人到玩家的方向
-        Vector3 direction = (transform.position - dir).normalized;
+        Vector3 direction = dir.normalized;
 
         // 讓子彈面向玩家（注意：因為你的子彈用的是 transform.forward 前進，所以要朝向玩家）
         Quaternion rotation = Quaternion.LookRotation(direction);

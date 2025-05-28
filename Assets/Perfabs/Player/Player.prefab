@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2653259028443919572}
   - component: {fileID: 510912614205416127}
   - component: {fileID: 223430560455441310}
+  - component: {fileID: -6477709456330373362}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -189,9 +190,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 15
-  _forwardSpeed: 20
-  IsShoot: 0
+  _forwardSpeed: 0
   MoveValue: {x: 0, y: 0}
+  IsShoot: 0
 --- !u!114 &223430560455441310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +211,31 @@ MonoBehaviour:
   - {fileID: 2040152274041323972, guid: deba75fd67a98cd4da5668d789610f32, type: 3}
   _firepoint: {fileID: 6740166969542118449}
   _weaponPosition: {fileID: 6740166969542118449}
+--- !u!114 &-6477709456330373362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980240293570265117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df809cd53bf8f2408f48751e042ee11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _distance: 50
+  _angle: 20
+  _height: 10
+  _meshColor: {r: 1, g: 0, b: 0, a: 1}
+  _scanFrequrncy: 30
+  _layers:
+    serializedVersion: 2
+    m_Bits: 128
+  _occlusionLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  Objects:
+  - {fileID: 0}
 --- !u!1 &2119267746048007089
 GameObject:
   m_ObjectHideFlags: 0

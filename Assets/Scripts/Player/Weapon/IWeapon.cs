@@ -16,8 +16,7 @@ public abstract class IWeapon : MonoBehaviour
     
     public abstract void InitializeWeapon(); 
     public abstract void Attack(Transform firePoint);
-    
 
-
+    public abstract void Attack(Transform firePoint, Transform enemyPosition);
 
 }

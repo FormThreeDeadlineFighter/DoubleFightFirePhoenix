@@ -4,7 +4,7 @@ public class EnemyManager : MonoBehaviour
 {
     public GameObject SpaceShip; //玩家
     public GameObject EnemyObject_1; //小怪1_章魚
-    Enemy_1 enemy_1 = new Enemy_1();
+    Enemy enemy_1 = new Enemy();
 
     public int m_Enemy1num = 0;
     float offsetMin = -4f;
