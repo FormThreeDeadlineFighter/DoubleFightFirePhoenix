@@ -13,14 +13,7 @@ public class Goat : MonoBehaviour
     }
     void OnPlayerWin()
     {
-        Instantiate(winUI, UI.transform.position, UI.transform.rotation, UI.transform);
+        Instantiate(winUI, UI.transform);
         Time.timeScale = 0f;
-        StartCoroutine(SwitchScene(3));
-    }
-
-    IEnumerator SwitchScene(int time)
-    {
-        yield return new WaitForSecondsRealtime(time);
-        SceneManager.LoadScene("StageScene");
     }
 }

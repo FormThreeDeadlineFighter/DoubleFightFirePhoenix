@@ -14,18 +14,8 @@ public class GameManager : MonoBehaviour
         {
             isGameOver = true;
             Instantiate(loseUI, UI.transform);
-            Time.timeScale = 0f;
-            StartCoroutine(SwitchScene(3));        
+            Time.timeScale = 0f;       
         }
-    }
-
-    IEnumerator SwitchScene(int time)
-    {
-        yield return new WaitForSecondsRealtime(time);
-        SceneManager.LoadScene("StageScene");
-        //SceneManager.LoadScene("StageScene", LoadSceneMode.Additive);
-        yield return null;
-        SceneManager.UnloadSceneAsync("Level 0");
     }
     
 }
