@@ -16,14 +16,14 @@ public class WeaponManager : MonoBehaviour
     {
         weapons[currentWeaponIndex] = SpawnWeapon(currentWeaponIndex);
         weapons[currentWeaponIndex].InitializeWeapon();
-        weapons[currentWeaponIndex].nextFireTime = 0;
+        //weapons[currentWeaponIndex].nextFireTime = 0;
 
         sensor = GetComponent<AISensor>();
     }
     
     void Update()
     {
-        weapons[currentWeaponIndex].nextFireTime -= Time.deltaTime;
+        //weapons[currentWeaponIndex].nextFireTime -= Time.deltaTime;
     }
 
     private IWeapon SpawnWeapon(int weaponIndex)
@@ -60,10 +60,10 @@ public class WeaponManager : MonoBehaviour
     {
         if(sensor.Objects.Count != 0)
         {
-            weapons[currentWeaponIndex].Attack(_firepoint, sensor.Objects[0].transform);
+            //weapons[currentWeaponIndex].Attack(_firepoint, sensor.Objects[0].transform);
             return;
         }
         //using current weapon attack
-        weapons[currentWeaponIndex].Attack(_firepoint);
+        //weapons[currentWeaponIndex].Attack(_firepoint);
     }
 }
