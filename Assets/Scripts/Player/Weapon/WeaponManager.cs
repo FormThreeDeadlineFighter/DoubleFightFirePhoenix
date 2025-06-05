@@ -14,8 +14,8 @@ public class WeaponManager : MonoBehaviour
 
     private void Start()
     {
-        weapons[currentWeaponIndex] = SpawnWeapon(currentWeaponIndex);
-        weapons[currentWeaponIndex].InitializeWeapon();
+        //weapons[currentWeaponIndex] = SpawnWeapon(currentWeaponIndex);
+        //weapons[currentWeaponIndex].InitializeWeapon();
         //weapons[currentWeaponIndex].nextFireTime = 0;
 
         sensor = GetComponent<AISensor>();
@@ -26,18 +26,18 @@ public class WeaponManager : MonoBehaviour
         //weapons[currentWeaponIndex].nextFireTime -= Time.deltaTime;
     }
 
-    private IWeapon SpawnWeapon(int weaponIndex)
+    /*private IWeapon SpawnWeapon(int weaponIndex)
     {
-        //生成武器
-        GameObject weaponInstance = Instantiate(weapons[weaponIndex].gameObject, _weaponPosition.transform.position, _weaponPosition.transform.rotation);
+        生成武器
+        //GameObject weaponInstance = Instantiate(weapons[weaponIndex].gameObject, _weaponPosition.transform.position, _weaponPosition.transform.rotation);
         
         // 設為 FirePoint 子物件
         weaponInstance.transform.SetParent(_weaponPosition.transform); 
         // 回傳實體的 IWeapon
         return weaponInstance.GetComponent<IWeapon>();             
-    }
+    }*/
     
-    public void SwitchWeapon()
+    /*public void SwitchWeapon()
     {  
         // 刪除目前武器（如果有的話）
         if (weapons[currentWeaponIndex] != null)
@@ -65,5 +65,5 @@ public class WeaponManager : MonoBehaviour
         }
         //using current weapon attack
         //weapons[currentWeaponIndex].Attack(_firepoint);
-    }
+    }*/
 }
