@@ -1,17 +1,19 @@
 using UnityEngine;
-
-[CreateAssetMenu(menuName = "Data/Weapons/Gun", fileName = "Gun")]
 [System.Serializable]
 public class Gun : IWeapon
 {
-    
-    public override void Attack()
+    public override void InitializeWeapon(Transform weaponPosition)
     {
-        throw new System.NotImplementedException();
+        Instantiate(_weaponModel, weaponPosition.position, weaponPosition.rotation, weaponPosition);
+
+        _canAttack = true;
+    }
+    public override void Attack(Vector3 target)
+    {
+        Vector3 dir = (target - _firePoint.position).normalized;
+        Quaternion quat = Quaternion.LookRotation(dir);
+        Instantiate(_bullet, _firePoint.position, quat);
+        StartCoroutine(FireRate());
     }
 
-    public override void InitializeWeapon()
-    {
-        
-    }
 }

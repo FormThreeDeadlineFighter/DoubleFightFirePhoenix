@@ -1,22 +1,34 @@
+using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
-public abstract class IWeapon : ScriptableObject
+
+public abstract class IWeapon : MonoBehaviour
 {
     [Header("Info")]
-    [SerializeField] string _name; //武器名字
-    [SerializeField] GameObject _weaponModel;
+    [SerializeField] protected string _name; //武器名字
+    [SerializeField] protected GameObject _weaponModel;
+    [SerializeField] protected Transform _firePoint;
+    [SerializeField] protected GameObject _bullet;
 
     [Header("Shoot")]
-    float damage; //武器傷害
-    float fireRate ; //射速
-    float nextFireTime = 0f; //下一發射擊的冷卻時間
+    [SerializeField] protected float _damage; //武器傷害
+    [SerializeField] protected float _fireRate; //射速
+    [SerializeField] protected bool _canAttack;
 
     [Header("Reload")]
-    int maxAmmo; //最大子彈數
-    protected int currentAmmo; //當前擁有的子彈
-    protected bool hasAmmo => currentAmmo > 0; //判斷是否有子彈
-    
+    [SerializeField] protected int maxAmmo; //最大子彈數
+    [SerializeField] protected int currentAmmo; //當前擁有的子彈
+    [SerializeField] protected bool hasAmmo => currentAmmo > 0; //判斷是否有子彈
+
     protected virtual void Reload() => currentAmmo = maxAmmo; //裝填子彈
-    public abstract void InitializeWeapon(); 
-    public abstract void Attack();
+    public virtual void InitializeWeapon(Transform weaponPosition) { }
+    public virtual void Attack(Vector3 target) { }
+
+    protected IEnumerator FireRate()
+    {
+        _canAttack = false;
+        Debug.Log("Cannot attack");
+        yield return new WaitForSeconds(_fireRate);
+        _canAttack = true;
+        Debug.Log("Can attack");
+    }
 }

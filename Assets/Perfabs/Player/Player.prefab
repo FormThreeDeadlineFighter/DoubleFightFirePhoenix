@@ -34,7 +34,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 3, z: 8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7630631860784711811}
@@ -68,8 +68,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 6, y: 3, z: 7}
+  m_Center: {x: 0, y: 0, z: 0.5}
 --- !u!54 &3376659978009041437
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_Actions: {fileID: 0}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 15
-  _forwardSpeed: 20
+  _forwardSpeed: 0
   MoveValue: {x: 0, y: 0}
   IsShoot: 0
 --- !u!114 &223430560455441310
@@ -205,11 +205,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cde33e55063a9846af5f71764d011bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _firepoint: {fileID: 6740166969542118449}
+  _weapons:
+  - {fileID: 3409590447965153353, guid: aaa6816266d27ea4fafc531a62df49a1, type: 3}
+  _currentWeapon: {fileID: 0}
   _weaponPosition: {fileID: 6740166969542118449}
 --- !u!114 &-6477709456330373362
 MonoBehaviour:
@@ -233,7 +231,7 @@ MonoBehaviour:
     m_Bits: 128
   _occlusionLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   Objects:
   - {fileID: 0}
 --- !u!1 &2119267746048007089
@@ -261,7 +259,7 @@ Transform:
   m_GameObject: {fileID: 2119267746048007089}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -277,15 +275,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 035b56d91a09cc14b97057fdfec4771d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.16666667
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 035b56d91a09cc14b97057fdfec4771d, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.33333334
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 035b56d91a09cc14b97057fdfec4771d, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.125
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 035b56d91a09cc14b97057fdfec4771d, type: 3}
       propertyPath: m_LocalPosition.x

@@ -4,8 +4,6 @@ using UnityEngine.InputSystem;
 [CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/Shooting", fileName = "PlayerState_Shooting")]
 public class PlayerState_Shooting : IPlayerState
 {
-    [SerializeField] float _barReduce;
-    
     //進入Shooting狀態
     public override void EnterState()
     {
@@ -32,7 +30,7 @@ public class PlayerState_Shooting : IPlayerState
 
     public override void PhysicsUpdate()
     {
-        //_weaponManager.PlayerAttack(); 
+        _weaponManager.PlayerAttack(); 
         _rb.position += Vector3.forward * _playerControl._forwardSpeed * Time.fixedDeltaTime;  
     }
     

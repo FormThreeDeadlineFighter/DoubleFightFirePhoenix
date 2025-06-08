@@ -34,8 +34,7 @@ public class PlayerStateController : IStateController
         _playerStates = new IPlayerState[] {idleState, moveState, shootState};
       
         foreach(IPlayerState state in _playerStates)
-        {
-            
+        {  
             state.Initialize(this, _animator, _playerControl, _rb, _weaponManager, _name);
             _stateTable.Add(state.GetType(), state);
         }
