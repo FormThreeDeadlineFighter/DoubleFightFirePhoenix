@@ -26,10 +26,14 @@ public class WeaponManager : MonoBehaviour
 
     public void PlayerAttack()
     {
-        Debug.Log("player attack");   
+        Debug.Log("player attack");
         if (sensor.Objects.Count > 0)
         {
             _currentWeapon.Attack(sensor.Objects[0].transform.position);
+        }
+        else
+        {
+            _currentWeapon.Attack(transform.position + Vector3.forward * 50);
         }
         
     }
