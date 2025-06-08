@@ -8,7 +8,6 @@ public class WeaponManager : MonoBehaviour
 {
     // 存放所有可切換的武器，這些武器都必須繼承 IWeapon
     [SerializeField] IWeapon[] _weapons;
-    Dictionary<System.Type, IWeapon> weaponTable;
     private IWeapon _currentWeapon;
     [SerializeField] Transform _weaponPosition;
     private AISensor sensor;
@@ -17,16 +16,11 @@ public class WeaponManager : MonoBehaviour
     {
         sensor = GetComponent<AISensor>();
 
-        weaponTable = new Dictionary<System.Type, IWeapon>(_weapons.Count());
+        GameObject weapon = Instantiate(_weapons[0].gameObject, _weaponPosition);
 
-        foreach(IWeapon weapon in _weapons)
-        {
-            weaponTable.Add(weapon.GetType(), weapon);
-        }
+        _currentWeapon = weapon.GetComponent<IWeapon>();
 
-        _currentWeapon = weaponTable[typeof(Gun)];
-
-        _currentWeapon.InitializeWeapon(_weaponPosition);
+        _currentWeapon.InitializeWeapon();
     }
 
 
@@ -37,9 +31,6 @@ public class WeaponManager : MonoBehaviour
         {
             _currentWeapon.Attack(sensor.Objects[0].transform.position);
         }
-        else
-        {
-            _currentWeapon.Attack(Vector3.forward);
-        } 
+        
     }
 }

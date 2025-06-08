@@ -124,10 +124,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Gun
   _weaponModel: {fileID: 1633175361220336373}
-  _firePoint: {fileID: 0}
+  _firePoint: {fileID: 5154095884052650213}
   _bullet: {fileID: 6809347357280316662, guid: cc6b3d0492bc4ea48ae955edfb5a1135, type: 3}
   _damage: 1
-  _fireRate: 1
+  _fireRate: 0.2
   _canAttack: 1
   maxAmmo: 30
   currentAmmo: 0

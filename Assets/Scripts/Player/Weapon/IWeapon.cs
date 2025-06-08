@@ -20,6 +20,6 @@ public abstract class IWeapon : MonoBehaviour
     [SerializeField] protected bool hasAmmo => currentAmmo > 0; //判斷是否有子彈
 
     protected virtual void Reload() => currentAmmo = maxAmmo; //裝填子彈
-    public virtual void InitializeWeapon(Transform weaponPosition) { }
+    public virtual void InitializeWeapon() { }
     public virtual void Attack(Vector3 target) { }
 }

@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 15
-  _forwardSpeed: 0
+  _forwardSpeed: 10
   MoveValue: {x: 0, y: 0}
   IsShoot: 0
 --- !u!114 &223430560455441310
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1df809cd53bf8f2408f48751e042ee11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _distance: 50
+  _distance: 80
   _angle: 20
   _height: 10
   _meshColor: {r: 1, g: 0, b: 0, a: 1}
@@ -226,9 +226,8 @@ MonoBehaviour:
     m_Bits: 128
   _occlusionLayers:
     serializedVersion: 2
-    m_Bits: 8
-  Objects:
-  - {fileID: 0}
+    m_Bits: 0
+  Objects: []
 --- !u!1 &2119267746048007089
 GameObject:
   m_ObjectHideFlags: 0
