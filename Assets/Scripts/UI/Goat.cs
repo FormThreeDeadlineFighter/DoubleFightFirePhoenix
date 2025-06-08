@@ -9,7 +9,11 @@ public class Goat : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        OnPlayerWin();
+        if (other.CompareTag("Player") || other.CompareTag("Box"))
+        {
+            OnPlayerWin();
+        }
+        
     }
     void OnPlayerWin()
     {

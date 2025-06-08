@@ -10,8 +10,7 @@ public class EnemyBullet_1 : IBullet
     }
     
     private void HurtPlayer()
-    {
-        
+    {     
         Destroy(gameObject);
     }
 

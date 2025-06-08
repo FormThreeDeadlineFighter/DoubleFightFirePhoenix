@@ -20,18 +20,19 @@ public class PlayerStateController : IStateController
 
     private void Awake()
     {
-        _animator = this.transform.GetComponent<Animator>();
-        _playerControl = this.transform.GetComponent<PlayerControl>();
-        _rb = this.transform.GetComponent<Rigidbody>();
-        _weaponManager = this.transform.GetComponent<WeaponManager>();
+        _animator = GetComponent<Animator>();
+        _playerControl = GetComponent<PlayerControl>();
+        _rb = GetComponent<Rigidbody>();
+        _weaponManager = GetComponent<WeaponManager>();
 
-        _stateTable = new Dictionary<System.Type, IState>(_playerStates.Length);
     
         idleState = ScriptableObject.CreateInstance<PlayerState_Idle>();
         moveState = ScriptableObject.CreateInstance<PlayerState_Move>();
         shootState = ScriptableObject.CreateInstance<PlayerState_Shooting>();
 
         _playerStates = new IPlayerState[] {idleState, moveState, shootState};
+        
+        _stateTable = new Dictionary<System.Type, IState>(_playerStates.Length);
       
         foreach(IPlayerState state in _playerStates)
         {  

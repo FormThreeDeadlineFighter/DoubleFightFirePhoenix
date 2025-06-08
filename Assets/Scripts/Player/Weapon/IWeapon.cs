@@ -1,4 +1,4 @@
-using System.Collections;
+
 using UnityEngine;
 
 public abstract class IWeapon : MonoBehaviour
@@ -22,13 +22,4 @@ public abstract class IWeapon : MonoBehaviour
     protected virtual void Reload() => currentAmmo = maxAmmo; //裝填子彈
     public virtual void InitializeWeapon(Transform weaponPosition) { }
     public virtual void Attack(Vector3 target) { }
-
-    protected IEnumerator FireRate()
-    {
-        _canAttack = false;
-        Debug.Log("Cannot attack");
-        yield return new WaitForSeconds(_fireRate);
-        _canAttack = true;
-        Debug.Log("Can attack");
-    }
 }

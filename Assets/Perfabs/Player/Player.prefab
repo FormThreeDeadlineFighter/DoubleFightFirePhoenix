@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: 0}
+  m_Actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -154,10 +154,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 89cacea1-70e6-45ad-a72b-cf9709a153bd
     m_ActionName: 'PlayerControl/Shoot[/Keyboard/shift,/DualSenseGamepadHID/leftTrigger]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: aa06e4c5-9272-413c-9d17-03055315e6a1
-    m_ActionName: 'PlayerControl/SwitchWeapon[/Keyboard/q]'
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerControl
@@ -207,7 +203,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weapons:
   - {fileID: 3409590447965153353, guid: aaa6816266d27ea4fafc531a62df49a1, type: 3}
-  _currentWeapon: {fileID: 0}
   _weaponPosition: {fileID: 6740166969542118449}
 --- !u!114 &-6477709456330373362
 MonoBehaviour:
@@ -231,7 +226,7 @@ MonoBehaviour:
     m_Bits: 128
   _occlusionLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   Objects:
   - {fileID: 0}
 --- !u!1 &2119267746048007089

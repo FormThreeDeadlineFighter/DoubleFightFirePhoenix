@@ -4,9 +4,7 @@ using UnityEngine.InputSystem;
 [CreateAssetMenu(menuName = "Data/StateMachine/PlayerState/Move", fileName = "PlayerState_Move")]
 [System.Serializable]
 public class PlayerState_Move : IPlayerState
-{
-    [SerializeField] float _dirX;
-    
+{ 
     //進入移動狀態
     public override void EnterState()
     {

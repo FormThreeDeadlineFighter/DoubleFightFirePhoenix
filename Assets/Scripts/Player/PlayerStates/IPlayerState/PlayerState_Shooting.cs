@@ -30,8 +30,8 @@ public class PlayerState_Shooting : IPlayerState
 
     public override void PhysicsUpdate()
     {
-        _weaponManager.PlayerAttack(); 
         _rb.position += Vector3.forward * _playerControl._forwardSpeed * Time.fixedDeltaTime;  
+        _weaponManager.PlayerAttack();
     }
     
     
