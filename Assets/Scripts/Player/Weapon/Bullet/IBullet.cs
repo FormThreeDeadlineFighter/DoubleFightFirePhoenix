@@ -2,8 +2,13 @@ using UnityEngine;
 
 public class IBullet : MonoBehaviour
 {
-    public int speed = 1000;//子彈移動速度
+    [SerializeField] protected int speed;//子彈移動速度
     public int damage ;//子彈傷害
+    [SerializeField] protected float lifetime;
+    void OnEnable()
+    {
+        Destroy(gameObject , lifetime);
+    }
     
     void Update()
     {

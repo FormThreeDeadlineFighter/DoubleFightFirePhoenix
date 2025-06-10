@@ -97,7 +97,6 @@ GameObject:
   - component: {fileID: 1039136057518680034}
   - component: {fileID: 3820046557324549002}
   - component: {fileID: 7700279830504008362}
-  - component: {fileID: 1557495479589527720}
   - component: {fileID: -68628551336148592}
   m_Layer: 0
   m_Name: GunBullet
@@ -170,18 +169,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1557495479589527720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6809347357280316662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a743b1c36116b284889487e346160991, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-68628551336148592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,5 +181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f35f56c6cb9aee54ea63dd6ef4920324, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 200
   damage: 1
+  lifetime: 5
