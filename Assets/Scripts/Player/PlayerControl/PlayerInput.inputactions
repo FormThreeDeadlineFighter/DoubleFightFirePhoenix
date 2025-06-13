@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "Press",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Attract",
+                    "type": "Button",
+                    "id": "d638094c-1e00-4545-8564-d9d6dc69ff8b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -156,6 +165,17 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "01a0f4b6-0f9c-4c00-96a6-52b65ee9c666",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attract",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

@@ -44,6 +44,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Attract"",
+                    ""type"": ""Button"",
+                    ""id"": ""d638094c-1e00-4545-8564-d9d6dc69ff8b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -178,6 +187,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""01a0f4b6-0f9c-4c00-96a6-52b65ee9c666"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attract"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -255,6 +275,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_PlayerControl = asset.FindActionMap("PlayerControl", throwIfNotFound: true);
         m_PlayerControl_Move = m_PlayerControl.FindAction("Move", throwIfNotFound: true);
         m_PlayerControl_Shoot = m_PlayerControl.FindAction("Shoot", throwIfNotFound: true);
+        m_PlayerControl_Attract = m_PlayerControl.FindAction("Attract", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
     }
@@ -326,12 +347,14 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private List<IPlayerControlActions> m_PlayerControlActionsCallbackInterfaces = new List<IPlayerControlActions>();
     private readonly InputAction m_PlayerControl_Move;
     private readonly InputAction m_PlayerControl_Shoot;
+    private readonly InputAction m_PlayerControl_Attract;
     public struct PlayerControlActions
     {
         private @PlayerInput m_Wrapper;
         public PlayerControlActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_PlayerControl_Move;
         public InputAction @Shoot => m_Wrapper.m_PlayerControl_Shoot;
+        public InputAction @Attract => m_Wrapper.m_PlayerControl_Attract;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControl; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -347,6 +370,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
+            @Attract.started += instance.OnAttract;
+            @Attract.performed += instance.OnAttract;
+            @Attract.canceled += instance.OnAttract;
         }
 
         private void UnregisterCallbacks(IPlayerControlActions instance)
@@ -357,6 +383,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
+            @Attract.started -= instance.OnAttract;
+            @Attract.performed -= instance.OnAttract;
+            @Attract.canceled -= instance.OnAttract;
         }
 
         public void RemoveCallbacks(IPlayerControlActions instance)
@@ -461,6 +490,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnAttract(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

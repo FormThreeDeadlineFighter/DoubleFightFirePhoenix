@@ -42,4 +42,10 @@ public class SceneManger : MonoBehaviour
             Debug.LogError("轉換失敗：不是有效的數字 -> " + parts[1]);
         }
     }
+    
+    public void LeaveGame()
+    {
+        Time.timeScale = 1f;
+        Application.Quit();
+    }
 }

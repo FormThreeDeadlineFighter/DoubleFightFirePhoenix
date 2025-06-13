@@ -154,6 +154,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 89cacea1-70e6-45ad-a72b-cf9709a153bd
     m_ActionName: 'PlayerControl/Shoot[/Keyboard/shift,/DualSenseGamepadHID/leftTrigger]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d638094c-1e00-4545-8564-d9d6dc69ff8b
+    m_ActionName: PlayerControl/Attract
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerControl
@@ -217,8 +221,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _distance: 100
-  _angle: 20
-  _height: 20
+  _angle: 30
+  _height: 30
   _meshColor: {r: 1, g: 0, b: 0, a: 1}
   _scanFrequrncy: 30
   _layers:
