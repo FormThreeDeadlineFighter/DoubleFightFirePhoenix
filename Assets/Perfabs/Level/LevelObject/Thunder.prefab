@@ -78,7 +78,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3770010193970331877, guid: ea47d86f1631ebe47abefabdb5154a64, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5687684865314413673, guid: ea47d86f1631ebe47abefabdb5154a64, type: 3}
       propertyPath: m_LocalPosition.x
@@ -119,6 +119,10 @@ PrefabInstance:
     - target: {fileID: 5687684865314413673, guid: ea47d86f1631ebe47abefabdb5154a64, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6850735779557293871, guid: ea47d86f1631ebe47abefabdb5154a64, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8082403110105600043, guid: ea47d86f1631ebe47abefabdb5154a64, type: 3}
       propertyPath: m_Name
