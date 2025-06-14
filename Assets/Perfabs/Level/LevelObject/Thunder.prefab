@@ -53,8 +53,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.944656, y: 135.75612, z: 3.3128815}
-  m_Center: {x: 0.10788417, y: -68.026024, z: 0.13584137}
+  m_Size: {x: 2.944656, y: 95.91331, z: 3.3128815}
+  m_Center: {x: 0.10788417, y: -48.104618, z: 0.13584137}
 --- !u!114 &4271078993478685069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,8 +77,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 5168755928391325722}
     m_Modifications:
     - target: {fileID: 3770010193970331877, guid: ea47d86f1631ebe47abefabdb5154a64, type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
+      propertyPath: emitterVelocityMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3770010193970331877, guid: ea47d86f1631ebe47abefabdb5154a64, type: 3}
+      propertyPath: InitialModule.gravitySource
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3770010193970331877, guid: ea47d86f1631ebe47abefabdb5154a64, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3770010193970331877, guid: ea47d86f1631ebe47abefabdb5154a64, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5687684865314413673, guid: ea47d86f1631ebe47abefabdb5154a64, type: 3}
       propertyPath: m_LocalPosition.x
@@ -86,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5687684865314413673, guid: ea47d86f1631ebe47abefabdb5154a64, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3.3
       objectReference: {fileID: 0}
     - target: {fileID: 5687684865314413673, guid: ea47d86f1631ebe47abefabdb5154a64, type: 3}
       propertyPath: m_LocalPosition.z
@@ -119,6 +131,18 @@ PrefabInstance:
     - target: {fileID: 5687684865314413673, guid: ea47d86f1631ebe47abefabdb5154a64, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6850735779557293871, guid: ea47d86f1631ebe47abefabdb5154a64, type: 3}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6850735779557293871, guid: ea47d86f1631ebe47abefabdb5154a64, type: 3}
+      propertyPath: emitterVelocityMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6850735779557293871, guid: ea47d86f1631ebe47abefabdb5154a64, type: 3}
+      propertyPath: InitialModule.gravitySource
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6850735779557293871, guid: ea47d86f1631ebe47abefabdb5154a64, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
