@@ -6,7 +6,7 @@ public class SceneManger : MonoBehaviour
 {
     public void MainGround()
     {
-        SceneManager.LoadScene("MainGround"); // 替換成關卡圖
+        SceneManager.LoadScene("MainMenu"); // 替換成關卡圖
     }
     public void StageScene()
     {
