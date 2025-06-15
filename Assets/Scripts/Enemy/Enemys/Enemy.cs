@@ -5,10 +5,12 @@ using UnityEngine;
 public class Enemy : IEnemy
 {
     private FollowPlayer follower;
+    private Animator animator;
 
     void Awake()
     {
         follower = transform.GetComponent<FollowPlayer>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void Start()
@@ -23,6 +25,7 @@ public class Enemy : IEnemy
         m_EnemyShootTime -= Time.deltaTime;
         if (m_EnemyShootTime <= 0)
         {
+            animator.Play("Shoot");
             Attack(Vector3.forward);
             m_EnemyShootTime = 3f;
         }
