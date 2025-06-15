@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 20
-  _forwardSpeed: 0
+  _forwardSpeed: 30
   MoveValue: {x: 0, y: 0}
   IsShoot: 0
 --- !u!114 &223430560455441310
