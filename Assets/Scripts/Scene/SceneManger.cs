@@ -6,22 +6,27 @@ public class SceneManger : MonoBehaviour
 {
     public void MainGround()
     {
-        SceneManager.LoadScene("MainMenu"); // 替換成關卡圖
+        Time.timeScale = 1f;
+        AudioManager.Instance.Play(1, "click", false);
+        SceneManager.LoadScene("MainMenu");        
     }
     public void StageScene()
     {
         Time.timeScale = 1f;
+        AudioManager.Instance.Play(1, "click", false);
         SceneManager.LoadScene("StageScene");
     }
     public void ReturnStage()
     {
         Time.timeScale = 1f;
+        AudioManager.Instance.Play(1, "click", false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // 替換成關卡圖        
     }
     public void Stage()
     {
         Time.timeScale = 1f;
         int index = PlanetManger.currentIndex;
+        AudioManager.Instance.Play(1, "click", false);
         SceneManager.LoadScene($"Level {index}");        
     }
     public void NextStage()
@@ -35,6 +40,7 @@ public class SceneManger : MonoBehaviour
         {
             levelNumber++;
             string nextSceneName = parts[0] + " " + levelNumber;
+            AudioManager.Instance.Play(1, "click", false);
             SceneManager.LoadScene(nextSceneName);
         }
         else
@@ -46,6 +52,7 @@ public class SceneManger : MonoBehaviour
     public void LeaveGame()
     {
         Time.timeScale = 1f;
+        AudioManager.Instance.Play(1, "click", false);
         Application.Quit();
     }
 }

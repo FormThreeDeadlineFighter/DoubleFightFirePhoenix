@@ -119,6 +119,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &121819850
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4278292749772848541, guid: ea56808ceefc2c34590ed14a25307bca, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278292749772848541, guid: ea56808ceefc2c34590ed14a25307bca, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278292749772848541, guid: ea56808ceefc2c34590ed14a25307bca, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278292749772848541, guid: ea56808ceefc2c34590ed14a25307bca, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278292749772848541, guid: ea56808ceefc2c34590ed14a25307bca, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278292749772848541, guid: ea56808ceefc2c34590ed14a25307bca, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278292749772848541, guid: ea56808ceefc2c34590ed14a25307bca, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278292749772848541, guid: ea56808ceefc2c34590ed14a25307bca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278292749772848541, guid: ea56808ceefc2c34590ed14a25307bca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278292749772848541, guid: ea56808ceefc2c34590ed14a25307bca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130563154360323339, guid: ea56808ceefc2c34590ed14a25307bca, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ea56808ceefc2c34590ed14a25307bca, type: 3}
 --- !u!1 &614948910
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,26 +407,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1153996556}
     m_Modifications:
-    - target: {fileID: 1606120932788224590, guid: 526c6e6e94b09b94a9bec98c13543455, type: 3}
-      propertyPath: m_Colors.m_NormalColor.b
-      value: 0.5698112
-      objectReference: {fileID: 0}
-    - target: {fileID: 1606120932788224590, guid: 526c6e6e94b09b94a9bec98c13543455, type: 3}
-      propertyPath: m_Colors.m_NormalColor.g
-      value: 0.5698112
-      objectReference: {fileID: 0}
-    - target: {fileID: 1606120932788224590, guid: 526c6e6e94b09b94a9bec98c13543455, type: 3}
-      propertyPath: m_Colors.m_NormalColor.r
-      value: 0.5698112
-      objectReference: {fileID: 0}
-    - target: {fileID: 1606120932788224590, guid: 526c6e6e94b09b94a9bec98c13543455, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1606120932788224590, guid: 526c6e6e94b09b94a9bec98c13543455, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2085569597100543963, guid: 526c6e6e94b09b94a9bec98c13543455, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -450,52 +487,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4317848021111195491, guid: 526c6e6e94b09b94a9bec98c13543455, type: 3}
-      propertyPath: m_Colors.m_NormalColor.b
-      value: 0.5245282
-      objectReference: {fileID: 0}
-    - target: {fileID: 4317848021111195491, guid: 526c6e6e94b09b94a9bec98c13543455, type: 3}
-      propertyPath: m_Colors.m_NormalColor.g
-      value: 0.5245282
-      objectReference: {fileID: 0}
-    - target: {fileID: 4317848021111195491, guid: 526c6e6e94b09b94a9bec98c13543455, type: 3}
-      propertyPath: m_Colors.m_NormalColor.r
-      value: 0.5245282
-      objectReference: {fileID: 0}
     - target: {fileID: 4664973651691988193, guid: 526c6e6e94b09b94a9bec98c13543455, type: 3}
       propertyPath: m_Name
       value: Start
       objectReference: {fileID: 0}
-    - target: {fileID: 6120360773482542624, guid: 526c6e6e94b09b94a9bec98c13543455, type: 3}
-      propertyPath: m_Colors.m_NormalColor.b
-      value: 0.5471698
-      objectReference: {fileID: 0}
-    - target: {fileID: 6120360773482542624, guid: 526c6e6e94b09b94a9bec98c13543455, type: 3}
-      propertyPath: m_Colors.m_NormalColor.g
-      value: 0.5471698
-      objectReference: {fileID: 0}
-    - target: {fileID: 6120360773482542624, guid: 526c6e6e94b09b94a9bec98c13543455, type: 3}
-      propertyPath: m_Colors.m_NormalColor.r
-      value: 0.5471698
-      objectReference: {fileID: 0}
-    - target: {fileID: 6844080669381629129, guid: 526c6e6e94b09b94a9bec98c13543455, type: 3}
-      propertyPath: m_CullTransparentMesh
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8337654706109362943, guid: 526c6e6e94b09b94a9bec98c13543455, type: 3}
-      propertyPath: m_Colors.m_NormalColor.b
-      value: 0.5999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 8337654706109362943, guid: 526c6e6e94b09b94a9bec98c13543455, type: 3}
-      propertyPath: m_Colors.m_NormalColor.g
-      value: 0.5999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 8337654706109362943, guid: 526c6e6e94b09b94a9bec98c13543455, type: 3}
-      propertyPath: m_Colors.m_NormalColor.r
-      value: 0.5999999
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4936960504966955628, guid: 526c6e6e94b09b94a9bec98c13543455, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 526c6e6e94b09b94a9bec98c13543455, type: 3}
@@ -728,3 +726,4 @@ SceneRoots:
   - {fileID: 614948912}
   - {fileID: 2037922877}
   - {fileID: 1153996556}
+  - {fileID: 121819850}

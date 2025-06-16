@@ -71,7 +71,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EneryName: "\u7AE0\u9B5A"
   m_AttackPower: 100
-  m_EnemyHP: 5
+  m_EnemyHP: 2
   m_EnemySpeed: 0
   m_EnemyLeaveTime: 500
   m_EnemyShootTime: 5
@@ -320,8 +320,38 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5f401902521174a40909f1dbdc3a8d22, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3045348510506890551}
   m_SourcePrefab: {fileID: 100100000, guid: 5f401902521174a40909f1dbdc3a8d22, type: 3}
+--- !u!1 &2796824839688204878 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5f401902521174a40909f1dbdc3a8d22, type: 3}
+  m_PrefabInstance: {fileID: 3031266208756764447}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3045348510506890551
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2796824839688204878}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 25e7a646d72a24449bfc8bba0f6f958c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &3286363233877420276 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5f401902521174a40909f1dbdc3a8d22, type: 3}

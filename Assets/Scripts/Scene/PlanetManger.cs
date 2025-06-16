@@ -26,6 +26,7 @@ public class PlanetManger : MonoBehaviour
         {
             currentIndex = 0;
         }
+        AudioManager.Instance.Play(1, "click", false);
         StartCoroutine(PlanetMove(currentIndex));
         ShowStageButton(currentIndex);
     }
@@ -37,6 +38,7 @@ public class PlanetManger : MonoBehaviour
         {
             currentIndex = Stage.Length - 1;
         }
+        AudioManager.Instance.Play(1, "click", false);
         StartCoroutine(PlanetMove(currentIndex));
         ShowStageButton(currentIndex);
     }
